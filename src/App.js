@@ -1,25 +1,71 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
+// import logo from './logo.svg';
 import './App.css';
+import  NavBarFirst from './components/NavBar';
+
+// import { NavbarText, DropdownItem, DropdownToggle, UncontrolledDropdown, NavLink, NavItem, Nav, Collapse, NavbarToggler, NavbarBrand, Navbar, DropdownMenu } from 'reactstrap';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>Alejandro Ronconi</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <div>
+      <NavBarFirst/>
     </div>
+    // <div>
+    //   <Navbar
+    //     color="dark"
+    //     expand="md"
+    //   >
+    //     <NavbarBrand href="/">
+    //       Homework
+    //     </NavbarBrand>
+    //     <NavbarToggler onClick={function noRefCheck() { }} />
+    //     <Collapse navbar>
+    //       <Nav
+    //         className="me-auto"
+    //         navbar
+    //       >
+    //         <NavItem>
+    //           <NavLink href="/components/">
+    //             Components
+    //           </NavLink>
+    //         </NavItem>
+    //         <NavItem>
+    //           <NavLink href="https://github.com/reactstrap/reactstrap">
+    //             GitHub
+    //           </NavLink>
+    //         </NavItem>
+    //         <UncontrolledDropdown
+    //           inNavbar
+    //           nav
+    //         >
+    //           <DropdownToggle
+    //             caret
+    //             nav
+    //           >
+    //             Options
+    //           </DropdownToggle>
+    //           <DropdownMenu right>
+    //             <DropdownItem>
+    //               Option 1
+    //             </DropdownItem>
+    //             <DropdownItem>
+    //               Option 2
+    //             </DropdownItem>
+    //             <DropdownItem divider />
+    //             <DropdownItem>
+    //               Reset
+    //             </DropdownItem>
+    //           </DropdownMenu>
+    //         </UncontrolledDropdown>
+    //       </Nav>
+    //       <NavbarText>
+    //         Simple Text
+    //       </NavbarText>
+    //     </Collapse>
+    //   </Navbar>
+    // </div>
+
   );
 }
 
