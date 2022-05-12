@@ -1,0 +1,11 @@
+.cartContainer{
+    display: flex;                      
+    flex-direction: row;                /*para indicar la dirección que se van a desplegar los hijos*/
+    justify-content: space-around;      /*para justificar horizontalmente*/
+    align-items: center;                /*para centra verticalmente los div*/
+    width: 3rem;
+}
+
+.cartContainer div{
+    display: flex;                      /*Para indicar como se va a comportar y obedece al padre con flex*/
+}
