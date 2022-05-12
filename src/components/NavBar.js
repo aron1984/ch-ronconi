@@ -1,25 +1,28 @@
 import React from "react";
 
-export default class NavBarFirst extends React.Component{
+export default class NavBarFirst extends React.Component {
 
-    render(){
-        return(
+    render() {
+        return (
             <div>
                 <header>
-
-
                     <nav className="navN">
-                        <ul>
-                            <li>Primero</li>
-                            <li>Segundo</li>
-                            <li>Tercero</li>
-                        </ul>
+                        <div>
+                            <img />
+                        </div>
+                        <div>
+                            <ul>
+                                <li>Primero</li>
+                                <li>Segundo</li>
+                                <li><a href="https://github.com/aron1984/ch-ronconi.git">GitHub</a></li>
+                            </ul>
+                        </div>
                     </nav>
                 </header>
             </div>
 
 
         );
-        }
+    }
 }
 

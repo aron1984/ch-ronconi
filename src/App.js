@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import  NavBarFirst from './components/NavBar';
+import NavBarFirst from './components/NavBar';
 
 // import { NavbarText, DropdownItem, DropdownToggle, UncontrolledDropdown, NavLink, NavItem, Nav, Collapse, NavbarToggler, NavbarBrand, Navbar, DropdownMenu } from 'reactstrap';
 
@@ -9,7 +9,16 @@ function App() {
   return (
 
     <div>
-      <NavBarFirst/>
+      <NavBarFirst />
+
+      <div className='containerMain'>
+        <section className='main'>
+          <p>Esto será una sección</p>
+        </section>
+        <sidebar className='sidebar'>
+          <p>Esto será un sidebar</p>
+        </sidebar>
+      </div>
     </div>
     // <div>
     //   <Navbar
