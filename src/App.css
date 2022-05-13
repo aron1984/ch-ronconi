@@ -44,49 +44,6 @@ header {
 
 }
 
-.navN {
-  display: flex;
-  margin-bottom: 1rem;
-
-}
-
-.navN a {
-  text-decoration: none;
-  color: rgb(233, 233, 233);
-}
-
-.navN li {
-  justify-content: flex-start;
-  text-align: center;
-  width: 6rem;
-  display: inline-block;
-  padding: 0.5rem;
-  margin-right: 0.5rem;
-  margin-left: 0.5rem;
-  /* margin-top: 0.2rem; */
-  border-radius: 0.4rem;
-  background-color: rgba(80, 172, 252, 0.185);
-  cursor: pointer;
-}
-
-@keyframes zoom{
-  from{
-    transform: scale(1);
-  }
-  to{
-    transform: scale(1.2);
-  }
-}
-
-.navN li:hover {
-  animation-name: zoom;
-  animation-duration: 1s;
-  animation-direction: normal;
-  animation-timing-function: ease-in;
-  position: relative;
-  background-color: rgba(245, 102, 19, 1);
-}
-
 .containerMain {
   display: flex;
 }
@@ -104,5 +61,22 @@ header {
   flex: 1;
   padding: 1rem;
   background-color: rgba(117, 61, 168, 0.8);
+}
+
+@keyframes late{
+  from{
+    transform: scale( 1);
+  }
+  to{
+    transform: scale(1.2);
+  }
+}
+
+.logo{
+  animation-name: late;
+  animation-duration: 1s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  position: relative;
 }
 

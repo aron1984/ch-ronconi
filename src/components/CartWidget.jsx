@@ -6,7 +6,7 @@ export default function CartWidget() {
     let count = 4;
     return (
         <div className='cartContainer'>
-            <div><MdShoppingCart /></div>
+            <div><MdShoppingCart size={30} /></div>
             <div>{count}</div>
         </div>
     )

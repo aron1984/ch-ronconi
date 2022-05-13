@@ -7,5 +7,6 @@
 }
 
 .cartContainer div{
-    display: flex;                      /*Para indicar como se va a comportar y obedece al padre con flex*/
+    display: flex;  
+                        /*Para indicar como se va a comportar y obedece al padre con flex*/
 }
