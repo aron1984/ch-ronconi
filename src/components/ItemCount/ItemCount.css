@@ -3,6 +3,7 @@
     flex-direction: row;
     justify-content: center;
     width: 20rem;
+    margin-bottom: 1rem;
 }
 
 .count{
@@ -13,7 +14,7 @@
     justify-content: center;
 }
 
-button{
+.btnHand{
     
     background-color: rgb(24, 24, 24);
     color: rgb(238, 238, 238);
@@ -25,5 +26,20 @@ button{
 
 }
 
+/* .cardEdit{
+    background-color: rgb(24, 24, 24);
+} */
+
+.cardImage{
+    height: 10rem;
+    background-color: rgb(24, 24, 24);
+}
+
+.btnAdd{
+    background-color: rgb(24, 24, 24);
+    color: rgb(238, 238, 238);
+    border: none;
+    width: 100%;
+}
 
 
