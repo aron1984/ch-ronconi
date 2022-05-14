@@ -23,7 +23,7 @@ export default function ItemCount(params) {
     }
 
     // Step 7: create function add to cart
-    const addToCart = () => {
+    const onAdd = () => {
 
         if (counter !== 0) {
             let x = counter;
@@ -57,7 +57,7 @@ export default function ItemCount(params) {
                     </div>
                 </div>
                 <div>
-                    <button className='btnAdd' onClick={() => { addToCart() }}>Add to Cart</button> {/* Step 6: add onClick function with add product to cart */}
+                    <button className='btnAdd' onClick={() => { onAdd() }}>Add to Cart</button> {/* Step 6: add onClick function with add product to cart */}
                 </div>
             </Card>
         </div>
