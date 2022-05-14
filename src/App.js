@@ -2,6 +2,7 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 // import logo from './logo.svg';
 import './App.css';
+import ItemCount from './components/ItemCount/ItemCount';
 import ItemListContainer from './components/ItemListContainer';
 import NavBarFirst from './components/NavBar';
 
@@ -21,6 +22,12 @@ function App() {
         <h1>Ofertas</h1>
 
         <ItemListContainer />
+
+        <ItemCount stock="5" initial="1" />
+
+        <ItemCount stock="10" initial="1" />
+
+        <ItemCount stock="2" initial="1" />
 
       </Container>
 
