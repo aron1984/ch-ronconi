@@ -21,12 +21,13 @@ function App() {
       <Container>
         <h1>Ofertas</h1>
 
-        <ItemListContainer />
+        
 
         <div className='container items'>
-          <ItemCount product="Zapatillas Running" stock="5" initial="1"/>
+        <ItemListContainer />
+          {/* <ItemCount product="Zapatillas Running" stock="5" initial="1"/>
           <ItemCount product="Remera Tenis" stock="10" initial="1" />
-          <ItemCount product="Conjunto Dep" stock="2" initial="1" />
+          <ItemCount product="Conjunto Dep" stock="2" initial="1" /> */}
           
         </div>
 

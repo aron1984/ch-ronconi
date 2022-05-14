@@ -80,9 +80,9 @@ header {
   position: relative;
 }
 
-.items{
+/* .items{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-}
+} */
 

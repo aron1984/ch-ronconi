@@ -1,0 +1,9 @@
+.cardImage{
+    height: 10rem;
+    background-color: rgb(24, 24, 24);
+}
+.items{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
