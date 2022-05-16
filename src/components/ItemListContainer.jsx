@@ -6,12 +6,11 @@ import './ItemListContainer.css';
 export default function ItemListContainer() {
   
   // let product = ['Zapatillas','Remeras','Conjunto','Medias'] ;
-  let product = [{id:1, name:'Zapatillas', stock: 10},{id:2, name:'Remeras', stock: 5},{id:3, name:'Conjunto', stock:7},{id:4, name:'Medias', stock:0}] ;
+  let product = [{id:1, name:'Zapatillas', stock: 0},{id:2, name:'Remeras', stock: 5},{id:3, name:'Conjunto', stock:7},{id:4, name:'Medias', stock:0}] ;
   
   // arrow function ???
   // no se si está bien el return, si lo saco no funciona
   const productList =  product.map((product) => {
-
 
     // En esta lína tengo dudas: es la forma que no me da error.
     return (  
