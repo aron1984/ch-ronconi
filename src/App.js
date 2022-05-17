@@ -19,7 +19,9 @@ function App() {
           La estructura del html general, dónde va?
       */}
       <Container>
+        {/* <header>
         <h1>Ofertas</h1>
+        </header> */}
 
         
 
