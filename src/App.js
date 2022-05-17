@@ -2,7 +2,7 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 // import logo from './logo.svg';
 import './App.css';
-import ItemCount from './components/ItemCount/ItemCount';
+// import ItemCount from './components/ItemCount/ItemCount';
 import ItemListContainer from './components/ItemListContainer';
 import NavBarFirst from './components/NavBar';
 
@@ -30,6 +30,8 @@ function App() {
           <ItemCount product="Conjunto Dep" stock="2" initial="1" /> */}
           
         </div>
+
+        
 
       </Container>
 
