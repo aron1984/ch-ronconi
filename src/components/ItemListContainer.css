@@ -1,9 +1,25 @@
-.cardImage{
+.cardImage {
     height: 10rem;
     background-color: rgb(24, 24, 24);
 }
-.items{
+
+.items {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-  }
+    flex-wrap: wrap;
+}
+
+.spinner {
+    height: 10rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items:center;
+}
+
+.loading {
+    margin: 5rem;
+    padding: 2rem;
+    float: left;
+}

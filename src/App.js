@@ -5,36 +5,25 @@ import './App.css';
 // import ItemCount from './components/ItemCount/ItemCount';
 import ItemListContainer from './components/ItemListContainer';
 import NavBarFirst from './components/NavBar';
-
-
-
-// import { NavbarText, DropdownItem, DropdownToggle, UncontrolledDropdown, NavLink, NavItem, Nav, Collapse, NavbarToggler, NavbarBrand, Navbar, DropdownMenu } from 'reactstrap';
+import TestFetch from './components/TestPokeApi/TestPokeApi';
 
 function App() {
   return (
 
     <>
       <NavBarFirst />
-      {/* Esta clase de contenedor de bootstrap va acá?
-          La estructura del html general, dónde va?
-      */}
+
       <Container>
         {/* <header>
         <h1>Ofertas</h1>
         </header> */}
 
-        
+        {/* <div className='container items'> */}
+          <ItemListContainer />
+        {/* </div> */}
 
-        <div className='container items'>
-        <ItemListContainer />
-          {/* <ItemCount product="Zapatillas Running" stock="5" initial="1"/>
-          <ItemCount product="Remera Tenis" stock="10" initial="1" />
-          <ItemCount product="Conjunto Dep" stock="2" initial="1" /> */}
-          
-        </div>
 
-        
-
+        <TestFetch />
       </Container>
 
 
