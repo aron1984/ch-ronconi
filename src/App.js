@@ -5,7 +5,8 @@ import './App.css';
 // import ItemCount from './components/ItemCount/ItemCount';
 import ItemListContainer from './components/ItemListContainer';
 import NavBarFirst from './components/NavBar';
-import TestFetch from './components/TestPokeApi/TestPokeApi';
+// import TestFetch from './components/TestPokeApi/TestPokeApi';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 
 function App() {
   return (
@@ -19,11 +20,16 @@ function App() {
         </header> */}
 
         {/* <div className='container items'> */}
-          <ItemListContainer />
+        <ItemListContainer />
         {/* </div> */}
 
 
-        <TestFetch />
+
+        {/* Test ItemDetail */}
+        <ItemDetailContainer />
+
+
+        {/* <TestFetch /> */}
       </Container>
 
 

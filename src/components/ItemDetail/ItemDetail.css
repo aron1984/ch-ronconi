@@ -1,0 +1,20 @@
+.detailContainer{
+    /* display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%; */
+    /* background-color: red; */
+    margin-bottom: 3rem;
+}
+
+.imageContainer{
+    display: flex;
+    width: 60%;
+    height: 500px;
+    background-color: grey;
+}
+
+.actionContainer{
+    width: 30%;
+    background-color: grey;
+}

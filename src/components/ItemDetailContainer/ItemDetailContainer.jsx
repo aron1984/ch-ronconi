@@ -1,34 +1,59 @@
 import React, { useEffect, useState } from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail';
+import { Spinner } from 'react-bootstrap';
 
-export default function ItemDetailContainer(product) {
+//Import productos
+import { product } from '../../components/services/productos';
+
+export default function ItemDetailContainer() {
 
     //useState
-    const [item, setitem] = useState('')
+    // const [item, setitem] = useState('')
+    const [item, setitem] = useState([]);
+    const [loading, setloading] = useState(false);
 
     //useEffect
     useEffect(() => {
+
+        setloading(true)
+
         const getItem = () => {
-            const itemPromise = new Promise((res, rej) => {
+            const traerItemId = new Promise((res, rej) => {
                 setTimeout(() => {
-                    res(console.log('Acá me va a llegar algo'))
-                }, 2000);
-            });
-        };
+                    res(product)
+                    // console.log('promsea + producto: ', product)
+                }, 3000);
+            })
+            // console.log(traerItemId)
+            traerItemId
+                .then((result) => {
+                    console.log("result de la promesa");
+                    setitem(result[1])
+                    setloading(false)
+                    const x = item
+                    console.log(x)
 
-        getItem
-        .then((resp) => {
-            resp(setitem(resp));
-            console.log(item)
-        })
-        .catch((err)=>{console.log(err)})
+                })
+                .catch((err) => {
+                    console.log(err)
+                    //   seterror(false)
+                })
+        }
 
-        }, []);
+        getItem()
+    }, [])
 
     //Render
     return (
         <>
-        <ItemDetail item={item}/>
+            {
+                loading && <Spinner animation="border" size="lg" className='loading' />
+            }
+
+            {
+                loading || <ItemDetail item={item} />
+            }
+           
         </>
     )
 }
