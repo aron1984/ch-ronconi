@@ -1,11 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail';
-import { Spinner } from 'react-bootstrap';
+// import { Spinner } from 'react-bootstrap';
+import { useParams } from 'react-router-dom'
+import './ItemDetailContainer.css'
 
 //Import productos
-import { product } from '../../components/services/productos';
+import Producto1 from '../../components/services/productos.json';
+import LoadingSpinner from '../Loading/LoadingSpinner';
 
 export default function ItemDetailContainer() {
+    //useParams
+    let { id } = useParams();
+    id = parseInt(id)
+    console.log(id)
+
 
     //useState
     // const [item, setitem] = useState('')
@@ -20,17 +28,20 @@ export default function ItemDetailContainer() {
         const getItem = () => {
             const traerItemId = new Promise((res, rej) => {
                 setTimeout(() => {
-                    res(product)
+                    const filteredProduct = Producto1.find(product => product.id === id)
+                    console.log(id)
+
+                    res(filteredProduct)
                     // console.log('promsea + producto: ', product)
-                }, 3000);
+                }, 2000);
             })
             // console.log(traerItemId)
             traerItemId
                 .then((result) => {
-                    console.log("result de la promesa");
-                    setitem(result[1])
+                    console.log("result de la promesa", result);
+                    setitem(result)
                     setloading(false)
-                    const x = item
+                    const x = id
                     console.log(x)
 
                 })
@@ -41,19 +52,21 @@ export default function ItemDetailContainer() {
         }
 
         getItem()
-    }, [])
+    }, [id])
 
     //Render
     return (
         <>
-            {
-                loading && <Spinner animation="border" size="lg" className='loading' />
-            }
+            <div className='mainDetailContainer'>
+                {
+                    loading && <LoadingSpinner />
+                }
 
-            {
-                loading || <ItemDetail item={item} />
-            }
-           
+                {
+
+                    loading || <ItemDetail id={id} item={item} />
+                }
+            </div>
         </>
     )
 }

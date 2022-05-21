@@ -40,8 +40,8 @@ export default function ItemCount(props) {
     }
 
     return (
-        <div>
-            <div style={{ width: '18rem' }} className='containerBtnCount'>
+        <div className='btnCount'>
+            <div  className='containerBtnCount'>
                 <div>
                     {/* Step 3: add onClick with corresponding function */}
                     <button variant="secondary" className='btnHand' onClick={() => { decrease() }}>-</button>

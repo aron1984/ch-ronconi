@@ -5,12 +5,14 @@ import ItemList from './ItemList/ItemList';
 import { Spinner } from 'react-bootstrap';
 
 //Import productos
-import {product} from './services/productos';
+// import {product} from './services/productos';
+import Productos from './services/productos.json';
+import { useParams } from 'react-router-dom';
 
 
 export default function ItemListContainer() {
 
-  
+  const { id } = useParams();
   //useStates (puede haber varios)
 
   const [producto, setproducto] = useState([]);
@@ -25,23 +27,42 @@ export default function ItemListContainer() {
 
     const traerListaItem = new Promise((res, rej) => {
       setTimeout(() => {
-        res(product)
-        // console.log('promsea + producto: ', product)
-      }, 3000);
+
+
+        /***************** acá estamos trabajando ************* */
+        // si cambio manualmente el id por futbol o hockey, me funciona el filtro en la app
+        if (id === undefined) {
+
+          res(Productos)
+          console.log(id)
+
+        } else {
+          const prodProd = Productos.filter(prod => prod.cat === id)
+          res(prodProd)
+          console.log(id)
+          // setproducto(prod)
+          console.log(res)
+
+        }
+
+        /******************************************************** */
+
+      }, 2000);
     })
     console.log(traerListaItem)
     traerListaItem
       .then((result) => {
         setproducto(result)
         setloading(false)
-        console.log(product)
+        console.log(Productos)
+        // console.log(product)
       })
       .catch((err) => {
         console.log(err)
         seterror(false)
       })
 
-  }, [])
+  }, [id])
 
 
   //manejo de error temprano

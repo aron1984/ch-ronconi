@@ -1,14 +1,19 @@
+.btnCount{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+}
+
 .containerBtnCount{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    width: 20rem;
     margin-bottom: 1rem;
 }
 
 .count{
     text-align: center;
-    width: 5rem;
+    width: 3rem;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     justify-content: center;
@@ -26,17 +31,13 @@
 
 }
 
-/* .cardEdit{
-    background-color: rgb(24, 24, 24);
-} */
-
-
-
 .btnAdd{
     background-color: rgb(24, 24, 24);
     color: rgb(238, 238, 238);
     border: none;
     width: 100%;
 }
+
+
 
 

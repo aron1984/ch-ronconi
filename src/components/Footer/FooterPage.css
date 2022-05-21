@@ -1,0 +1,33 @@
+footer{
+    height: 1.5rem;
+    width: 100%;
+    color: rgb(233, 233, 233);
+    /* background-color: rgb(41, 41, 41); */
+    /* position: absolute; */
+    position: fixed;
+    left: 0px;
+    bottom: 2rem;
+}
+.lightblue{
+    height: 4rem;
+    background-color: rgba(14, 159, 255, 0.89);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top:1rem;
+    padding-bottom: 1rem;
+}
+
+
+.white{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    color: grey;
+    background-color: #fff;
+    text-align: center;
+     padding-top:0.2rem;
+     height: 1.5rem;
+     font-size: 0.8rem;
+    
+}

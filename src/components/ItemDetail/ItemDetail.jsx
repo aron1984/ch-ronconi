@@ -1,37 +1,43 @@
 import React from 'react'
-import { Container, Card } from 'react-bootstrap'
-import './ItemDetail.css'
+import { Container, Card, ListGroup } from 'react-bootstrap'
+import './ItemDetail.css';
+import ItemCount from '..//ItemCount/ItemCount';
 
 export default function ItemDetail({ item }) {
 
 
-  // const cargarImagen = require.context("../../assets/img/", true);
+  console.log(item)
 
 
   return (
     <>
-      <article>
-        <Container className='detailContainer'>
-          <Card className="bg-dark text-white">
-            <div className='imageContainer'></div>
-            {/* <Card.Img src="" alt="Card image" className='imageContainer'/> */}
-            <Card.ImgOverlay>
+      <Container className='detailContainer'>
+        <div className='mainImage'>
+          <img className='imgM' alt="" src={item.url} />
+        </div>
+        <div className='sidebarRight'>
+
+          <Card style={{ width: '18rem' }}>
+            <Card.Body>
               <Card.Title>{item.name}</Card.Title>
-              <Card.Text>Falta colocar la imagen</Card.Text>
-              <Card.Text>
-                {item.des}
-              </Card.Text>
-              <Card.Text>Precio $ {item.precio} - Stock: {item.stock}</Card.Text>
-            </Card.ImgOverlay>
+              <Card.Subtitle className="mb-2 text-muted">{item.categroy}</Card.Subtitle>
+
+              <ListGroup>
+                <ListGroup.Item mx-auto>{item.des}</ListGroup.Item>
+                <ListGroup.Item>Temporada: {item.year}</ListGroup.Item>
+                <ListGroup.Item>Stock: {item.stock}</ListGroup.Item>
+                <ListGroup.Item>Precio: ${item.precio}</ListGroup.Item>
+                <ListGroup.Item><Card.Link href="#">Card Link</Card.Link></ListGroup.Item>
+              </ListGroup>
+
+              {/* espacio para la botonera */}
+
+              <ItemCount stock={item.stock} initial="1" product={item.name}/>
+
+            </Card.Body>
           </Card>
-         
-
-         
-       
-        </Container>
-
-      </article>
-
+        </div>
+      </Container>
 
 
     </>

@@ -1,20 +1,44 @@
 .detailContainer{
-    /* display: flex;
+    display: flex;
     flex-direction: row;
     justify-content: space-around;
-    width: 100%; */
-    /* background-color: red; */
+    width: 100%; 
+    padding-top: 2rem;
+ /* background-color: red; */
     margin-bottom: 3rem;
-}
+ } 
 
 .imageContainer{
     display: flex;
     width: 60%;
     height: 500px;
-    background-color: grey;
+    background-color: rgb(184, 184, 184);
 }
 
 .actionContainer{
     width: 30%;
-    background-color: grey;
+    background-color: rgb(133, 133, 133);
+}
+
+.mainImage{
+    width: 70%;
+    margin-right: 1rem;
+    padding: 2rem;
+
+    border: 1px solid rgb(230, 230, 230);
+    border-radius: 5px;
+    
+}
+
+.imgM{
+    display: block;
+    margin: auto;
+    width: 80%;
+}
+.sidebarRight{
+    width: 30%;
+    padding: 1rem;
+   
+    border: 1px solid rgb(230, 230, 230);
+    border-radius: 5px;
 }

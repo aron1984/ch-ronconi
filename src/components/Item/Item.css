@@ -4,3 +4,8 @@
     width: 15rem;
     
 }
+
+.linkItem{
+    text-decoration: none;
+    color: #fff;
+}
