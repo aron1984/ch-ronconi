@@ -32,7 +32,25 @@ Add badges from somewhere like: [shields.io](https://shields.io/)
 
 ## Demo
 
-Insert gif or link to demo
+Entrega 7 - Esta demo es de la entrega intermedia del proyecto final de CODER HOUSE!
+<img src="demo-primeraentrega.gif" width="100%">
+
+
+Entrega 8 - Eventos
+* Agrega cantidad de productos al carrito con onAdd que se pasa a ItemDetail
+* ItemListContainer recibe el evento y en base a eso, habilita (aparece) el botón FINALIZAR COMPRA.
+* El botón Add to Cart, está activo si cumple ciertas condiciones:
+    * Si el stock es = o menor que estado "counter + cCart": hace que en base al valor de "counter + cCart (estado que pasó por props)" el botón esté habilitado o no. Resultó interesante, ya que estará habilitado
+    mientras la suma de esos"productos del ItemCount + estado de carrito (cantidad acumulada)" sea menor o = 
+    a la cantidad definida en el "stock".
+    Sólo estará disponible para seguir agregando cantidad siempre y cuando la suma no pase el stock. 
+
+* El punto anterior supone una alternativa a lo plantado en el ejercicio, de deshabilitar el boton "add to cart" una vez ejecutado la función. Pero, en realidad podría seguir o agregar otro.
+
+<img src="entrega-8-Eventos.gif" width="100%">
+
+
+
 
 
 ## Contributing

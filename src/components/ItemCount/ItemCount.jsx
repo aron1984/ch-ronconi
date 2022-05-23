@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './ItemCount.css';
+import { Button } from 'react-bootstrap';
 
 
 // Step 4: add params to father ItemCount and will be avaiable for children functions IMPORTANT
@@ -12,6 +13,11 @@ export default function ItemCount(props) {
     // Step 1: add state 
     const [counter, setCounter] = useState(initial);
 
+    const { onAdd } = props;
+    const { cCart } = props;
+
+    
+
     // Step 5: create functions + and -
     const decrease = () => {
         if (counter > 0) {
@@ -20,28 +26,16 @@ export default function ItemCount(props) {
     }
 
     const increase = () => {
-        if (counter < stock) {
-            setCounter(counter => counter + 1);
-        }
-    }
-
-    // Step 7: create function add to cart
-    // I know that the component stateless will have a props called 'product'
-    const onAdd = () => {
-        if (stock !== 0) {
-            if (counter !== 0) {
-                const x = counter;
-                const productName = props.product;
-                console.log('Se agregaron ', x, ' productos: ', productName)
+        if ((counter + cCart) <= stock) {
+            if (counter < stock) {
+                setCounter(counter => counter + 1);
             }
-        } else {
-            console.log('No hay disponible');
-        }
+        }   
     }
 
     return (
         <div className='btnCount'>
-            <div  className='containerBtnCount'>
+            <div className='containerBtnCount'>
                 <div>
                     {/* Step 3: add onClick with corresponding function */}
                     <button variant="secondary" className='btnHand' onClick={() => { decrease() }}>-</button>
@@ -49,15 +43,19 @@ export default function ItemCount(props) {
                 <div className='count'>
                     {/* Step 2: add counter with ternary operator {} */}
                     {(stock !== 0) ? counter : "Sin Stock"}
-
                 </div>
                 <div>
                     <button className='btnHand' onClick={() => { increase() }}>+</button>
                 </div>
             </div>
-            <div>
-                {/* Step 6: add onClick function with add product to cart */}
-                <button className='btnAdd' onClick={() => { onAdd() }}>Add to Cart</button>
+            <div className="d-grid gap-2 btnEnd">
+
+                {/* Step 6: add onClick function with add product to cart + 
+                Este botón va estar disponible si la suma de el carrito + el estado local de counter es <= al stock.
+                Me permite habilitar dinamicament el botón en caso de cumplir esta condición.
+                */}
+                <Button variant="dark" size="sm" disabled={(cCart + counter) <= stock ? false : true} onClick={() => { onAdd(counter) }}>Add to Cart</Button>
+
             </div>
         </div>
     )

@@ -36,9 +36,29 @@
     width: 80%;
 }
 .sidebarRight{
-    width: 30%;
+    width: 100%;
     padding: 1rem;
    
     border: 1px solid rgb(230, 230, 230);
     border-radius: 5px;
+}
+
+.cart{
+    background-color: blue;
+    color: white;
+}
+
+.btnEnd{
+    text-decoration: none;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.detail{
+    color: rgb(133, 133, 133);
+}
+
+.detail span{
+    font-weight: bold;
+    color: rgb(0, 81, 255, 0.6);
 }

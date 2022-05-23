@@ -5,7 +5,6 @@ import ItemList from './ItemList/ItemList';
 import { Spinner } from 'react-bootstrap';
 
 //Import productos
-// import {product} from './services/productos';
 import Productos from './services/productos.json';
 import { useParams } from 'react-router-dom';
 
@@ -34,14 +33,14 @@ export default function ItemListContainer() {
         if (id === undefined) {
 
           res(Productos)
-          console.log(id)
+          // console.log(id)   // Esto me da undefined y muestro todos los productos
 
         } else {
           const prodProd = Productos.filter(prod => prod.cat === id)
           res(prodProd)
-          console.log(id)
+          // console.log(id)  // si viene con otro string match con category/:id sino va salir pagina de error
           // setproducto(prod)
-          console.log(res)
+          // console.log(res)
 
         }
 
@@ -49,13 +48,12 @@ export default function ItemListContainer() {
 
       }, 2000);
     })
-    console.log(traerListaItem)
+    // console.log(traerListaItem)
     traerListaItem
       .then((result) => {
         setproducto(result)
         setloading(false)
-        console.log(Productos)
-        // console.log(product)
+        // console.log(Productos)
       })
       .catch((err) => {
         console.log(err)
@@ -73,9 +71,7 @@ export default function ItemListContainer() {
   //Render
   return (
     <>
-
       {loading && <div className='spinner'><Spinner animation="border" size="lg" className='loading' /></div>}
-
 
       <div className='container items'>
         <section>

@@ -12,7 +12,7 @@ export default function ItemDetailContainer() {
     //useParams
     let { id } = useParams();
     id = parseInt(id)
-    console.log(id)
+    // console.log(id)
 
 
     //useState
@@ -29,7 +29,7 @@ export default function ItemDetailContainer() {
             const traerItemId = new Promise((res, rej) => {
                 setTimeout(() => {
                     const filteredProduct = Producto1.find(product => product.id === id)
-                    console.log(id)
+                    // console.log(id)
 
                     res(filteredProduct)
                     // console.log('promsea + producto: ', product)
@@ -38,11 +38,11 @@ export default function ItemDetailContainer() {
             // console.log(traerItemId)
             traerItemId
                 .then((result) => {
-                    console.log("result de la promesa", result);
+                    // console.log("result de la promesa", result);
                     setitem(result)
                     setloading(false)
-                    const x = id
-                    console.log(x)
+                    // const x = id
+                    // console.log(x)
 
                 })
                 .catch((err) => {

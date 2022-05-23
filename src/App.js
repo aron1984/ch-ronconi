@@ -11,8 +11,7 @@ import NavBarFirst from './components/NavBar';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import FooterPage from './components/Footer/FooterPage';
-// import Item from './components/Item/Item';
-
+import Cart from './components/Cart/Cart';
 
 
 function App() {
@@ -22,11 +21,10 @@ function App() {
 
         <NavBarFirst />
         <Routes>
-
           <Route path='/' element={<ItemListContainer />} />
           <Route path='/category/:id' element={<ItemListContainer />} />
           <Route path='/item/:id' element={<ItemDetailContainer />} />
-          <Route path='/algo' element={<h1>Algo</h1>} />
+          <Route path='/cart' element={<Cart />} />
           <Route path='/*' element={<h3>Error</h3>} />
         </Routes>
 
