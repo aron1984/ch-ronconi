@@ -21,9 +21,9 @@ const accessContext = useContext(CartContext)
     return (
         <>
         <div className='cartContainer'>
-            <div><MdShoppingCart size={30} /></div>
-            <div>{accessContext.totalCountProduct()}</div>
-            <div>{accessContext.cartPrice !== 0 && totalPrice}</div>
+            <div className='cartLeft'><MdShoppingCart size={30} /></div>
+            <div className='cartCenter'>{accessContext.totalCountProduct()}</div>
+            <div className='cartRight'>{accessContext.cartPrice !== 0 && totalPrice}</div>
             
         </div>
         </>

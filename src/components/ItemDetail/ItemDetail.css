@@ -62,3 +62,9 @@
     font-weight: bold;
     color: rgb(0, 81, 255, 0.6);
 }
+.creditCards{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color:rgb(153, 153, 153);
+}

@@ -6,6 +6,8 @@ import './ItemDetail.css';
 import { BsArrowReturnLeft, BsAward, BsCheck2Circle } from 'react-icons/bs';
 import { BiCheckShield } from 'react-icons/bi';
 import { Container, Card, ListGroup, Button } from 'react-bootstrap'
+import { FaCcVisa, FaCcMastercard, FaCcPaypal, FaCcApplePay, FaCcAmazonPay } from 'react-icons/fa';
+import { BsFillCreditCard2FrontFill } from 'react-icons/bs';
 
 
 import { CartContext } from '../../context/CartContext';
@@ -45,6 +47,9 @@ export default function ItemDetail({ item }) {
         <Button variant="dark" size="sm" onClick={() => accessContext.removeItem(item.id)}>Eliminar producto</Button>
       </div>
       <div className="d-grid gap-2 btnEnd">
+        <Button variant="danger" size="sm" onClick={() => accessContext.clear()}>Vaciar carrito</Button>
+      </div>
+      <div className="d-grid gap-2 btnEnd">
         <Link to={`/cart`} className="d-grid gap-2 btnEnd">
           <Button variant="dark" size="sm">Finalizar compra</Button>
         </Link>
@@ -52,7 +57,7 @@ export default function ItemDetail({ item }) {
     </>
   )
 
-  const priceFormat = new Intl.NumberFormat('en-US', {style: 'currency', currency: 'ARS'});
+  const priceFormat = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'ARS' });
 
   return (
     <>
@@ -89,6 +94,14 @@ export default function ItemDetail({ item }) {
 
               <div className='detail'>
                 <ListGroup>
+                  <ListGroup.Item className='creditCards'>
+                    <FaCcVisa size={30} />{' '}
+                    <FaCcMastercard size={30} />{' '}
+                    <FaCcPaypal size={30} />{' '}
+                    <FaCcAmazonPay size={30} />{' '}
+                    <FaCcApplePay size={30} />{' '}
+                    <BsFillCreditCard2FrontFill size={30}/>
+                  </ListGroup.Item>
                   <ListGroup.Item><p className='detail'><BsArrowReturnLeft /><span> Devolución gratis.</span> Tenés 30 días desde que lo recibís.</p></ListGroup.Item>
                   <ListGroup.Item><p className='detail'><BiCheckShield /><span> Compora protegida.</span> Recibí el producto que esperabas o te devolvemos tu dinero.</p></ListGroup.Item>
                   <ListGroup.Item><p className='detail'><BsAward /> 12 meses de garantía de fábrica. </p></ListGroup.Item>

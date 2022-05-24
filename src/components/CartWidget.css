@@ -1,12 +1,24 @@
 .cartContainer{
     display: flex;                      
     flex-direction: row;                /*para indicar la dirección que se van a desplegar los hijos*/
-    justify-content: space-around;      /*para justificar horizontalmente*/
+    justify-content: space-between;      /*para justificar horizontalmente*/
     align-items: center;                /*para centra verticalmente los div*/
-    width: 3rem;
+}
+.cartLeft{
+    margin-right: 0.2rem;
+}
+.cartCenter{
+    /* background-color: red; */
+    margin-right: 2rem;
 }
 
 .cartContainer div{
     display: flex;  
+    margin: 0.2rem;
                         /*Para indicar como se va a comportar y obedece al padre con flex*/
+}
+
+.cartRight{
+    padding-left: 0.5rem;
+    color:rgb(228, 228, 228);
 }

@@ -24,7 +24,10 @@ export default function NavBar() {
                             <Nav.Link><Link className='linkNav' to={`/category/handball`}>Handball</Link></Nav.Link>
                             <Nav.Link><Link className='linkNav' to={`/category/basquet`}>Basquet</Link></Nav.Link>
                         </Nav>
-                        <Navbar.Text><CartWidget /></Navbar.Text>
+                        {/* <Navbar.Text> */}
+                            <CartWidget />
+                            
+                            {/* </Navbar.Text> */}
                     </Container>
                 </Navbar>
 
