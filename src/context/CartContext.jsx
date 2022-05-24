@@ -53,11 +53,13 @@ export default function CartProvider({ children }) {
         if(itemsCart.length === 1){
             return itemsCart[0].quantity
         }else{
-            return itemsCart.reduce((sum, item) => {
-                if (typeof sum === 'object') {
-                    sum = sum.quantity
+
+            // sumo los quantity con reduce
+            return itemsCart.reduce((x, item) => {
+                if (typeof x === 'object') {
+                    x = x.quantity
                 }
-                return sum + item.quantity
+                return x + item.quantity
             })
         }
 

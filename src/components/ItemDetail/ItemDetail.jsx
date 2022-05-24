@@ -83,12 +83,12 @@ export default function ItemDetail({ item }) {
               {/* espacio para la botonera */}
 
               {
-                ItemCountComp
+                !accessContext.isInCart(item.id) && ItemCountComp
               }
 
               {/* Este botón aparece luego de agregar producto al carro */}
               {
-                accessContext.totalCountProduct(item.id) > 0 && checkout
+                accessContext.isInCart(item.id) > 0 && checkout
               }
 
 

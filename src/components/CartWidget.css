@@ -1,4 +1,5 @@
 .cartContainer{
+    float: right;
     display: flex;                      
     flex-direction: row;                /*para indicar la dirección que se van a desplegar los hijos*/
     justify-content: space-between;      /*para justificar horizontalmente*/
@@ -21,4 +22,5 @@
 .cartRight{
     padding-left: 0.5rem;
     color:rgb(228, 228, 228);
+    width: 3rem;
 }
