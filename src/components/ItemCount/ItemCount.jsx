@@ -1,47 +1,49 @@
-import React, { useState } from 'react';
+// @ts-check
+import React, { useState, useContext } from 'react';
 import './ItemCount.css';
 import { Button } from 'react-bootstrap';
 
+import { CartContext } from '../../context/CartContext';
+import Item from '../Item/Item';
 
-// Step 4: add params to father ItemCount and will be avaiable for children functions IMPORTANT
-export default function ItemCount(props) {
 
-    // parseInt to props than come as a string
-    const stock = parseInt(props.stock);
-    const initial = parseInt(props.initial);
+export default function ItemCount({ id, stock, initial, cCart, price }) {
 
-    // Step 1: add state 
-    const [counter, setCounter] = useState(initial);
+    const [counter, setCounter] = useState(parseInt(initial));
 
-    const { onAdd } = props;
-    const { cCart } = props;
+    let accessContext = useContext(CartContext);   //CHECK
 
-    
-
-    // Step 5: create functions + and -
     const decrease = () => {
-        if (counter > 0) {
-            setCounter(counter => counter - 1);
+        if (counter > 1) {
+            setCounter(counter - 1);
         }
     }
 
     const increase = () => {
-        if ((counter + cCart) <= stock) {
-            if (counter < stock) {
-                setCounter(counter => counter + 1);
+        if (counter < parseInt(stock)) {
+            if (counter < parseInt(stock)) {
+                setCounter(counter + 1);
             }
-        }   
+        }
+    }
+
+    const addToCart = () => {
+        if (parseInt(stock) > 0) {
+            accessContext.addItem(id, counter, price)
+            console.log(counter)
+            
+        }
     }
 
     return (
         <div className='btnCount'>
             <div className='containerBtnCount'>
                 <div>
-                    {/* Step 3: add onClick with corresponding function */}
-                    <button variant="secondary" className='btnHand' onClick={() => { decrease() }}>-</button>
+
+                    <button variant='secondary' className='btnHand' onClick={() => { decrease() }}>-</button>
                 </div>
                 <div className='count'>
-                    {/* Step 2: add counter with ternary operator {} */}
+
                     {(stock !== 0) ? counter : "Sin Stock"}
                 </div>
                 <div>
@@ -50,11 +52,8 @@ export default function ItemCount(props) {
             </div>
             <div className="d-grid gap-2 btnEnd">
 
-                {/* Step 6: add onClick function with add product to cart + 
-                Este botón va estar disponible si la suma de el carrito + el estado local de counter es <= al stock.
-                Me permite habilitar dinamicament el botón en caso de cumplir esta condición.
-                */}
-                <Button variant="dark" size="sm" disabled={(cCart + counter) <= stock ? false : true} onClick={() => { onAdd(counter) }}>Add to Cart</Button>
+
+                <Button variant="dark" size="sm" disabled={!accessContext.itemsCart.some((itemsCart) => itemsCart.id === id) ? false : true} onClick={addToCart}>Add to Cart</Button>
 
             </div>
         </div>
