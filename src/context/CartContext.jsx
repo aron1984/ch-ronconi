@@ -10,49 +10,49 @@ export const CartContext = createContext(undefined);
 
 export default function CartProvider({ children }) {
 
-    const INITIAL_STATE = {id:0, quantity:0, price: 0};
+    const INITIAL_STATE = { id: 0, quantity: 0, price: 0, url: '', nam: '' };
     // states
     const [itemsCart, setitemsCart] = useState([INITIAL_STATE])
     const [cartPrice, setcartPrice] = useState(0)
 
+    // const addItem = (id, counter, price) => {
+    // Agregué más parámetros para obtener la imagen y descripcion.
+    // CONSULTA: debería crear pasar un objeto con esas características?
+    const addItem = (id, counter, price, url, nam) => {
 
-    const addItem = (id, counter, price) => {
-
-            // console.log(counter)
-            // setitems([...items, {id: id, quantity:counter}])
-            // console.log(items)
-
-            if (isInCart(id)) {
-              console.log("Ops!: el produco ya fue agregado")
-              console.log(itemsCart)
-              return
-            }
-            // setcart([itemId, quantity])
-            setitemsCart([...itemsCart, {id: id, quantity:counter, price: price}])
-            // setcart([items.length])
+        if (isInCart(id)) {
+            console.log("Ops!: el produco ya fue agregado")
             console.log(itemsCart)
-     
+            return
+        }
+        // setcart([itemId, quantity])
+        // ESTO LO DEBERÍA OPTIMIZAR CON SINTAXIS SUGAR así:
+        // setitemsCart([...itemsCart, { id, quantity: counter, price, url, nam }])
+        setitemsCart([...itemsCart, { id: id, quantity: counter, price: price, url: url, nam: nam }])
+
+        // setcart([items.length])
+        console.log(itemsCart)
+
     }
 
     const removeItem = (idItem) => {
 
-        setitemsCart(itemsCart.filter(item => item.id !== idItem))
-        
-       console.log('Este va remover')
-        // remover un item del carro
-    }
+        setitemsCart(itemsCart.filter(item => item.id !== idItem));
+        // console.log('Este va remover')
 
-    const isInCart = (id) => itemsCart.filter(item => item.id === id).length === 1
-    
+    }
+    // para saber si el producto está en el carro
+    const isInCart = (id) => itemsCart.filter(item => item.id === id).length === 1;
+
     const totalCountProduct = () => {
 
-        if(itemsCart.length === 0 ){
+        if (itemsCart.length === 0) {
             return 0
         }
 
-        if(itemsCart.length === 1){
+        if (itemsCart.length === 1) {
             return itemsCart[0].quantity
-        }else{
+        } else {
 
             // sumo los quantity con reduce
             return itemsCart.reduce((x, item) => {
@@ -63,35 +63,45 @@ export default function CartProvider({ children }) {
             })
         }
 
-       
+
     }
     const clear = () => {
-        setitemsCart([INITIAL_STATE])
+        setitemsCart([INITIAL_STATE]);
     }
 
     const sumPriceTot = () => {
-        
-        let sumTot = itemsCart.map(i =>  i.price).reduce((prev, curr) => prev + curr, 0);
+
+        // let sumTot = itemsCart.map(i =>  i.price).reduce((prev, curr) => prev + curr, 0);
+
+        // OPTIMICÉ esta función PARA que sume EL MONTO de productos en relación a la cantidad.
+        let sumTot = itemsCart.map((i) => i.price * i.quantity).reduce((prev, curr) => prev + curr, 0);
+
         setcartPrice(sumTot)
-        console.log(sumTot);
+        // console.log(sumTot);
     }
+
+    // CONSULTA: debería tener un objeto de parametros
     // const provThings = {
-    //     addItem,
-    //     removeItem,
-    //     isInCart
+    //     addItem: addItem,
+    //     removeItem: removeItem,
+    //     isInCart: isInCart,
+    //     itemsCart: itemsCart,
+    //     cartPrice: cartPrice,
+    //     totalCountProduct: totalCountProduct,
+    //     clear:clear,
+    //     sumPriceTot: sumPriceTot
     // }
 
     return (
 
         <>
-            
-            {/* <CartContext.Provider value={{ removeItem, addItem }}> */}
-            <CartContext.Provider value={{itemsCart, cartPrice, addItem, removeItem, isInCart, totalCountProduct, clear, sumPriceTot}}>
+
+            <CartContext.Provider value={{ itemsCart, cartPrice, addItem, removeItem, isInCart, totalCountProduct, clear, sumPriceTot }}>
 
                 {children}
 
             </CartContext.Provider>
-            
+
         </>
     )
 }

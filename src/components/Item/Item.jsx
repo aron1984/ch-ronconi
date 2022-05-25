@@ -25,7 +25,7 @@ export default function Item(props) {
             <Card.Footer>Stock disponible: {props.prod.stock}</Card.Footer>
           </Card.Body>
 
-          <Button className='btn-dark' id={props.prod.id}><Link className='linkItem' to={`/item/${props.prod.id}`}>Más detalles</Link></Button>
+          <Link className='linkItem' to={`/item/${props.prod.id}`}><Button className='btn-dark' id={props.prod.id}>Más detalles</Button></Link>
           
         </Card>
       }

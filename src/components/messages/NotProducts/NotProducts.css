@@ -1,0 +1,11 @@
+.xv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    margin-top: 5rem;
+}
+
+.xv div{
+    margin: 1rem;
+}

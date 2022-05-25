@@ -8,4 +8,10 @@
 .linkItem{
     text-decoration: none;
     color: #fff;
+    width: auto;
+    
+}
+
+.btn-dark{
+    width: 100%;
 }

@@ -35,6 +35,8 @@ export default function ItemDetail({ item }) {
         price={item.precio}
         stock={item.stock}
         initial={item.stock > 0 ? 1 : 0}
+        url={item.url}
+        name={item.name}
         cCart={counterCart} />
     </>
   )
@@ -57,7 +59,7 @@ export default function ItemDetail({ item }) {
     </>
   )
 
-  const priceFormat = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'ARS' });
+  const priceFormat = new Intl.NumberFormat('es-ar', { style: 'currency', currency: 'ARS', minimumFractionDigits: 2 });
 
   return (
     <>
@@ -94,18 +96,21 @@ export default function ItemDetail({ item }) {
 
               <div className='detail'>
                 <ListGroup>
-                  <ListGroup.Item className='creditCards'>
-                    <FaCcVisa size={30} />{' '}
-                    <FaCcMastercard size={30} />{' '}
-                    <FaCcPaypal size={30} />{' '}
-                    <FaCcAmazonPay size={30} />{' '}
-                    <FaCcApplePay size={30} />{' '}
-                    <BsFillCreditCard2FrontFill size={30}/>
+                  <ListGroup.Item >
+                    <div className='creditCards'>
+                      <FaCcVisa className='ccard' size={30} />{' '}
+                      <FaCcMastercard className='ccard' size={30} />{' '}
+                      <FaCcPaypal className='ccard' size={30} />{' '}
+                      <FaCcAmazonPay className='ccard' size={30} />{' '}
+                      <FaCcApplePay className='ccard' size={30} />{' '}
+                      <BsFillCreditCard2FrontFill className='ccard' size={30} />
+                    </div>
+
                   </ListGroup.Item>
                   <ListGroup.Item><p className='detail'><BsArrowReturnLeft /><span> Devolución gratis.</span> Tenés 30 días desde que lo recibís.</p></ListGroup.Item>
                   <ListGroup.Item><p className='detail'><BiCheckShield /><span> Compora protegida.</span> Recibí el producto que esperabas o te devolvemos tu dinero.</p></ListGroup.Item>
                   <ListGroup.Item><p className='detail'><BsAward /> 12 meses de garantía de fábrica. </p></ListGroup.Item>
-                  <ListGroup.Item><p className='detail'><BsCheck2Circle /> Producto original. </p></ListGroup.Item>
+                  <ListGroup.Item><p className='detail'><BsCheck2Circle /><span> Producto original.</span> </p></ListGroup.Item>
 
                   {/*  pueba context borrar */}
 

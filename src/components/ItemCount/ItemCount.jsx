@@ -7,7 +7,7 @@ import { CartContext } from '../../context/CartContext';
 import Item from '../Item/Item';
 
 
-export default function ItemCount({ id, stock, initial, cCart, price }) {
+export default function ItemCount({ id, stock, initial, cCart, price, url, name }) {
 
     const [counter, setCounter] = useState(parseInt(initial));
 
@@ -29,7 +29,7 @@ export default function ItemCount({ id, stock, initial, cCart, price }) {
 
     const addToCart = () => {
         if (parseInt(stock) > 0) {
-            accessContext.addItem(id, counter, price)
+            accessContext.addItem(id, counter, price, url, name)
             console.log(counter)
             
         }
@@ -40,7 +40,7 @@ export default function ItemCount({ id, stock, initial, cCart, price }) {
             <div className='containerBtnCount'>
                 <div>
 
-                    <button variant='secondary' className='btnHand' onClick={() => { decrease() }}>-</button>
+                    <button className='btnHand' onClick={() => { decrease() }}>-</button>
                 </div>
                 <div className='count'>
 
