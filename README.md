@@ -32,22 +32,22 @@ Add badges from somewhere like: [shields.io](https://shields.io/)
 
 ## Demo
 
-Entrega 7 - Esta demo es de la entrega intermedia del proyecto final de CODER HOUSE!
-<img src="demo-primeraentrega.gif" width="100%">
+Entrega 10 - Cart.jsx
+* Agrega item al carro, no acepta duplicados, columna cuenta la cantidad, precio unitario y total de producto.
+* Con cantidad y precio unitario sale el total para ese producto.
+* Al pie de la tabla las cantidades de unidades, de productos, el precio total.
+* Añado un item de ENVIO que si hay 4 o más productos en el carro se activa el ENVIO GRATIS; pero si hay menos
+suma un precio por el envío.
+* Cada item puede removerse del carro con el botón ELIMINAR.
+* El CartWidget, está configurado par que NO DESAPAREZCA, pero que no muestre valor si no hay producto. Si hay producto, mostrará la cantidad y el precio acumulado (suma de la ecuación entr cantidad y precio de cada producto)
+* Si el carro queara en sin productos, se mostrará un mensaje que no hay productos + un botón que dirige al home
+
+*ME PARECIÓ INTERESANTE NO OCULTAR EL ICONO DEL CARRITO, sino ocultar el valor 0 (cero). Para no perder referencia de dónde se mostrarán los productos añadidos.
+
+*Arreglos en LINK de botones de los Items.
 
 
-Entrega 8 - Eventos
-* Agrega cantidad de productos al carrito con onAdd que se pasa a ItemDetail
-* ItemListContainer recibe el evento y en base a eso, habilita (aparece) el botón FINALIZAR COMPRA.
-* El botón Add to Cart, está activo si cumple ciertas condiciones:
-    * Si el stock es = o menor que estado "counter + cCart": hace que en base al valor de "counter + cCart (estado que pasó por props)" el botón esté habilitado o no. Resultó interesante, ya que estará habilitado
-    mientras la suma de esos"productos del ItemCount + estado de carrito (cantidad acumulada)" sea menor o = 
-    a la cantidad definida en el "stock".
-    Sólo estará disponible para seguir agregando cantidad siempre y cuando la suma no pase el stock. 
-
-* El punto anterior supone una alternativa a lo plantado en el ejercicio, de deshabilitar el boton "add to cart" una vez ejecutado la función. Pero, en realidad podría seguir o agregar otro.
-
-<img src="entrega-8-Eventos.gif" width="100%">
+<img src="Entrega10.gif" width="100%">
 
 
 
