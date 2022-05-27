@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail';
-// import { Spinner } from 'react-bootstrap';
 import { useParams } from 'react-router-dom'
 import './ItemDetailContainer.css'
 
-//Import productos
-import Producto1 from '../../components/services/productos.json';
+import { doc, getDoc, getFirestore } from 'firebase/firestore';
+
 import LoadingSpinner from '../Loading/LoadingSpinner';
 
 export default function ItemDetailContainer() {
     //useParams
     let { id } = useParams();
-    id = parseInt(id)
-    // console.log(id)
+    // id = parseInt(id)
+    console.log(id)
 
 
     //useState
@@ -25,39 +24,27 @@ export default function ItemDetailContainer() {
 
         setloading(true)
 
-        const getItem = () => {
-            const traerItemId = new Promise((res, rej) => {
-                setTimeout(() => {
-                    const filteredProduct = Producto1.find(product => product.id === id)
-                    // console.log(id)
+        const db = getFirestore();
 
-                    res(filteredProduct)
-                    // console.log('promsea + producto: ', product)
-                }, 2000);
-            })
-            // console.log(traerItemId)
-            traerItemId
-                .then((result) => {
-                    // console.log("result de la promesa", result);
-                    setitem(result)
-                    setloading(false)
-                    // const x = id
-                    // console.log(x)
+        
+        const _item = doc(db, 'items', id); //referencia al documento
+        getDoc(_item).then((snapshot) => {
+            console.log(snapshot.id);
+            console.log(snapshot.data());
 
-                })
-                .catch((err) => {
-                    console.log(err)
-                    //   seterror(false)
-                })
-        }
+            setitem({ id: snapshot.id, ...snapshot.data() });
+            console.log(item)
+            setloading(false)
 
-        getItem()
+        });
+        
     }, [id])
 
     //Render
     return (
         <>
             <div className='mainDetailContainer'>
+
                 {
                     loading && <LoadingSpinner />
                 }

@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 export default function NavBar() {
 
-       return (
+    return (
         <div>
             <header>
                 <Navbar bg="dark" variant="dark">
@@ -23,11 +23,14 @@ export default function NavBar() {
                             <Nav.Link><Link className='linkNav' to={`/category/rugby`}>Rugby</Link></Nav.Link>
                             <Nav.Link><Link className='linkNav' to={`/category/handball`}>Handball</Link></Nav.Link>
                             <Nav.Link><Link className='linkNav' to={`/category/basquet`}>Basquet</Link></Nav.Link>
+                            <Nav.Link><Link className='linkNav' to={`/category/ciclismo`}>Ciclismo</Link></Nav.Link>
+                            <Nav.Link><Link className='linkNav' to={`/category/padel`}>Padel</Link></Nav.Link>
+                            <Nav.Link><Link className='linkNav' to={`/category/tenis`}>Tenis</Link></Nav.Link>
                         </Nav>
-                        {/* <Navbar.Text> */}
-                            <CartWidget />
-                            
-                            {/* </Navbar.Text> */}
+
+                        <CartWidget />
+
+
                     </Container>
                 </Navbar>
 

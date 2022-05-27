@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom';
-
 import ItemCount from '..//ItemCount/ItemCount';
 import './ItemDetail.css';
 import { BsArrowReturnLeft, BsAward, BsCheck2Circle } from 'react-icons/bs';
@@ -9,30 +8,22 @@ import { Container, Card, ListGroup, Button } from 'react-bootstrap'
 import { FaCcVisa, FaCcMastercard, FaCcPaypal, FaCcApplePay, FaCcAmazonPay } from 'react-icons/fa';
 import { BsFillCreditCard2FrontFill } from 'react-icons/bs';
 
-
 import { CartContext } from '../../context/CartContext';
 
 
-export default function ItemDetail({ item }) {
+export default function ItemDetail({ id, item }) {
 
   const accessContext = useContext(CartContext)
-
-  // console.log(item)
-
-  // const {data, algo} = useContext(CartContext);
 
   // useState
   const [counterCart, setcounterCart] = useState(0);
 
-
-
-
-  // ItemCount
+    // ItemCount
   const ItemCountComp = (
     <>
       <ItemCount
-        id={item.id}
-        price={item.precio}
+        id={id}
+        price={item.price}
         stock={item.stock}
         initial={item.stock > 0 ? 1 : 0}
         url={item.url}
@@ -40,8 +31,7 @@ export default function ItemDetail({ item }) {
         cCart={counterCart} />
     </>
   )
-  //CHECK
-
+  
   const checkout = (
     <>
       {/* Agregar un botón de remove */}
@@ -61,6 +51,7 @@ export default function ItemDetail({ item }) {
 
   const priceFormat = new Intl.NumberFormat('es-ar', { style: 'currency', currency: 'ARS', minimumFractionDigits: 2 });
 
+  const quote = (priceFormat.format(item.price / 3));
   return (
     <>
       <Container className='detailContainer'>
@@ -71,15 +62,16 @@ export default function ItemDetail({ item }) {
 
           <Card className='sidebarRight' >
             <Card.Body>
-              <Card.Title>{item.name}</Card.Title>
+              <Card.Title style={{textAlign: 'center'}}>{item.name}</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">{item.categroy}</Card.Subtitle>
 
               <ListGroup>
                 <ListGroup.Item>{item.des}</ListGroup.Item>
+                <ListGroup.Item>Competencia: {item.comp}</ListGroup.Item>
                 <ListGroup.Item>Temporada: {item.year}</ListGroup.Item>
                 <ListGroup.Item>Stock: {item.stock}</ListGroup.Item>
-                <ListGroup.Item>Precio: {priceFormat.format(item.precio)}</ListGroup.Item>
-                {/* <ListGroup.Item className='bg-primary'>Productos en el carrito: {counterCart}</ListGroup.Item> */}
+                <ListGroup.Item>Precio: {priceFormat.format(item.price)}</ListGroup.Item>
+                <ListGroup.Item style={{fontSize:11, color: 'red'}}>O en hasta 3 cuotas sin interés de {quote}</ListGroup.Item>
               </ListGroup>
 
               {/* espacio para la botonera */}
@@ -112,9 +104,7 @@ export default function ItemDetail({ item }) {
                   <ListGroup.Item><p className='detail'><BsAward /> 12 meses de garantía de fábrica. </p></ListGroup.Item>
                   <ListGroup.Item><p className='detail'><BsCheck2Circle /><span> Producto original.</span> </p></ListGroup.Item>
 
-                  {/*  pueba context borrar */}
-
-
+              
 
                 </ListGroup>
               </div>

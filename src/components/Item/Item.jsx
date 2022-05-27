@@ -3,30 +3,47 @@ import React from 'react'
 import { Card, Button } from 'react-bootstrap';
 import './Item.css';
 import { Link } from 'react-router-dom';
+import CardHeader from 'react-bootstrap/esm/CardHeader';
 
 
 // Render Data
 export default function Item(props) {
- 
-   return (
+
+
+  const priceFormat = new Intl.NumberFormat('es-ar', { style: 'currency', currency: 'ARS', minimumFractionDigits: 2 });
+
+
+
+  return (
 
     <>
       {
-        <Card id={props.id} className="cardsDisp">
-
+        <Card id={props.id} className="cardsDisp" >
+          <CardHeader className='headerMasc bg-dark'>
+            <Card.Title style={{ textAlign: 'center', fontSize: 15 }}>
+              {props.prod.name}
+            </Card.Title>
+          </CardHeader>
           <Card.Body className="cardEdit">
-            {/* Step 8:  add name prodcut from params App.js  */}
-            <Card.Title>{props.prod.name}</Card.Title>
-            <Card.Img src={props.prod.url} />
-            <Card.Text>
-              Some quick example text to build on the card title and make up the bulk of
-              the card's content.
+
+
+
+            <div className='imgList'>
+              <Card.Img classname="imgList" src={props.prod.url} />
+            </div>
+
+            <Card.Text style={{ fontSize: 12, textAlign: 'center', textTransform: 'uppercase' }}>
+              {props.prod.cat}
             </Card.Text>
-            <Card.Footer>Stock disponible: {props.prod.stock}</Card.Footer>
+
+            <Card.Text style={{ fontSize: 12, textAlign: 'center' }}>
+              {props.prod.comp}
+            </Card.Text>
+            <Card.Title style={{ textAlign: 'center', marginTop: 5 }}> {priceFormat.format(props.prod.price)}</Card.Title>
           </Card.Body>
 
           <Link className='linkItem' to={`/item/${props.prod.id}`}><Button className='btn-dark' id={props.prod.id}>Más detalles</Button></Link>
-          
+
         </Card>
       }
     </>
