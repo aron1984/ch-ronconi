@@ -10,9 +10,9 @@ export const CartContext = createContext(undefined);
 
 export default function CartProvider({ children }) {
 
-    const INITIAL_STATE = { id: 0, quantity: 0, price: 0, url: '', nam: '' };
+    // const INITIAL_STATE = { id: 0, quantity: 0, price: 0, url: '', nam: '' };
     // states
-    const [itemsCart, setitemsCart] = useState([INITIAL_STATE])
+    const [itemsCart, setitemsCart] = useState([])
     const [cartPrice, setcartPrice] = useState(0)
 
     // const addItem = (id, counter, price) => {
@@ -66,7 +66,7 @@ export default function CartProvider({ children }) {
 
     }
     const clear = () => {
-        setitemsCart([INITIAL_STATE]);
+        setitemsCart([]);
     }
 
     const sumPriceTot = () => {

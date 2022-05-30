@@ -32,22 +32,15 @@ Add badges from somewhere like: [shields.io](https://shields.io/)
 
 ## Demo
 
-Entrega 10 - Cart.jsx
-* Agrega item al carro, no acepta duplicados, columna cuenta la cantidad, precio unitario y total de producto.
-* Con cantidad y precio unitario sale el total para ese producto.
-* Al pie de la tabla las cantidades de unidades, de productos, el precio total.
-* Añado un item de ENVIO que si hay 4 o más productos en el carro se activa el ENVIO GRATIS; pero si hay menos
-suma un precio por el envío.
-* Cada item puede removerse del carro con el botón ELIMINAR.
-* El CartWidget, está configurado par que NO DESAPAREZCA, pero que no muestre valor si no hay producto. Si hay producto, mostrará la cantidad y el precio acumulado (suma de la ecuación entr cantidad y precio de cada producto)
-* Si el carro queara en sin productos, se mostrará un mensaje que no hay productos + un botón que dirige al home
-
-*ME PARECIÓ INTERESANTE NO OCULTAR EL ICONO DEL CARRITO, sino ocultar el valor 0 (cero). Para no perder referencia de dónde se mostrarán los productos añadidos.
-
-*Arreglos en LINK de botones de los Items.
+Entrega 12 - CheckOut
+* Agrega orden a FIREBASE
+* Mensaje de envío con exíto al comprar.
+* Check al carrito, finalizar compra muestra resumen de compra y datos de facturación.
+* IMPORTANTE: de momento el checkout está en el componente cart, PERO DEBERÍA ESTAR APARTE, para que lleve a otra ruta.
+* En el GIF se ve cómo agrega orden a FIREBASE, datos del usuari, datos de la compra, monto total, y gasto de envío (si la compra es menor a 20000 se le agrega 1559, sino, 0 costo).
 
 
-<img src="Entrega10.gif" width="100%">
+<!-- <img src="Entrega10.gif" width="100%"> -->
 
 
 

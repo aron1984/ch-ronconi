@@ -1,0 +1,37 @@
+.containerCheckOut{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.checkOut{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    /* justify-content: center; */
+    border: 1px solid #000;
+    padding: 2rem;
+    width: 60%;
+}
+.ditailBuy{
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.totalRow{
+    background-color: #212529;
+    color: whitesmoke;
+}
+.checkOutTable th{
+    padding-top: 0.5rem;
+}
+
+tbody, td, tfoot, th, thead, tr {
+    border-color: none; 
+    border-style: none; 
+    border-width: 0;
+}
+.footSection{
+    background-color: #4e5861;
+    color: whitesmoke;
+}

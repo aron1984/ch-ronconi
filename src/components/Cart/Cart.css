@@ -1,3 +1,9 @@
+.containerCart{
+   display: flex;
+   flex-direction: column;
+    width: 80%;
+    justify-content: center;
+}
 .cartHeader{
     margin: 1rem;
     color: rgb(43, 43, 43);
@@ -14,13 +20,13 @@ td{
     vertical-align: middle;
     align-items: center;
 }
-.btnCheckOut{
+/* .btnCheckOut{
     display: flex;
     flex-direction: row;
     justify-content: center;
     padding: 2rem;
     margin-bottom: 4rem;
-}
+} */
 
 .free{
     color: rgb(136, 255, 107);

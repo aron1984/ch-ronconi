@@ -1,31 +1,82 @@
-
-import React, { useContext } from 'react'
-import { Container, Table, Button } from 'react-bootstrap'
-import './Cart.css'
+import React, { useContext, useEffect, useState } from 'react'
+import { Button, Container, Table } from 'react-bootstrap'
+import { Link } from 'react-router-dom';
 
 //import context
 import { CartContext } from '../../context/CartContext'
-import NotProducts from '../messages/NotProducts/NotProducts';
+import CartDetailCheckOut from '../CartDetailCheckOut/CartDetailCheckOut'
+import NotProducts from '../messages/NotProducts/NotProducts'
+
+import './Cart.css'
 
 export default function Cart() {
 
   const accessContext = useContext(CartContext)
+  const [cartDetail, setcartDetail] = useState()
+  const [priceTotal, setpriceTotal] = useState(0)
+  const [shippingDet, setshippingDet] = useState(20000)
+  const [shippingPrice, setshippingPrice] = useState()
+  const [checkOut, setcheckOut] = useState(false)
 
-  let numberIt = Object.keys(accessContext.itemsCart).length;
 
-  console.log(numberIt)
+  useEffect(() => {
+    if (accessContext.itemsCart.length === 0) {
+      setcartDetail([])
+      return
+    }
+
+    let price = 0
+    setcartDetail(
+      accessContext.itemsCart.map(item => {
+        price += item.price * item.quantity
+
+        return {
+          id: item.id,
+          productName: item.nam,
+          price: item.price,
+          quantity: item.quantity,
+          url: item.url,
+        }
+      })
+    )
+
+    setpriceTotal(price)
+
+
+  }, [accessContext.itemsCart])
+
+
+  // let numberIt = Object.keys(accessContext.itemsCart).length
+
+  const handleCheckOut = () => {
+    setcheckOut(true)
+  }
 
   // Obtengo la cantidad de productos en el carro, pero como inicié con un objeto seteado en 0, le resto 1.
-  let count = Object.keys(accessContext.itemsCart).length - 1;
+  let count = Object.keys(accessContext.itemsCart).length;
+  let quantyPrice = accessContext.itemsCart.map((i) => i.price * i.quantity).reduce((prev, curr) => prev + curr, 0);
 
   let quantyCount = accessContext.itemsCart.map((i) => i.quantity).reduce((prev, curr) => prev + curr, 0);
 
   //AGREGANDO PRECIO DE ENVÍO, o ENVÍO GRATIS CON 4 O MÁS PRODUCTOS
-  let shippingPrice = count >= 4 ? 0 : 1599; 
+  let shippingHandle = quantyPrice > 20000 ? 0 : 1599;
 
-  let totalPay = (shippingPrice + accessContext.cartPrice)
+  let totalPay = (shippingHandle + accessContext.cartPrice)
+  // let totalPay = (shippingDet + accessContext.cartPrice)
 
   const priceFormat = new Intl.NumberFormat('es-ar', { style: 'currency', currency: 'ARS', minimumFractionDigits: 2 });
+
+  const checkDates = {
+    count: count,
+    quantyCount: quantyCount,
+    quantyPrice: quantyPrice,
+    shippingHandle: shippingHandle,
+    totalPay: totalPay,
+    priceFormat: priceFormat,
+    setcheckOut:setcheckOut,
+    setcartDetail:setcartDetail,
+    clear:accessContext.clear,
+  }
 
   // Implementar un RETURN RÁPIDO si no hay productos
 
@@ -33,100 +84,125 @@ export default function Cart() {
 
     // Consulta: este mensaje podría ser un COMPONENTE PURO, y así darle estilos.
     return (
-    <NotProducts />
+      <NotProducts />
     )
     // <Container><h2>No hay productos en el carro</h2></Container>
   }
   return (
 
     <>
+      <Container className='containerCart'>
+        {!checkOut &&
+          <div >
 
-      <Container>
+            {/* Consulta: esta lógica debería ir en un componente aparte y recibir items.carts por props */}
 
-        {/* Consulta: esta lógica debería ir en un componente aparte y recibir items.carts por props */}
+            <header className='cartHeader'>
+              <h1>Tu carro de compras</h1>
+            </header>
 
-        <header className='cartHeader'>
-          <h1>Tu carro de compras</h1>
-        </header>
+            <Table striped bordered hover variant="dark">
+              <thead>
+                <tr>
+                  <th className="text-center">ID</th>
+                  <th className="text-center" colSpan={2}>Producto</th>
+                  <th className="text-center">Cantidad</th>
+                  <th className="text-center">$ Unitario</th>
+                  <th className="text-center">$ Total</th>
+                  <th className="text-center">Opciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                {/* Esto va ser lo que vamos a iterar en lo que tengamos en el carro guardado */}
 
-        <Table striped bordered hover variant="dark">
-          <thead>
-            <tr>
-              <th className="text-center">ID</th>
-              <th className="text-center" colSpan={2}>Producto</th>
-              <th className="text-center">Cantidad</th>
-              <th className="text-center">$ Unitario</th>
-              <th className="text-center">$ Total</th>
-              <th className="text-center">Opciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            {/* Esto va ser lo que vamos a iterar en lo que tengamos en el carro guardado */}
+                {accessContext.itemsCart.map((x) => {
 
-            {accessContext.itemsCart.map((x) => {
+                  // para evitar que el producto vacío se renderice el producto vacío, prevenimos diciendo que
+                  // si aparece un x.id (un producto con ese id, que así lo setié en el CartContext como INITIAL_STATE)
+                  if (x.id === 0) {
+                    return <></>
+                  }
 
-              // para evitar que el producto vacío se renderice el producto vacío, prevenimos diciendo que
-              // si aparece un x.id (un producto con ese id, que así lo setié en el CartContext como INITIAL_STATE)
-              if (x.id === 0) {
-                return <></>
-              }
+                  return (
+                    <>
+                      <tr>
+                        <td className="text-center">{x.id}</td>
+                        <td className="text-center"><img className='imgCartShip' alt="" src={x.url} /></td>
+                        <td className="text-center">{x.nam}</td>
+                        <td className="text-center">{x.quantity}</td>
+                        <td className="text-center">{priceFormat.format(x.price)}</td>
+                        <td className="text-center">{priceFormat.format(x.price * x.quantity)}</td>
+                        <td className="text-center"><Button className='btnDelet' size="sm" variant="danger" onClick={() => accessContext.removeItem(x.id)}>Eliminar</Button></td>
+                      </tr>
+                    </>
+                  )
+                })
+                }
 
-              return (
-                <>
-                  <tr>
-                    <td className="text-center">{x.id}</td>
-                    <td className="text-center"><img className='imgCartShip' alt="" src={x.url} /></td>
-                    <td className="text-center">{x.nam}</td>
-                    <td className="text-center">{x.quantity}</td>
-                    <td className="text-center">{priceFormat.format(x.price)}</td>
-                    <td className="text-center">{priceFormat.format(x.price * x.quantity)}</td>
-                    <td className="text-center"><Button className='btnDelet' size="sm" variant="danger" onClick={() => accessContext.removeItem(x.id)}>Eliminar</Button></td>
-                  </tr>
-                </>
-              )
-            })
-            }
+              </tbody>
 
-          </tbody>
+              <tfoot>
+                <tr>
+                  <th colSpan={3}>SUBTOTAL</th>
+                  <th className="text-center">{quantyCount}</th>
 
-          <tfoot>
-            <tr>
-              <th colSpan={3}>SUBTOTAL</th>
-              <th className="text-center">{quantyCount}</th>
+                  {/* Con este operador ternario, configuro en razón de cantidad de productos */}
+                  <th className="text-center">{count} {count === 0 ? "" : count > 1 ? "Productos" : "Poducto"}</th>
+                  <th className="text-center" colSpan={2}>{priceFormat.format(accessContext.cartPrice)}</th>
+                </tr>
 
-              {/* Con este operador ternario, configuro en razón de cantidad de productos */}
-              <th className="text-center">{count} {count === 0 ? "" : count > 1 ? "Productos" : "Poducto"}</th>
-              <th className="text-center" colSpan={2}>{priceFormat.format(accessContext.cartPrice)}</th>
-            </tr>
+                <tr>
 
-            <tr>
-
-              {/* Con este, configuro si está accediendo al ENVIO GRATIS cuando tiene 4 o más productos distintos */}
-              <th colSpan={5}>ENVÍO {count >= 4 ? <span className='free'>GRATIS</span> : ""}</th>
-              <th className="text-center" colSpan={2} >{priceFormat.format(shippingPrice)}</th>
-            </tr>
+                  {/* Con este, configuro si está accediendo al ENVIO GRATIS cuando tiene 4 o más productos distintos */}
+                  <th colSpan={5}>ENVÍO {count >= 4 ? <span className='free'>GRATIS</span> : ""}</th>
+                  <th className="text-center" colSpan={2} >{priceFormat.format(shippingHandle)}</th>
+                </tr>
 
 
-          </tfoot>
+              </tfoot>
 
-        </Table>
+            </Table>
 
-        <Table striped bordered hover variant="dark">
-          <thead>
-            <tr>
-              <th colSpan={4}>TOTAL A PAGAR</th>
-              <th className="text-center" colSpan={2}>{priceFormat.format(totalPay)}</th>
-            </tr>
+            <Table striped bordered hover variant="dark">
+              <thead>
+                <tr>
+                  <th colSpan={4}>TOTAL A PAGAR</th>
+                  <th className="text-center" colSpan={2}>{priceFormat.format(totalPay)}</th>
+                </tr>
 
-          </thead>
-        </Table>
+              </thead>
+            </Table>
 
-        <div className='btnCheckOut'>
-          <Button className='btnCH' variant='dark' size='lg'>FINALIZAR COMPRA</Button>
-        </div>
+            <div className='btnCheckOut d-grid gap-2 '>
+              {/* <Link to={'/checkout'} > */}
+              <Button className='btnCH' variant='primary' size='lg' onClick={() => handleCheckOut()}>FINALIZAR COMPRA</Button>
+              {/* </Link> */}
+            </div>
 
-      </Container>
+
+
+          
+          </div>
+
+        }
+      {
+
+        checkOut &&
+
+        <CartDetailCheckOut 
+        cart={cartDetail} 
+        shipping={shippingDet} 
+        shippingPrice={shippingPrice} 
+        setshippingPrice={setshippingPrice} 
+        checkDates={checkDates}
+         />
+
+      }
+      
+    </Container>
     </>
+
+
 
   )
 }
