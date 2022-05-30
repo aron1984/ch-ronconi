@@ -37,10 +37,10 @@ Entrega 12 - CheckOut
 * Mensaje de envío con exíto al comprar.
 * Check al carrito, finalizar compra muestra resumen de compra y datos de facturación.
 * IMPORTANTE: de momento el checkout está en el componente cart, PERO DEBERÍA ESTAR APARTE, para que lleve a otra ruta.
-* En el GIF se ve cómo agrega orden a FIREBASE, datos del usuari, datos de la compra, monto total, y gasto de envío (si la compra es menor a 20000 se le agrega 1559, sino, 0 costo).
+* En el GIF se ve cómo agrega orden a FIREBASE, datos del usuario, datos de la compra, monto total, y gasto de envío (si la compra es menor a 20000 se le agrega 1559, sino, 0 costo).
 
 
-<!-- <img src="Entrega10.gif" width="100%"> -->
+<img src="entrega12.gif" width="100%">
 
 
 
