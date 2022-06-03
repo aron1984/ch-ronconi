@@ -1,18 +1,18 @@
 //@ts-check
-import React from 'react';
-import { Container } from 'react-bootstrap';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import './App.css';
-import Cart from './components/Cart/Cart';
-import CartWidget from './components/CartWidget';
-import FooterPage from './components/Footer/FooterPage';
-import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
-import ItemListContainer from './components/ItemListContainer';
-import PageNotFound from './components/messages/PageNotFound/PageNotFound';
-import NavBarFirst from './components/NavBar';
-import CartProvider from './context/CartContext';
+import React from 'react'
+import { Container } from 'react-bootstrap'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
+import Cart from './components/Cart/Cart'
+import CartWidget from './components/CartWidget'
+import FooterPage from './components/Footer/FooterPage'
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
+import ItemListContainer from './components/ItemListContainer'
+import PageNotFound from './components/messages/PageNotFound/PageNotFound'
+import NavBarFirst from './components/NavBar'
+import CartProvider from './context/CartContext'
 
+import './App.css'
 
 function App() {
   return (

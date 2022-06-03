@@ -1,13 +1,11 @@
-import React from 'react';
+import React from 'react'
 
-import Item from '../Item/Item';
+import Item from '../Item/Item'
 
-// Recibo las PROPS que definí en ItemListContainer y las manejo dentro de useEffect con un MAP.
 export default function ItemList(props) {
  
   const x = props.prod;
 
-  // render
   return (
 
     <>

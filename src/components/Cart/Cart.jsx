@@ -1,30 +1,27 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Button, Container, Table } from 'react-bootstrap';
+import React, { useContext, useEffect, useState } from 'react'
+import { Button, Container, Table } from 'react-bootstrap'
 
-import { CartContext } from '../../context/CartContext';
-import CartDetailCheckOut from '../CartDetailCheckOut/CartDetailCheckOut';
-import NotProducts from '../messages/NotProducts/NotProducts';
+import { CartContext } from '../../context/CartContext'
+import CartDetailCheckOut from '../CartDetailCheckOut/CartDetailCheckOut'
+import NotProducts from '../messages/NotProducts/NotProducts'
 
-import './Cart.css';
+import './Cart.css'
 
 export default function Cart() {
 
   const accessContext = useContext(CartContext)
-  const [cartDetail, setcartDetail] = useState()
-  const [priceTotal, setpriceTotal] = useState(0)
-  const [shippingDet, setshippingDet] = useState(20000)
-  const [shippingPrice, setshippingPrice] = useState()
-  const [checkOut, setcheckOut] = useState(false)
+  const [cartDetail, setCartDetail] = useState()
+  const [checkOut, setCheckOut] = useState(false)
 
 
   useEffect(() => {
     if (accessContext.itemsCart.length === 0) {
-      setcartDetail([])
+      setCartDetail([])
       return
     }
 
     let price = 0
-    setcartDetail(
+    setCartDetail(
       accessContext.itemsCart.map(item => {
         price += item.price * item.quantity
 
@@ -38,16 +35,10 @@ export default function Cart() {
       })
     )
 
-    setpriceTotal(price)
-
-
   }, [accessContext.itemsCart])
 
-
-  // let numberIt = Object.keys(accessContext.itemsCart).length
-
   const handleCheckOut = () => {
-    setcheckOut(true)
+    setCheckOut(true)
   }
 
   // Obtengo la cantidad de productos en el carro, pero como inicié con un objeto seteado en 0, le resto 1.
@@ -60,19 +51,19 @@ export default function Cart() {
   let shippingHandle = quantyPrice > 20000 ? 0 : 1599;
 
   let totalPay = (shippingHandle + accessContext.cartPrice)
-  // let totalPay = (shippingDet + accessContext.cartPrice)
 
   const priceFormat = new Intl.NumberFormat('es-ar', { style: 'currency', currency: 'ARS', minimumFractionDigits: 2 });
 
   const checkDates = {
+    setCartDetail:setCartDetail,
+    
+    totalPay: totalPay,
+    shippingHandle: shippingHandle,
+    quantyPrice: quantyPrice,
     count: count,
     quantyCount: quantyCount,
-    quantyPrice: quantyPrice,
-    shippingHandle: shippingHandle,
-    totalPay: totalPay,
     priceFormat: priceFormat,
-    setcheckOut:setcheckOut,
-    setcartDetail:setcartDetail,
+    setCheckOut:setCheckOut,
     clear:accessContext.clear,
   }
 
@@ -193,9 +184,6 @@ export default function Cart() {
 
         <CartDetailCheckOut 
         cart={cartDetail} 
-        shipping={shippingDet} 
-        shippingPrice={shippingPrice} 
-        setshippingPrice={setshippingPrice} 
         checkDates={checkDates}
          />
 

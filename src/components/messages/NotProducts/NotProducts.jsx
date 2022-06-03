@@ -1,8 +1,8 @@
-import React from 'react';
-import { Button, Container } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import { Button, Container } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
-import './NotProducts.css';
+import './NotProducts.css'
 
 export default function NotProducts() {
     return (

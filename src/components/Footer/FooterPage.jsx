@@ -1,16 +1,13 @@
-import React from 'react';
+import React from 'react'
 
-import './FooterPage.css';
+import './FooterPage.css'
 
 export default function FooterPage() {
     return (
         <>
             <footer>
-                <div className='lightblue'>
-                    
+                <div className='lightblue'>               
                         <span className='white'>&copy; Ronconi, 2022. All rights reserved.</span>
-                
-
                 </div>
             </footer>
         </>

@@ -1,18 +1,14 @@
-import React from 'react';
-// import ItemCount from '../ItemCount/ItemCount'
-import { Button, Card } from 'react-bootstrap';
-import CardHeader from 'react-bootstrap/esm/CardHeader';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import { Button, Card } from 'react-bootstrap'
+import CardHeader from 'react-bootstrap/esm/CardHeader'
+import { Link } from 'react-router-dom'
 
-import './Item.css';
+import './Item.css'
 
 // Render Data
 export default function Item(props) {
 
-
   const priceFormat = new Intl.NumberFormat('es-ar', { style: 'currency', currency: 'ARS', minimumFractionDigits: 2 });
-
-
 
   return (
 
@@ -25,8 +21,6 @@ export default function Item(props) {
             </Card.Title>
           </CardHeader>
           <Card.Body className="cardEdit">
-
-
 
             <div className='imgList'>
               <Card.Img classname="imgList" src={props.prod.url} />

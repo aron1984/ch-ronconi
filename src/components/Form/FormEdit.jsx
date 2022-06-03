@@ -1,20 +1,18 @@
 //@ts-check
-import { useFormik } from 'formik';
-import React, { useContext } from 'react';
-import { Alert, Button, Col, Container, Form, Row, Table } from 'react-bootstrap';
-import { CartContext } from '../../context/CartContext';
-import './FormEdit.css';
+import { useFormik } from 'formik'
+import React, { useContext } from 'react'
+import { Alert, Button, Col, Container, Form, Row, Table } from 'react-bootstrap'
 
+import { CartContext } from '../../context/CartContext'
 
+import './FormEdit.css'
 
-
-export default function FormEdit({ checkDates, cart, envio, handleOnChange, formSubmit, setformSubmit, Id }) {
+export default function FormEdit({ checkDates, envio, handleOnChange, formSubmit, setformSubmit, Id }) {
 
   const accessContext = useContext(CartContext)
   // Pass the useFormik() hook initial form values, a validate function that will be called when
   // form values change or fields are blurred, and a submit function that will
   // be called when the form is submitted
-  const buyer = accessContext.buyer
 
   const initialValues = {
     firstName: '',
@@ -26,20 +24,16 @@ export default function FormEdit({ checkDates, cart, envio, handleOnChange, form
 
   /**
     * ^ indica que el patrón debe iniciar con los caracteres dentro de los corchetes
- 
-   * [A-Z] indica que los caracteres admitidos son letras del alfabeto
- 
-   * + indica que los caracteres dentro de los corchetes se pueden repetir
- 
-   * $ indica que el patrón finaliza con los caracteres que están dentro de los corchetes.
- 
-   * i indica que validaremos letras mayúsculas y minúsculas (case-insensitive)
+    * [A-Z] indica que los caracteres admitidos son letras del alfabeto
+    * + indica que los caracteres dentro de los corchetes se pueden repetir
+    * $ indica que el patrón finaliza con los caracteres que están dentro de los corchetes.
+    * i indica que validaremos letras mayúsculas y minúsculas (case-insensitive)
     */
   const validate = values => {
     let errors = {};
     // validate firstName
     if (!values.firstName) {
-      errors.firstName = 'Campo requerido';
+      errors.firstName = 'Campo requerido'
     } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(values.firstName)) {
       errors.firstName = 'El campo sólo acepta letras y espcios'
     } else if (values.firstName.length < 3) {
@@ -50,13 +44,10 @@ export default function FormEdit({ checkDates, cart, envio, handleOnChange, form
 
     // validate lastName
     if (!values.lastName) {
-      errors.lastName = 'Campo requerido';
-    }
-    // else if (!/^[A-Z]+$/i.test(values.lastName)) {
-    else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(values.lastName)) {
+      errors.lastName = 'Campo requerido'
+    } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(values.lastName)) {
       errors.lastName = 'El campo sólo acepta letras y espcios'
-    }
-    else if (values.lastName.length > 20) {
+    } else if (values.lastName.length > 20) {
       errors.lastName = 'Debe tener 15 caracteres o menos';
     }
 
@@ -64,37 +55,31 @@ export default function FormEdit({ checkDates, cart, envio, handleOnChange, form
     if (!values.email) {
       errors.email = 'Campo requerido';
     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-      errors.email = 'Dirección de email inválida';
+      errors.email = 'Dirección de email inválida'
     }
 
     // validate phoneNumber
     if (!values.phone) {
-      errors.phone = 'Campo requerido';
-    }
-    else if (!/^[0-9]+$/.test(values.phone)) {
+      errors.phone = 'Campo requerido'
+    } else if (!/^[0-9]+$/.test(values.phone)) {
       errors.phone = 'El teléfono debe sólo números'
-    }
-    else if (values.phone.length > 10) {
+    } else if (values.phone.length > 10) {
       errors.phone = 'El número de teléfono debe tener 10 caracteres';
     }
-
     return errors;
   }
 
   const onSubmit = (values, { resetForm }) => {
-    console.log('form data', values);
-    resetForm();
+    console.log('form data', values)
+    resetForm()
     setformSubmit(true)
     envio()
-    
   }
 
   const formik = useFormik({
     initialValues,
     onSubmit,
     validate,
-
-
   });
 
   return (
@@ -102,8 +87,6 @@ export default function FormEdit({ checkDates, cart, envio, handleOnChange, form
 
       <section className='ditailBuy'>
         <h1>Detalles de tu pedido</h1>
-
-        {/* Vista de checkout */}
 
         <Table striped bordered hover size="sm" className="bg-light border" responsive>
           <thead>
@@ -116,20 +99,17 @@ export default function FormEdit({ checkDates, cart, envio, handleOnChange, form
           </thead>
           <tbody>
 
-            {/* acá va ir un componente armado arriba */}
-            {/* <listCheck /> */}
-
-            {/* <tr> */}
-            {accessContext.itemsCart.map((i) => {
-              return (
-                <tr className='rowSpace'>
-                  <><td style={{ textAlign: "left" }} colSpan={3}>Camiseta {i.nam}</td>
-                    <td className="text-center">{i.quantity}</td>
-                    <td className="text-center">{checkDates.priceFormat.format(i.price)}</td>
-                    <td className="text-center">{checkDates.priceFormat.format(i.price * i.quantity)}</td></>
-                </tr>
-              )
-            })
+            {
+              accessContext.itemsCart.map((i) => {
+                return (
+                  <tr className='rowSpace'>
+                    <><td style={{ textAlign: "left" }} colSpan={3}>Camiseta {i.nam}</td>
+                      <td className="text-center">{i.quantity}</td>
+                      <td className="text-center">{checkDates.priceFormat.format(i.price)}</td>
+                      <td className="text-center">{checkDates.priceFormat.format(i.price * i.quantity)}</td></>
+                  </tr>
+                )
+              })
             }
 
             <tr className='space'>
@@ -162,11 +142,9 @@ export default function FormEdit({ checkDates, cart, envio, handleOnChange, form
             </tr>
           </tfoot>
         </Table>
-
       </section>
 
       <section>
-
         <Form onSubmit={formik.handleSubmit} onChange={handleOnChange}>
           <Row className="mb-3">
             <Form.Group as={Col} md="3" className="mb-3" >
@@ -229,21 +207,16 @@ export default function FormEdit({ checkDates, cart, envio, handleOnChange, form
           <Row className="mb-3 mt-3">
             <Form.Group as={Col} md="6" className='mb-6' >
               <Form.Text>
-                <Button type="submit"  className='btnSubmit' disabled={!formik.isValid}>Confirmar compra</Button>
+                <Button type="submit" className='btnSubmit' disabled={!formik.isValid}>Confirmar compra</Button>
               </Form.Text>
             </Form.Group>
           </Row>
           <Row>
             <Form.Group as={Col} md='6' className='mb-6'>
-            {formSubmit && <Alert variant='success'><p>¡Tu compra fue registrada con éxito!</p><p>Código de pedido: {Id}</p></Alert>}
-            
+              {formSubmit && <Alert variant='success'><p>¡Tu compra fue registrada con éxito!</p><p>Código de pedido: {Id}</p></Alert>}
             </Form.Group>
           </Row>
-
-
-         
         </Form>
-
       </section>
     </Container>
   );
