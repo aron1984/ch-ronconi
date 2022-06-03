@@ -15,7 +15,9 @@ export default function CartProvider({ children }) {
     const [itemsCart, setitemsCart] = useState([])
     const [cartPrice, setcartPrice] = useState(0)
 
-    // const addItem = (id, counter, price) => {
+    const [buyer, setbuyer] = useState({})
+    
+    
     // Agregué más parámetros para obtener la imagen y descripcion.
     // CONSULTA: debería crear pasar un objeto con esas características?
     const addItem = (id, counter, price, url, nam) => {
@@ -92,11 +94,86 @@ export default function CartProvider({ children }) {
     //     sumPriceTot: sumPriceTot
     // }
 
+
+    // submit order
+
+    // const initialValues = {
+    //     firstName: '',
+    //     lastName: '',
+    //     email: '',
+    //     phone: ''
+    // }
+
+    // const validate = values => {
+    //     const errors = {};
+    //     // validate firstName
+    //     if (!values.firstName) {
+    //         errors.firstName = 'Campo requerido';
+    //     }
+    //     /**
+    //      * ^ indica que el patrón debe iniciar con los caracteres dentro de los corchetes
+      
+    //     * [A-Z] indica que los caracteres admitidos son letras del alfabeto
+      
+    //     * + indica que los caracteres dentro de los corchetes se pueden repetir
+      
+    //     * $ indica que el patrón finaliza con los caracteres que están dentro de los corchetes.
+      
+    //     * i indica que validaremos letras mayúsculas y minúsculas (case-insensitive)
+    //      */
+    //     else if (!/^[A-Z]+$/i.test(values.firstName)) {
+    //         errors.firstName = 'El nombre no debe contener números y/o carácteres especiales'
+    //     }
+    //     else if (values.firstName.length < 3) {
+    //         errors.firstName = 'Nombre demasiado corto'
+    //     }
+
+    //     else if (values.firstName.length > 15) {
+    //         errors.firstName = 'Debe tener 15 caracteres o menos';
+    //     }
+
+    //     // validate lastName
+    //     if (!values.lastName) {
+    //         errors.lastName = 'Campo requerido';
+    //     }
+    //     else if (!/^[A-Z]+$/i.test(values.lastName)) {
+    //         errors.lastName = 'El nombre no debe contener números y/o carácteres especiales'
+    //     }
+    //     else if (values.lastName.length > 20) {
+    //         errors.lastName = 'Debe tener 15 caracteres o menos';
+    //     }
+
+    //     // validate email
+    //     if (!values.email) {
+    //         errors.email = 'Campo requerido';
+    //     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+    //         errors.email = 'Dirección de email inválida';
+    //     }
+
+    //     // validate phoneNumber
+    //     if (!values.phone) {
+    //         errors.phone = 'Campo requerido';
+    //     }
+    //     else if (!/^[0-9]+$/.test(values.phone)) {
+    //         errors.phone = 'El teléfono debe sólo números'
+    //     }
+    //     else if (values.phone.length > 10) {
+    //         errors.phone = 'El número de teléfono debe tener 10 caracteres';
+    //     }
+
+    //     return errors;
+    // }
+
+ 
+
+
     return (
 
         <>
 
-            <CartContext.Provider value={{ itemsCart, cartPrice, addItem, removeItem, isInCart, totalCountProduct, clear, sumPriceTot }}>
+            <CartContext.Provider value={{ itemsCart, cartPrice, addItem, removeItem, isInCart, totalCountProduct, clear, sumPriceTot,
+                //  initialValues, validate,
+                   buyer, setbuyer }}>
 
                 {children}
 

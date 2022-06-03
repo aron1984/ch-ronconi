@@ -1,37 +1,74 @@
-.cartContainer{
+.cartContainer {
+    /* border: 1px solid #20232a; */
+    /* background-color: #20232a; */
+    color: rgb(240, 240, 240);
+    width: 20%;
+    padding-right: 8rem;
     float: right;
-    display: flex;                      
-    flex-direction: row;                /*para indicar la dirección que se van a desplegar los hijos*/
-    justify-content: space-between;      /*para justificar horizontalmente*/
-    align-items: center;                /*para centra verticalmente los div*/
+    display: flex;
+    flex-direction: row;
+    /*para indicar la dirección que se van a desplegar los hijos*/
+    justify-content: end;
+    /*para justificar horizontalmente*/
+    align-items: center;
+    /*para centra verticalmente los div*/
+    position: fixed;
+    top: 1rem;
+    right: 0.5rem;
 }
-.cartLeft{
+
+.cartLeft {
     margin-right: 0.2rem;
+   
 }
-.cartCenter{
+
+.cartCenter {
     /* background-color: red; */
     margin-right: 2rem;
 }
 
-.cartContainer div{
-    display: flex;  
+.cartContainer div {
+
+    display: flex;
     margin: 0.2rem;
-                        /*Para indicar como se va a comportar y obedece al padre con flex*/
+    /*Para indicar como se va a comportar y obedece al padre con flex*/
 }
 
-.cartRight{
+.cartRight {
     padding-left: 0.5rem;
-    color:rgb(228, 228, 228);
-    width: 3rem;
+    color: rgb(228, 228, 228);
+    /* width: 3rem; */
 }
 
-.a{
- color:rgb(201, 201, 201);  
+.a {
+    color: rgb(201, 201, 201);
 }
 
-.a :hover{
+.a :hover {
     color: rgb(11, 108, 199);
-    
+
 }
 
+@media (max-width: 375px) {
+    .cartRight {
+        padding-left: 0.5rem;
+        color:  #20232a;
 
+    }
+
+    .cartContainer {
+        position: initial;
+        color:  #20232a;
+        padding-right: 0.5rem;
+
+    }
+    .a {
+        color: #20232a;;
+    }
+    
+    .a :hover {
+        color: rgb(11, 108, 199);
+    
+    }
+
+}

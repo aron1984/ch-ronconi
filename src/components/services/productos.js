@@ -13,4 +13,4 @@ const product = [
     { id: 12, name: 'Pack medias blancas', des: 'Pack de medias x3 blancas', precio: 1999, code: 'cod012', stock: 7 }
 ];
 
-export {product};
+export { product };

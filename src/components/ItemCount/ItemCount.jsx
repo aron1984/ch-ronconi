@@ -1,11 +1,10 @@
 // @ts-check
-import React, { useState, useContext } from 'react';
-import './ItemCount.css';
+import React, { useContext, useState } from 'react';
 import { Button } from 'react-bootstrap';
 
 import { CartContext } from '../../context/CartContext';
-import Item from '../Item/Item';
 
+import './ItemCount.css';
 
 export default function ItemCount({ id, stock, initial, cCart, price, url, name }) {
 

@@ -1,13 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { Button, Container, Table } from 'react-bootstrap'
-import { Link } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { Button, Container, Table } from 'react-bootstrap';
 
-//import context
-import { CartContext } from '../../context/CartContext'
-import CartDetailCheckOut from '../CartDetailCheckOut/CartDetailCheckOut'
-import NotProducts from '../messages/NotProducts/NotProducts'
+import { CartContext } from '../../context/CartContext';
+import CartDetailCheckOut from '../CartDetailCheckOut/CartDetailCheckOut';
+import NotProducts from '../messages/NotProducts/NotProducts';
 
-import './Cart.css'
+import './Cart.css';
 
 export default function Cart() {
 
@@ -88,6 +86,10 @@ export default function Cart() {
     )
     // <Container><h2>No hay productos en el carro</h2></Container>
   }
+
+
+  
+
   return (
 
     <>
@@ -101,7 +103,7 @@ export default function Cart() {
               <h1>Tu carro de compras</h1>
             </header>
 
-            <Table striped bordered hover variant="dark">
+            <Table striped bordered hover variant="dark" responsive>
               <thead>
                 <tr>
                   <th className="text-center">ID</th>

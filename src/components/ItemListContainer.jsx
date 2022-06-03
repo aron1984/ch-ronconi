@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import './ItemListContainer.css';
-import '././services/promesa'
-import ItemList from './ItemList/ItemList';
-import { Spinner } from 'react-bootstrap';
-
 import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore';
-
+import React, { useEffect, useState } from 'react';
+import { Spinner } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
+
+import ItemList from './ItemList/ItemList';
+
+import '././services/promesa';
+import './ItemListContainer.css';
 
 export default function ItemListContainer() {
 

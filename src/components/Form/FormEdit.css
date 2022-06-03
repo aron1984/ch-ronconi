@@ -1,0 +1,18 @@
+.btnSubmit{
+    width: 100%;
+    
+}
+
+
+.space{
+    height: 3rem;
+    /* background-color: red; */
+}
+
+.rowSpace{
+    height: 4rem;
+    vertical-align: middle;
+}
+.row{
+justify-content: center;
+}

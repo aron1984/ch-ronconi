@@ -3,6 +3,22 @@
 
 Proyecto de comercio e-comerce con REACT para Coder House Bootcamp.
 
+Steps:
+
+1- git clone
+
+2- npm install 
+
+Ocional si hay alguna dependencia de validadción, iría acá
+
+3- npm start
+
+Características del proyecto
+
+Decisiones sobre estructura
+
+Vide de funcionamiento, mostrando FIREBASE como agrega
+
 ## Appendix
 
 El proyecto está cuenta con

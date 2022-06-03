@@ -86,3 +86,10 @@ header {
   justify-content: space-around;
 } */
 
+@media (max-width:375px) {
+  html{
+    width: 100vw;
+    overflow-x: hidden;
+  }
+}
+

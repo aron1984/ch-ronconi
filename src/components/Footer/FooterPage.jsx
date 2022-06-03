@@ -1,4 +1,5 @@
 import React from 'react';
+
 import './FooterPage.css';
 
 export default function FooterPage() {

@@ -1,15 +1,14 @@
-import React, { useContext, useState } from 'react'
-import { Link } from 'react-router-dom';
-import ItemCount from '..//ItemCount/ItemCount';
-import './ItemDetail.css';
-import { BsArrowReturnLeft, BsAward, BsCheck2Circle } from 'react-icons/bs';
+import React, { useContext, useState } from 'react';
+import { Button, Card, Container, ListGroup } from 'react-bootstrap';
 import { BiCheckShield } from 'react-icons/bi';
-import { Container, Card, ListGroup, Button } from 'react-bootstrap'
-import { FaCcVisa, FaCcMastercard, FaCcPaypal, FaCcApplePay, FaCcAmazonPay } from 'react-icons/fa';
-import { BsFillCreditCard2FrontFill } from 'react-icons/bs';
+import { BsArrowReturnLeft, BsAward, BsCheck2Circle, BsFillCreditCard2FrontFill } from 'react-icons/bs';
+import { FaCcAmazonPay, FaCcApplePay, FaCcMastercard, FaCcPaypal, FaCcVisa } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 import { CartContext } from '../../context/CartContext';
+import ItemCount from '..//ItemCount/ItemCount';
 
+import './ItemDetail.css';
 
 export default function ItemDetail({ id, item }) {
 
@@ -58,7 +57,7 @@ export default function ItemDetail({ id, item }) {
         <div className='mainImage'>
           <img className='imgM' alt="" src={item.url} />
         </div>
-        <div style={{ width: '30%' }}>
+        <div className='containerSidebar'>
 
           <Card className='sidebarRight' >
             <Card.Body>
