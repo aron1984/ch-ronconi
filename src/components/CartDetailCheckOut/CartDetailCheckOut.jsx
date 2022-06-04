@@ -49,7 +49,7 @@ export default function CartDetailCheckOut({ cart, checkDates }) {
 
             checkDates.setCheckOut(false)
             checkDates.clear()  
-
+            // setFormSubmit(true)
         }, 10000)
         
     }

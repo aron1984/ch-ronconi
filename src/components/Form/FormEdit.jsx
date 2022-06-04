@@ -7,12 +7,9 @@ import { CartContext } from '../../context/CartContext'
 
 import './FormEdit.css'
 
-export default function FormEdit({ checkDates, envio, handleOnChange, formSubmit, setformSubmit, Id }) {
+export default function FormEdit({ checkDates, envio, handleOnChange, formSubmit, setFormSubmit, Id }) {
 
   const accessContext = useContext(CartContext)
-  // Pass the useFormik() hook initial form values, a validate function that will be called when
-  // form values change or fields are blurred, and a submit function that will
-  // be called when the form is submitted
 
   const initialValues = {
     firstName: '',
@@ -72,7 +69,7 @@ export default function FormEdit({ checkDates, envio, handleOnChange, formSubmit
   const onSubmit = (values, { resetForm }) => {
     console.log('form data', values)
     resetForm()
-    setformSubmit(true)
+    setFormSubmit(true)
     envio()
   }
 

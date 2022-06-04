@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import { MdShoppingCart } from 'react-icons/md';
 import { Link } from 'react-router-dom';
+
 // import del contexto
-import { CartContext } from '../context/CartContext';
+import { CartContext } from '../../context/CartContext';
+
 import './CartWidget.css';
-
-
 
 export default function CartWidget() {
 

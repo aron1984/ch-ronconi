@@ -41,13 +41,12 @@ export default function Cart() {
     setCheckOut(true)
   }
 
-  // Obtengo la cantidad de productos en el carro, pero como inicié con un objeto seteado en 0, le resto 1.
   let count = Object.keys(accessContext.itemsCart).length;
   let quantyPrice = accessContext.itemsCart.map((i) => i.price * i.quantity).reduce((prev, curr) => prev + curr, 0);
 
   let quantyCount = accessContext.itemsCart.map((i) => i.quantity).reduce((prev, curr) => prev + curr, 0);
 
-  //AGREGANDO PRECIO DE ENVÍO, o ENVÍO GRATIS CON 4 O MÁS PRODUCTOS
+  //AGREGANDO PRECIO DE ENVÍO, o ENVÍO GRATIS al comprar por más de $20.000
   let shippingHandle = quantyPrice > 20000 ? 0 : 1599;
 
   let totalPay = (shippingHandle + accessContext.cartPrice)
@@ -55,35 +54,50 @@ export default function Cart() {
   const priceFormat = new Intl.NumberFormat('es-ar', { style: 'currency', currency: 'ARS', minimumFractionDigits: 2 });
 
   const checkDates = {
-    setCartDetail:setCartDetail,
-    
+    setCartDetail: setCartDetail,
+
     totalPay: totalPay,
     shippingHandle: shippingHandle,
     quantyPrice: quantyPrice,
     count: count,
     quantyCount: quantyCount,
     priceFormat: priceFormat,
-    setCheckOut:setCheckOut,
-    clear:accessContext.clear,
+    setCheckOut: setCheckOut,
+    clear: accessContext.clear,
   }
 
-  // Implementar un RETURN RÁPIDO si no hay productos
-
+  // Implementa un RETURN RÁPIDO si no hay productos
   if (count === 0) {
-
-    // Consulta: este mensaje podría ser un COMPONENTE PURO, y así darle estilos.
     return (
       <NotProducts />
     )
-    // <Container><h2>No hay productos en el carro</h2></Container>
+
   }
 
+  const cartRender = accessContext.itemsCart.map((x, index) => {
 
-  
+
+    if (x.id === 0) {
+      return <></>
+    }
+
+    return (
+
+      <tr key={x.id} id={x.id}>
+        <td className="text-center">{x.id}</td>
+        <td className="text-center"><img className='imgCartShip' alt="" src={x.url} /></td>
+        <td className="text-center">{x.nam}</td>
+        <td className="text-center">{x.quantity}</td>
+        <td className="text-center">{priceFormat.format(x.price)}</td>
+        <td className="text-center">{priceFormat.format(x.price * x.quantity)}</td>
+        <td className="text-center"><Button className='btnDelet' size="sm" variant="danger" onClick={() => accessContext.removeItem(x.id)}>Eliminar</Button></td>
+      </tr>
+
+    )
+  })
 
   return (
-
-    <>
+ 
       <Container className='containerCart'>
         {!checkOut &&
           <div >
@@ -108,29 +122,9 @@ export default function Cart() {
               <tbody>
                 {/* Esto va ser lo que vamos a iterar en lo que tengamos en el carro guardado */}
 
-                {accessContext.itemsCart.map((x) => {
+                {cartRender}
 
-                  // para evitar que el producto vacío se renderice el producto vacío, prevenimos diciendo que
-                  // si aparece un x.id (un producto con ese id, que así lo setié en el CartContext como INITIAL_STATE)
-                  if (x.id === 0) {
-                    return <></>
-                  }
-
-                  return (
-                    <>
-                      <tr>
-                        <td className="text-center">{x.id}</td>
-                        <td className="text-center"><img className='imgCartShip' alt="" src={x.url} /></td>
-                        <td className="text-center">{x.nam}</td>
-                        <td className="text-center">{x.quantity}</td>
-                        <td className="text-center">{priceFormat.format(x.price)}</td>
-                        <td className="text-center">{priceFormat.format(x.price * x.quantity)}</td>
-                        <td className="text-center"><Button className='btnDelet' size="sm" variant="danger" onClick={() => accessContext.removeItem(x.id)}>Eliminar</Button></td>
-                      </tr>
-                    </>
-                  )
-                })
-                }
+               
 
               </tbody>
 
@@ -147,11 +141,10 @@ export default function Cart() {
                 <tr>
 
                   {/* Con este, configuro si está accediendo al ENVIO GRATIS cuando tiene 4 o más productos distintos */}
-                  <th colSpan={5}>ENVÍO {count >= 4 ? <span className='free'>GRATIS</span> : ""}</th>
+                  <th colSpan={5}>ENVÍO {shippingHandle === 0 ? <span className='free'>GRATIS</span> : ""}</th>
+                 {/* <th colSpan={5}>ENVÍO {count >= 4 ? <span className='free'>GRATIS</span> : ""}</th> */}
                   <th className="text-center" colSpan={2} >{priceFormat.format(shippingHandle)}</th>
                 </tr>
-
-
               </tfoot>
 
             </Table>
@@ -174,25 +167,22 @@ export default function Cart() {
 
 
 
-          
+
           </div>
 
         }
-      {
+        {
 
-        checkOut &&
+          checkOut &&
 
-        <CartDetailCheckOut 
-        cart={cartDetail} 
-        checkDates={checkDates}
-         />
+          <CartDetailCheckOut
+            cart={cartDetail}
+            checkDates={checkDates}
+          />
 
-      }
-      
-    </Container>
-    </>
+        }
 
-
+      </Container>
 
   )
 }

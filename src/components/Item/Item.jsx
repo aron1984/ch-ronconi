@@ -23,7 +23,7 @@ export default function Item(props) {
           <Card.Body className="cardEdit">
 
             <div className='imgList'>
-              <Card.Img classname="imgList" src={props.prod.url} />
+              <Card.Img className="imgList" src={props.prod.url} />
             </div>
 
             <Card.Text style={{ fontSize: 12, textAlign: 'center', textTransform: 'uppercase' }}>

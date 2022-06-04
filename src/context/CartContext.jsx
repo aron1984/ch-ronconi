@@ -1,12 +1,16 @@
 // @ts-check
 import React, { createContext, useState } from 'react'
 
+import { useLocalStorage } from './useLocalStorage'
+
 export const CartContext = createContext(undefined);
 
 
 export default function CartProvider({ children }) {
 
-    const [itemsCart, setItemsCart] = useState([])
+    // const [itemsCart, setItemsCart] = useState([])
+
+    const [itemsCart, setItemsCart] = useLocalStorage([])
     const [cartPrice, setCartPrice] = useState(0)
 
     const [buyer, setBuyer] = useState({})
@@ -19,7 +23,10 @@ export default function CartProvider({ children }) {
             return
         }
 
-        setItemsCart([...itemsCart, { id: id, quantity: counter, price: price, url: url, nam: nam }])
+        const allItems = [...itemsCart, { id: id, quantity: counter, price: price, url: url, nam: nam }]
+        // setItemsCart([...itemsCart, { id: id, quantity: counter, price: price, url: url, nam: nam }])
+        setItemsCart(allItems)
+        
 
         console.log(itemsCart)
 
@@ -66,7 +73,9 @@ export default function CartProvider({ children }) {
     return (
         <>
             <CartContext.Provider value={{
-                itemsCart, cartPrice, addItem, removeItem, isInCart, totalCountProduct, clear, sumPriceTot,
+                itemsCart, cartPrice,
+                addItem, removeItem, isInCart, clear,
+                totalCountProduct, sumPriceTot,
                 buyer, setBuyer
             }}>
                 {children}
