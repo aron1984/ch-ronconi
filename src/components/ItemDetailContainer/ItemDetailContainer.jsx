@@ -40,12 +40,12 @@ export default function ItemDetailContainer() {
 
     //Render
     return (
-        <>
+        
             <div className='mainDetailContainer'>
                 {loading && <LoadingSpinner />}
 
                 {loading || <ItemDetail id={id} item={item} />}
             </div>
-        </>
+        
     )
 }
