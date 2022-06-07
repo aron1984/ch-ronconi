@@ -1,5 +1,6 @@
 import { addDoc, collection, getFirestore } from 'firebase/firestore';
 import React, { useContext, useState } from 'react';
+import { Link } from 'react-router-dom'
 
 // import { CartContext } from 'react-bootstrap';
 import { CartContext } from '../../context/CartContext';
@@ -11,7 +12,6 @@ import './CartDetailCheckOut.css';
 
 export default function CartDetailCheckOut() {
 
-    // { cart, 
     const accessContext = useContext(CartContext)
 
     const buyer = accessContext.buyer
@@ -27,7 +27,7 @@ export default function CartDetailCheckOut() {
             ...buyer,
             [event.target.name]: event.target.value
         })
-        console.log(event)
+
     }
 
     const envio = (e) => {
@@ -49,7 +49,7 @@ export default function CartDetailCheckOut() {
         setTimeout(() => {
             setShow(show)
 
-        }, 3000)
+        }, 1000)
 
         setTimeout(() => {
 
@@ -74,22 +74,31 @@ export default function CartDetailCheckOut() {
         clear: accessContext.clear,
     }
 
-    return (
-        <>
-            {accessContext.cartDetail &&
-                <FormEdit
-                    checkDates={checkDates}
-                    envio={envio}
-                    handleOnChange={handleOnChange}
-                    formSubmit={formSubmit}
-                    setFormSubmit={setFormSubmit}
-                    Id={Id}
-                />
-            }
-        </>
+    // Para acceder a esta ruta, hay que pasar por el carrito de compras, de lo contrario no se muestra
 
+    if (accessContext.cartDetail) {
+        return (
+            <FormEdit
+                checkDates={checkDates}
+                envio={envio}
+                handleOnChange={handleOnChange}
+                formSubmit={formSubmit}
+                setFormSubmit={setFormSubmit}
+                Id={Id}
+            />
+        )
+    }
+
+    return (
+        <div>
+            <p>¡Para acceder a esta sección debes pasar por carrito de compras, y confirmar los productos!</p>
+            <Link to={'/'}>
+                <p>Volver al inicio</p>
+            </Link>
+        </div>
 
     )
+
 
 
 }

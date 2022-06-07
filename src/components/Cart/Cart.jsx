@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Button, Container, Table } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
@@ -46,18 +46,6 @@ export default function Cart() {
   }
 
   const count = Object.keys(accessContext.itemsCart).length;
-
-
-  // const checkDates = {
-  //   setCartDetail: setCartDetail,
-  //   totalPay: accessContext.totalPay,
-  //   shippingHandle: accessContext.shippingHandle,
-  //   getQuantyPrice: accessContext.getQuantyPrice,
-  //   getQuantyCount: accessContext.getQuantyCount,
-  //   count: count,
-  //   setCheckOut: setCheckOut,
-  //   clear: accessContext.clear,
-  // }
 
   // Implementa un RETURN RÁPIDO si no hay productos
   if (count === 0) {

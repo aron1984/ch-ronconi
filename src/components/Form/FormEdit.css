@@ -20,6 +20,11 @@ justify-content: center;
     /* width: 50%; */
     margin: 6rem;
 }
+.msjCode{
+    border: 1px solid #20232aa9;
+    margin-top: 2rem;
+    padding: 1rem;
+}
 
 @media (max-width: 375px) {
     .msjChechOut{
