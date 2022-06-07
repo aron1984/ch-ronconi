@@ -8,27 +8,22 @@ export const CartContext = createContext(undefined);
 
 export default function CartProvider({ children }) {
 
-    // const [itemsCart, setItemsCart] = useState([])
-
     const [itemsCart, setItemsCart] = useLocalStorage([])
     const [cartPrice, setCartPrice] = useState(0)
-
     const [buyer, setBuyer] = useState({})
+    
+    const [cartDetail, setCartDetail] = useState()
+    const [checkOut, setCheckOut] = useState(false)
 
     const addItem = (id, counter, price, url, nam) => {
 
         if (isInCart(id)) {
-            console.log("Ops!: el produco ya fue agregado")
-            console.log(itemsCart)
+            // console.log("Ops!: el produco ya fue agregado")
             return
         }
 
         const allItems = [...itemsCart, { id: id, quantity: counter, price: price, url: url, nam: nam }]
-        // setItemsCart([...itemsCart, { id: id, quantity: counter, price: price, url: url, nam: nam }])
         setItemsCart(allItems)
-        
-
-        console.log(itemsCart)
 
     }
 
@@ -70,13 +65,36 @@ export default function CartProvider({ children }) {
         setCartPrice(sumTot)
     }
 
+
+    const getQuantyPrice = () => {
+
+        let quantity = itemsCart.map((i) => i.price * i.quantity).reduce((prev, curr) => prev + curr, 0);
+
+        return quantity
+
+    }
+
+    const getQuantyCount = () => {
+
+        const quantyCount = itemsCart.map((i) => i.quantity).reduce((prev, curr) => prev + curr, 0);
+
+        return quantyCount
+
+    }
+
+    const shippingHandle = getQuantyPrice() > 20000 ? 0 : 1599;
+    const totalPay = (shippingHandle + cartPrice)
+
     return (
         <>
             <CartContext.Provider value={{
                 itemsCart, cartPrice,
+                buyer, setBuyer,
+                checkOut, setCheckOut,
+                cartDetail, setCartDetail,
+                shippingHandle, totalPay,
                 addItem, removeItem, isInCart, clear,
-                totalCountProduct, sumPriceTot,
-                buyer, setBuyer
+                totalCountProduct, sumPriceTot, getQuantyPrice, getQuantyCount
             }}>
                 {children}
             </CartContext.Provider>

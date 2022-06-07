@@ -60,6 +60,7 @@
 
 .detail span{
     font-weight: bold;
+    margin-left: 0.5rem;
     color: rgb(0, 81, 255, 0.6);
 }
 

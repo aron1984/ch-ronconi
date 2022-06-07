@@ -9,12 +9,11 @@ import './ItemListContainer.css'
 
 export default function ItemListContainer() {
 
-  const { id } = useParams();
-  //useStates (puede haber varios)
+  const { id } = useParams()
 
-  const [producto, setproducto] = useState([]);
-  const [loading, setloading] = useState(false);
-  const [error, seterror] = useState("");
+  const [producto, setproducto] = useState([])
+  const [loading, setloading] = useState(false)
+  const [error, seterror] = useState("")
 
   //useEffect
 
@@ -55,13 +54,10 @@ export default function ItemListContainer() {
 
   //manejo de error temprano
   if (error) {
-    return <>NO SE PUEDEN CARGAR LOS PRODUCTOS</>
+    return <h1>NO SE PUEDEN CARGAR LOS PRODUCTOS</h1>
   }
 
-  //Render
   return (
-    <>
-      {/* {loading && <div className='spinner'><Spinner animation="border" size="lg" className='loading' /></div>} */}
 
       <div className='container items'>
         <section>
@@ -73,6 +69,6 @@ export default function ItemListContainer() {
           </div>
         </section>
       </div>
-    </>
+    
   )
 }

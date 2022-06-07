@@ -18,6 +18,9 @@ export default function FormEdit({ checkDates, envio, handleOnChange, formSubmit
     phone: ''
   }
 
+  const priceFormat = new Intl.NumberFormat('es-ar', { style: 'currency', currency: 'ARS', minimumFractionDigits: 2 });
+
+
 
   /**
     * ^ indica que el patrón debe iniciar con los caracteres dentro de los corchetes
@@ -80,141 +83,182 @@ export default function FormEdit({ checkDates, envio, handleOnChange, formSubmit
   });
 
   return (
-    <Container style={{ marginBottom: 70 }}>
 
-      <section className='ditailBuy'>
-        <h1>Detalles de tu pedido</h1>
+    <>
 
-        <Table striped bordered hover size="sm" className="bg-light border" responsive>
-          <thead>
-            <tr className='rowSpace'>
-              <th className="text-center" colSpan={3}>Producto</th>
-              <th className="text-center">Cantidad</th>
-              <th className="text-center">Precio Unitario</th>
-              <th className="text-center">Total</th>
-            </tr>
-          </thead>
-          <tbody>
+      <Container style={{ marginBottom: 70, marginTop: 50 }}>
+        {!formSubmit &&
+          <>
+            <section className='ditailBuy'>
+              <h1>Detalles de tu pedido</h1>
 
-            {
-              accessContext.itemsCart.map((i) => {
-                return (
+              <Table striped bordered hover size="sm" className="bg-light border" responsive>
+                <thead>
                   <tr className='rowSpace'>
-                    <><td style={{ textAlign: "left" }} colSpan={3}>Camiseta {i.nam}</td>
-                      <td className="text-center">{i.quantity}</td>
-                      <td className="text-center">{checkDates.priceFormat.format(i.price)}</td>
-                      <td className="text-center">{checkDates.priceFormat.format(i.price * i.quantity)}</td></>
+                    <th className="text-center" colSpan={3}>Producto</th>
+                    <th className="text-center">Cantidad</th>
+                    <th className="text-center">Precio Unitario</th>
+                    <th className="text-center">Total</th>
                   </tr>
-                )
-              })
-            }
+                </thead>
+                <tbody>
 
-            <tr className='space'>
-              <td colSpan={6}></td>
+                  {
+                    accessContext.itemsCart.map((i) => {
+                      return (
+                        <tr className='rowSpace'>
+                          <><td style={{ textAlign: "left" }} colSpan={3}>Camiseta {i.nam}</td>
+                            <td className="text-center">{i.quantity}</td>
+                            <td className="text-center">{priceFormat.format(i.price)}</td>
+                            <td className="text-center">{priceFormat.format(i.price * i.quantity)}</td></>
+                        </tr>
+                      )
+                    })
+                  }
 
-            </tr>
-          </tbody>
+                  <tr className='space'>
+                    <td colSpan={6}></td>
 
-          <tfoot className='footSection'>
-            <tr >
-              <th colSpan={3}>SUBTOTAL</th>
+                  </tr>
+                </tbody>
 
-              <th className="text-center">{checkDates.quantyCount}</th>
+                <tfoot className='footSection'>
+                  <tr >
+                    <th colSpan={3}>SUBTOTAL</th>
 
-              <th className="text-center">{checkDates.count} {checkDates.count === 0 ? "" : checkDates.count > 1 ? " productos" : " poducto"}</th>
-              <th className="text-center" colSpan={2}>{checkDates.priceFormat.format(checkDates.quantyPrice)}</th>
-            </tr>
+                    <th className="text-center">{checkDates.getQuantyCount()}</th>
 
-            <tr >
+                    <th className="text-center">{checkDates.count} {checkDates.count === 0 ? "" : checkDates.count > 1 ? " productos" : " poducto"}</th>
+                    <th className="text-center" colSpan={2}>{priceFormat.format(checkDates.getQuantyPrice())}</th>
+                  </tr>
 
-              <th colSpan={5}>ENVÍO {checkDates.count >= 4 ? <span className='free'>GRATIS</span> : ""}</th>
-              <th className="text-center" colSpan={2} >
-                {checkDates.priceFormat.format(checkDates.shippingHandle)}
+                  <tr >
 
-              </th>
-            </tr>
-            <tr className='totalRow'>
-              <th colSpan={5} >MONTO TOTAL</th>
-              <th className="text-center" colSpan={2} >{checkDates.priceFormat.format(checkDates.totalPay)}</th>
-            </tr>
-          </tfoot>
-        </Table>
-      </section>
+                    <th colSpan={5}>ENVÍO {accessContext.shippingHandle === 0 ? <span className='free'>GRATIS</span> : ""}</th>
+                    <th className="text-center" colSpan={2} >
+                      {priceFormat.format(checkDates.shippingHandle)}
 
-      <section>
-        <Form onSubmit={formik.handleSubmit} onChange={handleOnChange}>
-          <Row className="mb-3">
-            <Form.Group as={Col} md="3" className="mb-3" >
-              <Form.Label htmlFor="firstName">Nombre</Form.Label>
-              {/* <label htmlFor="firstName">First Name</label> */}
-              <Form.Control
-                id="firstName"
-                name="firstName"
-                type="text"
-                onChange={formik.handleChange}
-                value={formik.values.firstName}
-                onBlur={formik.handleBlur}
-              />
-              {formik.touched.firstName && formik.errors.firstName ? <div style={{ color: 'red' }}>{formik.errors.firstName}</div> : null}
-            </Form.Group>
+                    </th>
+                  </tr>
+                  <tr className='totalRow'>
+                    <th colSpan={5} >MONTO TOTAL</th>
+                    <th className="text-center" colSpan={2} >{priceFormat.format(checkDates.totalPay)}</th>
+                  </tr>
+                </tfoot>
+              </Table>
+            </section>
 
-            <Form.Group as={Col} md="3" className="mb-3" >
-              <Form.Label htmlFor="lastName">Apellido</Form.Label>
-              <Form.Control
-                id="lastName"
-                name="lastName"
-                type="text"
-                onChange={formik.handleChange}
-                value={formik.values.lastName}
-                onBlur={formik.handleBlur}
-              />
-              {formik.touched.lastName && formik.errors.lastName ? <div style={{ color: 'red' }}>{formik.errors.lastName}</div> : null}
-            </Form.Group>
-          </Row >
-          <Row>
-            <Form.Group as={Col} md="6" className='mb-6'>
-              <Form.Label htmlFor="phone">Número de teléfono</Form.Label>
-              <Form.Control
-                id="phone"
-                name="phone"
-                type="text"
-                placeholder='Ej: 3434123456'
-                onChange={formik.handleChange}
-                value={formik.values.phone}
-                onBlur={formik.handleBlur}
-              />
-              {formik.touched.phone && formik.errors.phone ? <div style={{ color: 'red' }}>{formik.errors.phone}</div> : null}
-            </Form.Group>
+            <section>
+              <Form onSubmit={formik.handleSubmit} onChange={handleOnChange}>
+                <Row className="mb-3">
+                  <Form.Group as={Col} md="3" className="mb-3" >
+                    <Form.Label htmlFor="firstName">Nombre</Form.Label>
+                    {/* <label htmlFor="firstName">First Name</label> */}
+                    <Form.Control
+                      id="firstName"
+                      name="firstName"
+                      type="text"
+                      onChange={formik.handleChange}
+                      value={formik.values.firstName}
+                      onBlur={formik.handleBlur}
+                    />
+                    {formik.touched.firstName && formik.errors.firstName ? <div style={{ color: 'red' }}>{formik.errors.firstName}</div> : null}
+                  </Form.Group>
 
-          </Row>
-          <Row>
-            <Form.Group as={Col} md="6" className='mb-6' >
-              <Form.Label htmlFor="email">Email Address</Form.Label>
-              <Form.Control
-                id="email"
-                name="email"
-                type="email"
-                onChange={formik.handleChange}
-                value={formik.values.email}
-                onBlur={formik.handleBlur}
-              />
-              {formik.touched.email && formik.errors.email ? <div style={{ color: 'red' }}>{formik.errors.email}</div> : null}
-            </Form.Group>
-          </Row>
-          <Row className="mb-3 mt-3">
-            <Form.Group as={Col} md="6" className='mb-6' >
-              <Form.Text>
-                <Button type="submit" className='btnSubmit' disabled={!formik.isValid}>Confirmar compra</Button>
-              </Form.Text>
-            </Form.Group>
-          </Row>
-          <Row>
-            <Form.Group as={Col} md='6' className='mb-6'>
-              {formSubmit && <Alert variant='success'><p>¡Tu compra fue registrada con éxito!</p><p>Código de pedido: {Id}</p></Alert>}
-            </Form.Group>
-          </Row>
-        </Form>
-      </section>
-    </Container>
+                  <Form.Group as={Col} md="3" className="mb-3" >
+                    <Form.Label htmlFor="lastName">Apellido</Form.Label>
+                    <Form.Control
+                      id="lastName"
+                      name="lastName"
+                      type="text"
+                      onChange={formik.handleChange}
+                      value={formik.values.lastName}
+                      onBlur={formik.handleBlur}
+                    />
+                    {formik.touched.lastName && formik.errors.lastName ? <div style={{ color: 'red' }}>{formik.errors.lastName}</div> : null}
+                  </Form.Group>
+                </Row >
+                <Row>
+                  <Form.Group as={Col} md="6" className='mb-6'>
+                    <Form.Label htmlFor="phone">Número de teléfono</Form.Label>
+                    <Form.Control
+                      id="phone"
+                      name="phone"
+                      type="text"
+                      placeholder='Ej: 3434123456'
+                      onChange={formik.handleChange}
+                      value={formik.values.phone}
+                      onBlur={formik.handleBlur}
+                    />
+                    {formik.touched.phone && formik.errors.phone ? <div style={{ color: 'red' }}>{formik.errors.phone}</div> : null}
+                  </Form.Group>
+
+                </Row>
+                <Row>
+                  <Form.Group as={Col} md="6" className='mb-6' >
+                    <Form.Label htmlFor="email">Email Address</Form.Label>
+                    <Form.Control
+                      id="email"
+                      name="email"
+                      type="email"
+                      onChange={formik.handleChange}
+                      value={formik.values.email}
+                      onBlur={formik.handleBlur}
+                    />
+                    {formik.touched.email && formik.errors.email ? <div style={{ color: 'red' }}>{formik.errors.email}</div> : null}
+                  </Form.Group>
+                </Row>
+                <Row className="mb-3 mt-3">
+                  <Form.Group as={Col} md="6" className='mb-6' >
+                    <Form.Text>
+                      <Button type="submit" className='btnSubmit' disabled={!formik.isValid}>Confirmar compra</Button>
+                    </Form.Text>
+                  </Form.Group>
+                </Row>
+
+
+
+                {/* <Row>
+                <Form.Group as={Col} md='6' className='mb-6'>
+                  {formSubmit && <Alert variant='success'><p>¡Tu compra fue registrada con éxito!</p><p>Código de pedido: {Id}</p></Alert>}
+                </Form.Group>
+              </Row> */}
+              </Form>
+            </section>
+          </>
+        }
+        {formSubmit &&
+
+          <section>
+            <div className='msjChechOut'>
+
+              {formSubmit &&
+                <Alert variant='success'>
+                  <h6>¡Tu compra registrada con éxito!</h6>
+                  <h6>Código de pedido: </h6>
+                  <div className='msjCode'>
+                    <h5>{Id}</h5>
+
+                  </div>
+                </Alert>}
+
+            </div>
+          </section>
+
+        }
+
+      </Container>
+
+
+
+
+
+      {/* // !formSubmit && 
+        // <div>
+        //   <h2>Gracias por tu compra!</h2>
+        //   <p>Volver a al inicio</p>
+        //   </div> */}
+
+    </>
   );
 };
