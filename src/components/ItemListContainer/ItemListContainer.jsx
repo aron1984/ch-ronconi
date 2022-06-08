@@ -1,16 +1,16 @@
-import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore'
+import { collection, getDocs, query, where } from 'firebase/firestore'
 import React, { useEffect, useState } from 'react'
 import { Spinner } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
 
 import ItemList from '../ItemList/ItemList'
+import { getFirestore } from '../services/firebase'
 
 import './ItemListContainer.css'
 
 export default function ItemListContainer() {
 
   const { id } = useParams()
-
   const [producto, setproducto] = useState([])
   const [loading, setloading] = useState(false)
   const [error, seterror] = useState("")
@@ -66,6 +66,7 @@ export default function ItemListContainer() {
             {
               loading ? <div className='spinner'><Spinner animation="border" size="lg" className='loading' /></div> : <ItemList prod={producto} />
             }
+            
           </div>
         </section>
       </div>

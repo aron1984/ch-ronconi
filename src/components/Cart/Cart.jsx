@@ -135,7 +135,7 @@ export default function Cart() {
 
           <div className='btnCheckOut d-grid gap-2 '>
             <Link to={'/checkout'} >
-              <Button className='btnCH' variant='primary' size='lg' onClick={() => handleCheckOut()}>Go checkout</Button>
+              <Button className='btnCH' variant='primary' size='lg' onClick={() => handleCheckOut()}>FINALIZAR COMPRA</Button>
             </Link>
           </div>
 

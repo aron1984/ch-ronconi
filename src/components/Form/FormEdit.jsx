@@ -2,14 +2,16 @@
 import { useFormik } from 'formik'
 import React, { useContext } from 'react'
 import { Alert, Button, Col, Container, Form, Row, Table } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 import { CartContext } from '../../context/CartContext'
 
 import './FormEdit.css'
 
 export default function FormEdit({ checkDates, envio, handleOnChange, formSubmit, setFormSubmit, Id }) {
-
   const accessContext = useContext(CartContext)
+
+
 
   const initialValues = {
     firstName: '',
@@ -19,8 +21,6 @@ export default function FormEdit({ checkDates, envio, handleOnChange, formSubmit
   }
 
   const priceFormat = new Intl.NumberFormat('es-ar', { style: 'currency', currency: 'ARS', minimumFractionDigits: 2 });
-
-
 
   /**
     * ^ indica que el patrón debe iniciar con los caracteres dentro de los corchetes
@@ -85,9 +85,9 @@ export default function FormEdit({ checkDates, envio, handleOnChange, formSubmit
   return (
 
     <>
-
       <Container style={{ marginBottom: 70, marginTop: 50 }}>
-        {!formSubmit &&
+
+        {formSubmit ? <></> : checkDates.count === 0 ? <></> :
           <>
             <section className='ditailBuy'>
               <h1>Detalles de tu pedido</h1>
@@ -149,6 +149,7 @@ export default function FormEdit({ checkDates, envio, handleOnChange, formSubmit
             </section>
 
             <section>
+              <h1>Datos de facturación</h1>
               <Form onSubmit={formik.handleSubmit} onChange={handleOnChange}>
                 <Row className="mb-3">
                   <Form.Group as={Col} md="3" className="mb-3" >
@@ -228,23 +229,36 @@ export default function FormEdit({ checkDates, envio, handleOnChange, formSubmit
           </>
         }
         {formSubmit &&
+          <>
+            <section>
+              <div className='msjChechOut'>
 
-          <section>
-            <div className='msjChechOut'>
+                {formSubmit &&
+                  <Alert variant='success'>
+                    <h6>¡Gracias por tu compra!</h6>
+                    <h6>¡Fue registrada con éxito!</h6>
+                    <h6>Código de pedido: </h6>
+                    <div className='msjCode'>
+                      <h5>{Id}</h5>
 
-              {formSubmit &&
-                <Alert variant='success'>
-                  <h6>¡Tu compra registrada con éxito!</h6>
-                  <h6>Código de pedido: </h6>
-                  <div className='msjCode'>
-                    <h5>{Id}</h5>
+                    </div>
+                  </Alert>}
 
-                  </div>
-                </Alert>}
+                <div className="d-grid gap-2">
+                  <p>Visita nuestro catálogo para seguir comprando</p>
+                  <Link to={'/'}>
+                    <Button>VER CATÁLOGO</Button>
+                  </Link>
 
-            </div>
-          </section>
 
+                </div>
+
+
+              </div>
+            </section>
+
+
+          </>
         }
 
       </Container>

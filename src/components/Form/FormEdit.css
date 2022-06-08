@@ -1,41 +1,44 @@
-.btnSubmit{
+.btnSubmit {
     width: 100%;
-    
+
 }
 
-.space{
+.space {
     height: 3rem;
     /* background-color: red; */
 }
 
-.rowSpace{
+.rowSpace {
     height: 4rem;
     vertical-align: middle;
 }
-.row{
-justify-content: center;
+
+.row {
+    justify-content: center;
 }
 
-.msjChechOut{
+.msjChechOut {
     /* width: 50%; */
     margin: 6rem;
 }
-.msjCode{
+
+.msjCode {
     border: 1px solid #20232aa9;
     margin-top: 2rem;
     padding: 1rem;
 }
 
 @media (max-width: 375px) {
-    .msjChechOut{
+    .msjChechOut {
         /* width: 50%; */
         margin: 5rem 1rem 3rem 1rem;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         text-align: center;
-        
+
     }
-    .msjCode{
+
+    .msjCode {
         border: 1px solid #20232aa9;
         margin-top: 2rem;
         padding: 1rem;
