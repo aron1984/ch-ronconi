@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom'
 
 // import { CartContext } from 'react-bootstrap';
 import { CartContext } from '../../context/CartContext';
-import FormEdit from '../Form/FormEdit';
+import CheckOut from '../Form/CheckOut';
 
-import './CartDetailCheckOut.css';
+import './CheckOutContainer.css';
 
 // Vamos a reorganizar esto...esto es el checkOutContainer 
 
-export default function CartDetailCheckOut() {
+export default function CheckOutContainer() {
 
     const accessContext = useContext(CartContext)
 
@@ -78,7 +78,7 @@ export default function CartDetailCheckOut() {
 
     if (accessContext.cartDetail) {
         return (
-            <FormEdit
+            <CheckOut
                 checkDates={checkDates}
                 envio={envio}
                 handleOnChange={handleOnChange}

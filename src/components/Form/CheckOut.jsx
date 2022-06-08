@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom'
 
 import { CartContext } from '../../context/CartContext'
 
-import './FormEdit.css'
+import './CheckOut.css'
 
-export default function FormEdit({ checkDates, envio, handleOnChange, formSubmit, setFormSubmit, Id }) {
+export default function CheckOut({ checkDates, envio, handleOnChange, formSubmit, setFormSubmit, Id }) {
   const accessContext = useContext(CartContext)
 
 

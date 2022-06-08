@@ -10,8 +10,6 @@ import './ItemDetailContainer.css'
 export default function ItemDetailContainer() {
     //useParams
     let { id } = useParams();
-    console.log(id)
-
 
     //useState
     const [item, setitem] = useState([]);
@@ -23,15 +21,13 @@ export default function ItemDetailContainer() {
         setloading(true)
 
         const db = getFirestore();
-
         
         const _item = doc(db, 'items', id); //referencia al documento
         getDoc(_item).then((snapshot) => {
-            console.log(snapshot.id);
-            console.log(snapshot.data());
+           
 
             setitem({ id: snapshot.id, ...snapshot.data() });
-            console.log(item)
+           
             setloading(false)
 
         });

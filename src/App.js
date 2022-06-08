@@ -4,7 +4,7 @@ import { Container } from 'react-bootstrap'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import Cart from './components/Cart/Cart'
-import CartDetailCheckOut from './components/CartDetailCheckOut/CartDetailCheckOut'
+import CheckOutContainer from './components/CheckOutContainer/CheckOutContainer'
 import CartWidget from './components/CartWidget/CartWidget'
 import FooterPage from './components/Footer/FooterPage'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
@@ -30,7 +30,7 @@ function App() {
               <Route path='/category/:id' element={<ItemListContainer />} />
               <Route path='/item/:id' element={<ItemDetailContainer />} />
               <Route path='/cart' element={<Cart />} />
-              <Route path='/checkout' element={<CartDetailCheckOut />} />  
+              <Route path='/checkout' element={<CheckOutContainer />} />  
               <Route path='/*' element={<PageNotFound />} />
             </Routes>
           </Container>

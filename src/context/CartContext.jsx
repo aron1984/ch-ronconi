@@ -63,6 +63,7 @@ export default function CartProvider({ children }) {
         let sumTot = itemsCart.map((i) => i.price * i.quantity).reduce((prev, curr) => prev + curr, 0);
 
         setCartPrice(sumTot)
+        console.log(cartPrice)
     }
 
 
