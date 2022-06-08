@@ -16,7 +16,7 @@ export default function Item(props) {
       {
         <Card id={props.id} className="cardsDisp" >
           <CardHeader className='headerMasc bg-dark'>
-            <Card.Title style={{ textAlign: 'center', fontSize: 15 }}>
+            <Card.Title style={{ textAlign: 'center', fontSize: 15, marginTop: 4, marginBottom: 4 }}>
               {props.prod.name}
             </Card.Title>
           </CardHeader>
@@ -36,7 +36,7 @@ export default function Item(props) {
             <Card.Title style={{ textAlign: 'center', marginTop: 5 }}> {priceFormat.format(props.prod.price)}</Card.Title>
           </Card.Body>
 
-          <Link className='linkItem' to={`/item/${props.prod.id}`}><Button className='btn-dark' id={props.prod.id}>Más detalles</Button></Link>
+          <Link className='linkItem' to={`/item/${props.prod.id}`}><Button className='btn-dark btnEdit'  id={props.prod.id}><p style={{marginTop: 3, marginBottom: 3}}>Más detalles</p></Button></Link>
 
         </Card>
       }

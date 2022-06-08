@@ -5,9 +5,19 @@
     
 }
 
+.card-title{
+    font-family: 'LexandPeta';
+}
+
+.btnEdit{
+    font-family: 'LexandPeta';
+    width: 100%;
+    font-size: 0.5rem;
+    
+}
+
 .linkItem{
     text-decoration: none;
-    color: #fff;
     width: auto;
     
 }
@@ -31,3 +41,4 @@ p{
     
     color: rgb(240, 240, 240);
 }
+

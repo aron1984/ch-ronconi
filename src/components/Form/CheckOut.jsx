@@ -150,7 +150,7 @@ export default function CheckOut({ checkDates, envio, handleOnChange, formSubmit
 
             <section>
               <h1>Datos de facturación</h1>
-              <Form onSubmit={formik.handleSubmit} onChange={handleOnChange}>
+              <Form className='formFact' onSubmit={formik.handleSubmit} onChange={handleOnChange}>
                 <Row className="mb-3">
                   <Form.Group as={Col} md="3" className="mb-3" >
                     <Form.Label htmlFor="firstName">Nombre</Form.Label>
