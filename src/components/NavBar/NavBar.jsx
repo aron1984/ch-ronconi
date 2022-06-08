@@ -15,8 +15,7 @@ export default function NavBar() {
                 <Navbar bg="dark" expand='lg' variant="dark">
                     <Container >
                         <Navbar.Brand className='brand'>
-                            <Link className='linkNav' to={`/`}>
-                                {/* <SiAdidas size={60} className="logo"></SiAdidas> */}
+                            <Link className='linkNav' to={'/'}>
                                 <img src='https://upload.wikimedia.org/wikipedia/commons/4/48/Argentina_flag_icon.svg' className="logo" alt='Bandera Argentina' />
                             </Link>
                         </Navbar.Brand>

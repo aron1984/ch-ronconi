@@ -1,3 +1,26 @@
+@font-face {
+  font-family: 'LexandPetaBold';
+  src: url(/src/assets/fonts/LexendPeta-Bold.ttf);
+}
+
+@font-face {
+  font-family: 'LexandPeta';
+  src: url(/src/assets/fonts/LexendPeta-Regular.ttf);
+}
+
+body{
+  font-family: 'LexandPeta';
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'LexandPetaBold';
+}
+
+p, li, span{
+  font-family: 'LexandPeta';
+  font-size: 0.8rem;
+}
+
 .App {
   text-align: center;
 }

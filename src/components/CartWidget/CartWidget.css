@@ -1,22 +1,18 @@
 .cartContainer {
-    /* border: 1px solid #20232a; */
     background-color: #20232aa9;
     color: rgb(240, 240, 240);
-    /* width: 20%; */
     padding: 1rem 1rem 1rem 1rem;
     margin-right: 4rem;
     float: right;
     display: flex;
     flex-direction: row;
-    /*para indicar la dirección que se van a desplegar los hijos*/
     justify-content: end;
-    /*para justificar horizontalmente*/
     align-items: center;
-    /*para centra verticalmente los div*/
     position: absolute;
     top: 0px;
     right: 0.3rem;
     z-index: 1;
+    font-family: 'LexandPeta';
 }
 
 .cartLeft {

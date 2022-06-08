@@ -15,6 +15,8 @@
 .linkNav{
     text-decoration: none;
     color: whitesmoke;
+    font-family: 'LexandPeta';
+    font-size: 0.6rem;
 }
 
 .linkNav :hover{

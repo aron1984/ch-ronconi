@@ -16,6 +16,11 @@
     vertical-align: middle;
 }
 
+table{
+    font-family: 'LexandPeta';
+    font-size: 0.8rem;
+}
+
 td{
     vertical-align: middle;
     align-items: center;

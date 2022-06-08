@@ -59,16 +59,16 @@ export default function ItemDetail({ id, item }) {
 
           <Card className='sidebarRight' >
             <Card.Body>
-              <Card.Title style={{ textAlign: 'center' }}>{item.name}</Card.Title>
+              <Card.Title style={{ textAlign: 'center' }}><h5>{item.name}</h5></Card.Title>
               <Card.Subtitle className="mb-2 text-muted">{item.categroy}</Card.Subtitle>
 
               <ListGroup>
-                <ListGroup.Item>{item.des}</ListGroup.Item>
-                <ListGroup.Item>Competencia: {item.comp}</ListGroup.Item>
-                <ListGroup.Item>Temporada: {item.year}</ListGroup.Item>
-                <ListGroup.Item>Stock: {item.stock}</ListGroup.Item>
-                <ListGroup.Item>Precio: {priceFormat.format(item.price)}</ListGroup.Item>
-                <ListGroup.Item style={{ fontSize: 11, color: 'red' }}>O en hasta 3 cuotas sin interés de {quote}</ListGroup.Item>
+                <ListGroup.Item><p>{item.des}</p></ListGroup.Item>
+                <ListGroup.Item><p>Competencia: {item.comp}</p></ListGroup.Item>
+                <ListGroup.Item><p>Temporada: {item.year}</p></ListGroup.Item>
+                <ListGroup.Item><p>Stock: {item.stock}</p></ListGroup.Item>
+                <ListGroup.Item><p>Precio: {priceFormat.format(item.price)}</p></ListGroup.Item>
+                <ListGroup.Item style={{ fontSize: 11, color: 'red' }}><p>O en hasta 3 cuotas sin interés de {quote}</p></ListGroup.Item>
               </ListGroup>
 
               {!accessContext.isInCart(item.id) && ItemCountComp}
