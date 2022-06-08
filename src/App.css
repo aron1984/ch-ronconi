@@ -21,6 +21,18 @@ p, li, span{
   font-size: 0.8rem;
 }
 
+.tableHeader {
+  margin: 1rem 1rem 2rem 1rem;
+  color: rgb(43, 43, 43);
+  background-color: #fff;
+}
+
+.ditailBuy{
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
 
 .App {
   text-align: center;

@@ -63,9 +63,9 @@ export default function Cart() {
 
     return (
 
-      <tr key={index} id={x.id}>
+      <tr key={index} id={x.id} className='rowSpace'>
         <td className="text-center">{x.id}</td>
-        <td className="text-center"><img className='imgCartShip' alt="" src={x.url} /></td>
+        <td className="text-center bg-light"><img className='imgCartShip' alt="" src={x.url} /></td>
         <td className="text-center">{x.nam}</td>
         <td className="text-center">{x.quantity}</td>
         <td className="text-center">{priceFormat.format(x.price)}</td>
@@ -78,18 +78,18 @@ export default function Cart() {
 
   return (
 
-    <Container className='containerCart'>
+    <Container style={{ marginBottom: 70, marginTop: 20 }}>
       {/* {!accessContext.checkOut && */}
 
-        <div >
+        <div className='ditailBuy'>
 
-          <header className='cartHeader'>
+          <header className='tableHeader'>
             <h1>Tu carro de compras</h1>
           </header>
 
-          <Table striped bordered hover variant="dark" responsive>
+          <Table  bordered hover size="sm" variant="dark" responsive>
             <thead>
-              <tr>
+              <tr className='rowSpace'>
                 <th className="text-center">ID</th>
                 <th className="text-center" colSpan={2}>Producto</th>
                 <th className="text-center">Cantidad</th>
@@ -135,7 +135,7 @@ export default function Cart() {
 
           <div className='btnCheckOut d-grid gap-2 '>
             <Link to={'/checkout'} >
-              <Button className='btnCH' variant='primary' size='lg' onClick={() => handleCheckOut()}>FINALIZAR COMPRA</Button>
+              <Button className='btnCH' variant='primary'  size='lg' onClick={() => handleCheckOut()}>FINALIZAR COMPRA</Button>
             </Link>
           </div>
 

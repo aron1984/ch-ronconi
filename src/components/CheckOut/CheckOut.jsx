@@ -85,12 +85,14 @@ export default function CheckOut({ checkDates, envio, handleOnChange, formSubmit
   return (
 
     <>
-      <Container style={{ marginBottom: 70, marginTop: 50 }}>
+      <Container style={{ marginBottom: 70, marginTop: 20 }}>
 
         {formSubmit ? <></> : checkDates.count === 0 ? <></> :
           <>
             <section className='ditailBuy'>
+            <header className='tableHeader'>
               <h1>Detalles de tu pedido</h1>
+            </header>
 
               <Table striped bordered hover size="sm" className="bg-light border" responsive>
                 <thead>

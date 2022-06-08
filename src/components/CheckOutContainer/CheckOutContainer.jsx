@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 // import { CartContext } from 'react-bootstrap';
 import { CartContext } from '../../context/CartContext';
-import CheckOut from '../Form/CheckOut';
+import CheckOut from '../CheckOut/CheckOut';
 
 import './CheckOutContainer.css';
 
@@ -19,8 +19,6 @@ export default function CheckOutContainer() {
     const [Id, setId] = useState("");
     const [show, setShow] = useState(false);
     const [formSubmit, setFormSubmit] = useState(false)
-
-
 
     const handleOnChange = (event) => {
         accessContext.setBuyer({

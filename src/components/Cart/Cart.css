@@ -1,57 +1,64 @@
-.containerCart{
-   display: flex;
-   flex-direction: column;
+/* .containerCart {
+    display: flex;
+    flex-direction: column;
     width: 80%;
     justify-content: center;
-}
-.cartHeader{
-    margin: 1rem;
-    color: rgb(43, 43, 43);
-    background-color: #fff;
-}
-.btnDelet{
+} */
+
+
+
+.btnDelet {
     width: 100%;
     height: 1.8rem;
     padding: 0px;
     vertical-align: middle;
 }
 
-table{
+table {
     font-family: 'LexandPeta';
     font-size: 0.8rem;
 }
 
-td{
+.rowSpace {
+    height: 4rem;
+    vertical-align: middle;
+}
+
+td {
     vertical-align: middle;
     align-items: center;
 }
-.btnCheckOut{
+
+.btnCheckOut {
     display: flex;
     flex-direction: row;
     justify-content: center;
     padding: 2rem;
     margin-bottom: 4rem;
-   
+
 }
 
-.free{
+.free {
     color: rgb(136, 255, 107);
 }
 
-.txtCenter{
+.txtCenter {
     justify-content: center;
 }
 
-.imgCartShip{
+.imgCartShip {
     height: 3rem;
 }
-.btnCH{
+
+.btnCH {
     width: 20rem;
-    height:5rem;
+    height: 5rem;
+   font-family: 'LexandPeta';
 }
-@media (max-width: 375px){
-    .btnCH{
+
+@media (max-width: 375px) {
+    .btnCH {
         /* width: 100%; */
-        height:4rem;
+        height: 4rem;
     }
 }
