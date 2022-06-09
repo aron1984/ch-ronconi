@@ -3,6 +3,9 @@
 <h1>PROYECTO ECOMMERCE</h1>
 
 <h3>Proyecto de comercio e-comerce con REACT para Coder House Bootcamp.</h3>
+
+<a href="https://coderhouse-ecommerce-3cad8.web.app/">https://coderhouse-ecommerce-3cad8.web.app/</a>
+
 </div>
 
 # 🚀 Acerca del proyecto
@@ -45,6 +48,7 @@ npm install
 ```bash
 npm start
 ```
+
 
 ## 🚀 Características del proyecto
 
@@ -93,6 +97,7 @@ El proyecto está cuenta con
 * [ ] Categorías dinámicas desde firebase.
 * [ ] Stock dinámico.
 * [ ] Agregar mensajes ejergentes con otra dependencia que no sea React-Boostrap
+* [ ] Agregar el manejador de cantidad en el carro de compras.
 
 # 🚀 Demo
 
