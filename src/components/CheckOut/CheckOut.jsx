@@ -85,14 +85,14 @@ export default function CheckOut({ checkDates, envio, handleOnChange, formSubmit
   return (
 
     <>
-      <Container style={{ marginBottom: 70, marginTop: 20 }}>
+      <Container style={{ marginBottom: 70, marginTop: 20 }} className="factoryContainer">
 
         {formSubmit ? <></> : checkDates.count === 0 ? <></> :
           <>
-            <section className='ditailBuy'>
-            <header className='tableHeader'>
-              <h1>Detalles de tu pedido</h1>
-            </header>
+            <section className='factoryResume'>
+              <header className='tableHeader'>
+                <h1>Resumen de tu pedido</h1>
+              </header>
 
               <Table striped bordered hover size="sm" className="bg-light border" responsive>
                 <thead>
@@ -150,11 +150,13 @@ export default function CheckOut({ checkDates, envio, handleOnChange, formSubmit
               </Table>
             </section>
 
-            <section>
-              <h1>Datos de facturación</h1>
+            <section className='factory'>
+              <header className='tableHeader'>
+                <h1>Datos de facturación</h1>
+              </header>
               <Form className='formFact' onSubmit={formik.handleSubmit} onChange={handleOnChange}>
                 <Row className="mb-3">
-                  <Form.Group as={Col} md="3" className="mb-3" >
+                  <Form.Group as={Col} md="4" className="mb-4" >
                     <Form.Label htmlFor="firstName">Nombre</Form.Label>
                     {/* <label htmlFor="firstName">First Name</label> */}
                     <Form.Control
@@ -168,7 +170,7 @@ export default function CheckOut({ checkDates, envio, handleOnChange, formSubmit
                     {formik.touched.firstName && formik.errors.firstName ? <div style={{ color: 'red' }}>{formik.errors.firstName}</div> : null}
                   </Form.Group>
 
-                  <Form.Group as={Col} md="3" className="mb-3" >
+                  <Form.Group as={Col} md="4" className="mb-4" >
                     <Form.Label htmlFor="lastName">Apellido</Form.Label>
                     <Form.Control
                       id="lastName"
@@ -182,7 +184,7 @@ export default function CheckOut({ checkDates, envio, handleOnChange, formSubmit
                   </Form.Group>
                 </Row >
                 <Row>
-                  <Form.Group as={Col} md="6" className='mb-6'>
+                  <Form.Group as={Col} md="8" className='mb-8'>
                     <Form.Label htmlFor="phone">Número de teléfono</Form.Label>
                     <Form.Control
                       id="phone"
@@ -197,8 +199,8 @@ export default function CheckOut({ checkDates, envio, handleOnChange, formSubmit
                   </Form.Group>
 
                 </Row>
-                <Row>
-                  <Form.Group as={Col} md="6" className='mb-6' >
+                <Row className="mb-3 mt-4">
+                  <Form.Group as={Col} md="8" className='mb-8' >
                     <Form.Label htmlFor="email">Email Address</Form.Label>
                     <Form.Control
                       id="email"
@@ -211,10 +213,10 @@ export default function CheckOut({ checkDates, envio, handleOnChange, formSubmit
                     {formik.touched.email && formik.errors.email ? <div style={{ color: 'red' }}>{formik.errors.email}</div> : null}
                   </Form.Group>
                 </Row>
-                <Row className="mb-3 mt-3">
-                  <Form.Group as={Col} md="6" className='mb-6' >
+                <Row className="mb-3 mt-4">
+                  <Form.Group as={Col} md="8" className='mb-8' >
                     <Form.Text>
-                      <Button type="submit" className='btnSubmit' disabled={!formik.isValid}>Confirmar compra</Button>
+                      <Button type="submit" className='btnSubmit' disabled={!formik.isValid}>CONFIRMAR COMPRA</Button>
                     </Form.Text>
                   </Form.Group>
                 </Row>
@@ -249,7 +251,7 @@ export default function CheckOut({ checkDates, envio, handleOnChange, formSubmit
                 <div className="d-grid gap-2">
                   <p>Visita nuestro catálogo para seguir comprando</p>
                   <Link to={'/'}>
-                    <Button>VER CATÁLOGO</Button>
+                    <Button className='btnSubmit'>VER CATÁLOGO</Button>
                   </Link>
 
 

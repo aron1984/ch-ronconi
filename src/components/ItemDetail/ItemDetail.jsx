@@ -14,7 +14,7 @@ import './ItemDetail.css'
 export default function ItemDetail({ id, item }) {
 
   const accessContext = useContext(CartContext)
-  
+
   const ItemCountComp = (
     <>
       <ItemCount
@@ -24,23 +24,23 @@ export default function ItemDetail({ id, item }) {
         initial={item.stock > 0 ? 1 : 0}
         url={item.url}
         name={item.name}
-        />
+      />
     </>
   )
-  
+
   const priceFormat = new Intl.NumberFormat('es-ar', { style: 'currency', currency: 'ARS', minimumFractionDigits: 2 });
-  
+
   const checkout = (
     <>
       <div className="d-grid gap-2 btnEnd">
-        <Button variant="dark" size="sm" onClick={() => accessContext.removeItem(item.id)}>Eliminar producto</Button>
+        <Button className="btnFontLight" variant="dark" size="sm" onClick={() => accessContext.removeItem(item.id)}>Eliminar producto</Button>
       </div>
       <div className="d-grid gap-2 btnEnd">
-        <Button variant="danger" size="sm" onClick={() => accessContext.clear()}>Vaciar carrito</Button>
+        <Button className="btnFontLight" variant="danger" size="sm" onClick={() => accessContext.clear()}>Vaciar carrito</Button>
       </div>
       <div className="d-grid gap-2 btnEnd">
         <Link to={`/cart`} className="d-grid gap-2 btnEnd">
-          <Button variant="dark" size="sm">Finalizar compra</Button>
+          <Button className="btnFontLight" variant="dark" size="sm">Finalizar compra</Button>
         </Link>
       </div>
     </>
@@ -61,21 +61,22 @@ export default function ItemDetail({ id, item }) {
             <Card.Body>
               <Card.Title style={{ textAlign: 'center' }}><h5>{item.name}</h5></Card.Title>
               <Card.Subtitle className="mb-2 text-muted">{item.categroy}</Card.Subtitle>
+              <div className='sidebarContMin'>
+                <ListGroup>
+                  <ListGroup.Item className="info">{item.des}</ListGroup.Item>
+                  <ListGroup.Item className="info">Competencia: {item.comp}</ListGroup.Item>
+                  <ListGroup.Item className="info">Temporada: {item.year}</ListGroup.Item>
+                  <ListGroup.Item className="info">Stock: {item.stock}</ListGroup.Item>
+                  <ListGroup.Item className="price">{priceFormat.format(item.price)}</ListGroup.Item>
+                  <ListGroup.Item className="info" style={{ fontSize: 11, color: 'red' }}>O en hasta 3 cuotas sin interés de {quote}</ListGroup.Item>
+                </ListGroup>
+              </div>
+              <div className='sidebarContMin'>
+                {!accessContext.isInCart(item.id) && ItemCountComp}
 
-              <ListGroup>
-                <ListGroup.Item><p>{item.des}</p></ListGroup.Item>
-                <ListGroup.Item><p>Competencia: {item.comp}</p></ListGroup.Item>
-                <ListGroup.Item><p>Temporada: {item.year}</p></ListGroup.Item>
-                <ListGroup.Item><p>Stock: {item.stock}</p></ListGroup.Item>
-                <ListGroup.Item><p>Precio: {priceFormat.format(item.price)}</p></ListGroup.Item>
-                <ListGroup.Item style={{ fontSize: 11, color: 'red' }}><p>O en hasta 3 cuotas sin interés de {quote}</p></ListGroup.Item>
-              </ListGroup>
-
-              {!accessContext.isInCart(item.id) && ItemCountComp}
-
-              {accessContext.isInCart(item.id) > 0 && checkout}
-
-              <div className='detail'>
+                {accessContext.isInCart(item.id) > 0 && checkout}
+              </div>
+              <div className='sidebarContMin'>
                 <ListGroup>
                   <ListGroup.Item >
                     <div className='creditCards'>
@@ -88,11 +89,11 @@ export default function ItemDetail({ id, item }) {
                     </div>
 
                   </ListGroup.Item>
-                  <ListGroup.Item><p className='detail'><MdOutlineLocalShipping size={30} /><span> Envío gratis.</span> Desde $20.000</p></ListGroup.Item>
-                  <ListGroup.Item><p className='detail'><BsArrowReturnLeft size={30} /><span> Devolución gratis.</span> Tenés 30 días desde que lo recibís.</p></ListGroup.Item>
-                  <ListGroup.Item><p className='detail'><BiCheckShield size={30} /><span> Compora protegida.</span> Recibí el producto que esperabas o te devolvemos tu dinero.</p></ListGroup.Item>
-                  <ListGroup.Item><p className='detail'><BsAward size={30} /> 12 meses de garantía de fábrica. </p></ListGroup.Item>
-                  <ListGroup.Item><p className='detail'><BsCheck2Circle size={30} /><span> Producto original.</span> </p></ListGroup.Item>
+                  <ListGroup.Item className='detail info'><MdOutlineLocalShipping size={30} /><span> Envío gratis.</span> Desde $20.000</ListGroup.Item>
+                  <ListGroup.Item className='detail info'><BsArrowReturnLeft size={30} /><span> Devolución gratis.</span> Tenés 30 días desde que lo recibís.</ListGroup.Item>
+                  <ListGroup.Item className='detail info'><BiCheckShield size={30} /><span> Compora protegida.</span> Recibí el producto que esperabas o te devolvemos tu dinero.</ListGroup.Item>
+                  <ListGroup.Item className='detail info'><BsAward size={30} /> 12 meses de garantía de fábrica.</ListGroup.Item>
+                  <ListGroup.Item className='detail info'><BsCheck2Circle size={30} /><span> Producto original.</span></ListGroup.Item>
 
                 </ListGroup>
               </div>

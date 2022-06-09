@@ -19,9 +19,15 @@
     font-size: 0.6rem;
 }
 
-.linkNav :hover{
-    color:rgb(11, 108, 199);
+.linkNav:hover{
+    color: rgb(129, 205, 255);
 }
+
+
+.prueba:hover{
+    border-bottom: 2px solid #fff;
+}
+
 
 @media (max-width: 375px) {
     /* .brand{ */

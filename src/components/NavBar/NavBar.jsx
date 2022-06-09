@@ -31,15 +31,15 @@ export default function NavBar() {
                             >
 
                                 {/* <Nav className="me-auto"> */}
-                                <Nav.Link><Link className='linkNav' to={`/category/futbol`}>Futbol</Link></Nav.Link>
-                                <Nav.Link><Link className='linkNav' to={`/category/hockey`}>Hockey</Link></Nav.Link>
-                                <Nav.Link><Link className='linkNav' to={`/category/voley`}>Voley</Link></Nav.Link>
-                                <Nav.Link><Link className='linkNav' to={`/category/rugby`}>Rugby</Link></Nav.Link>
-                                <Nav.Link><Link className='linkNav' to={`/category/handball`}>Handball</Link></Nav.Link>
-                                <Nav.Link><Link className='linkNav' to={`/category/basquet`}>Basquet</Link></Nav.Link>
-                                <Nav.Link><Link className='linkNav' to={`/category/ciclismo`}>Ciclismo</Link></Nav.Link>
-                                <Nav.Link><Link className='linkNav' to={`/category/padel`}>Padel</Link></Nav.Link>
-                                <Nav.Link><Link className='linkNav' to={`/category/tenis`}>Tenis</Link></Nav.Link>
+                                <Nav.Link className='prueba'><Link className='linkNav' to={`/category/futbol`}>Futbol</Link></Nav.Link>
+                                <Nav.Link className='prueba'><Link className='linkNav' to={`/category/hockey`}>Hockey</Link></Nav.Link>
+                                <Nav.Link className='prueba'><Link className='linkNav' to={`/category/voley`}>Voley</Link></Nav.Link>
+                                <Nav.Link className='prueba'><Link className='linkNav' to={`/category/rugby`}>Rugby</Link></Nav.Link>
+                                <Nav.Link className='prueba'><Link className='linkNav' to={`/category/handball`}>Handball</Link></Nav.Link>
+                                <Nav.Link className='prueba'><Link className='linkNav' to={`/category/basquet`}>Basquet</Link></Nav.Link>
+                                <Nav.Link className='prueba'><Link className='linkNav' to={`/category/ciclismo`}>Ciclismo</Link></Nav.Link>
+                                <Nav.Link className='prueba'><Link className='linkNav' to={`/category/padel`}>Padel</Link></Nav.Link>
+                                <Nav.Link className='prueba'><Link className='linkNav' to={`/category/tenis`}>Tenis</Link></Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                         {/* <Nav><CartWidget /></Nav> */}

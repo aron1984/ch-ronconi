@@ -8,17 +8,31 @@
   src: url(/src/assets/fonts/LexendPeta-Regular.ttf);
 }
 
-body{
+body {
   font-family: 'LexandPeta';
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'LexandPetaBold';
 }
 
-p, li, span{
+p,
+li,
+span {
   font-family: 'LexandPeta';
   font-size: 0.8rem;
+}
+
+.btnFont{
+  font-family: 'LexandPetaBold';
+}
+.btnFontLight{
+  font-family: 'LexandPeta';
 }
 
 .tableHeader {
@@ -27,7 +41,7 @@ p, li, span{
   background-color: #fff;
 }
 
-.ditailBuy{
+.ditailBuy {
   margin-top: 2rem;
   margin-bottom: 1rem;
   width: 100%;
@@ -99,16 +113,17 @@ header {
   background-color: rgba(117, 61, 168, 0.8);
 }
 
-@keyframes late{
-  from{
-    transform: scale( 1);
+@keyframes late {
+  from {
+    transform: scale(1);
   }
-  to{
+
+  to {
     transform: scale(1.2);
   }
 }
 
-.logo{
+.logo {
   animation-name: late;
   animation-duration: 1s;
   animation-direction: alternate;
@@ -123,9 +138,8 @@ header {
 } */
 
 @media (max-width:375px) {
-  html{
+  html {
     width: 100vw;
     overflow-x: hidden;
   }
 }
-

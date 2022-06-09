@@ -11,10 +11,6 @@ export default function Cart() {
 
   const accessContext = useContext(CartContext)
 
-  // const [cartDetail, setCartDetail] = useState()
-  // const [checkOut, setCheckOut] = useState(false)
-
-
   useEffect(() => {
     if (accessContext.itemsCart.length === 0) {
       accessContext.setCartDetail([])

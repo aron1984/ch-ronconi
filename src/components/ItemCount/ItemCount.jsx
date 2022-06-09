@@ -37,17 +37,17 @@ export default function ItemCount({ id, stock, initial, price, url, name }) {
         <div className='btnCount'>
             <div className='containerBtnCount'>
                 <div>
-                    <button className='btnHand' onClick={() => { decrease() }}>-</button>
+                    <button className='btnHand btnFont' onClick={() => { decrease() }}>-</button>
                 </div>
                 <div className='count'>
                     {(stock !== 0) ? counter : "Sin Stock"}
                 </div>
                 <div>
-                    <button className='btnHand' onClick={() => { increase() }}>+</button>
+                    <button className='btnHand btnFont' onClick={() => { increase() }}>+</button>
                 </div>
             </div>
             <div className="d-grid gap-2 btnEnd">
-                <Button variant="dark" size="sm" disabled={!accessContext.itemsCart.some((itemsCart) => itemsCart.id === id) ? false : true} onClick={addToCart}>Add to Cart</Button>
+                <Button className='btnFont' variant="dark" size="sm" disabled={!accessContext.itemsCart.some((itemsCart) => itemsCart.id === id) ? false : true} onClick={addToCart}>AGREGAR AL CARRITO</Button>
             </div>
         </div>
     )

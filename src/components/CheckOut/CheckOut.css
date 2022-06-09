@@ -1,9 +1,15 @@
+.factoryContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 form{
     font-family: 'LexandPeta';
 }
 
 .btnSubmit {
     width: 100%;
+    height: 3rem;
 
 }
 
@@ -24,6 +30,7 @@ form{
 .msjChechOut {
     /* width: 50%; */
     margin: 6rem;
+    text-align: center;
 }
 
 .msjCode {
@@ -31,6 +38,27 @@ form{
     margin-top: 2rem;
     padding: 1rem;
 }
+
+.factory{
+    margin-top: 0rem;
+    margin-bottom: 5rem;
+    
+}
+
+.factory h1{
+    text-align: center;
+}
+
+.factoryResume{
+    width: 60%;
+    margin-top: 0rem;
+    margin-bottom: 3rem;
+    
+}
+.formFact{
+    margin-top: 3rem;
+}
+
 
 @media (max-width: 375px) {
     .msjChechOut {
@@ -46,5 +74,17 @@ form{
         border: 1px solid #20232aa9;
         margin-top: 2rem;
         padding: 1rem;
+    }
+
+    .factoryResume{
+        width: 100%;
+        margin-top: 0rem;
+        margin-bottom: 1rem;
+        
+    }
+    .factory{
+        margin-top: 0rem;
+        margin-bottom: 3rem;
+        
     }
 }

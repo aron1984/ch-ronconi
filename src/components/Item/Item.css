@@ -1,7 +1,25 @@
+@keyframes itemEffect {
+    from{
+        transform: scale(1);
+    }
+    to{
+        transform: scale(1.1);
+    }
+}
+
+
 .cardsDisp{
     display: flex;
     margin: 1rem;
     width: 15rem;
+    transition: transform 1.5s;
+    
+}
+
+.cardsDisp:hover{
+    transform: scale(1.1);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px 5px 10px rgba(0, 0, 0, 0.1);
+
     
 }
 
