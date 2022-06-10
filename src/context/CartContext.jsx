@@ -88,8 +88,8 @@ export default function CartProvider({ children }) {
     return (
         <>
             <CartContext.Provider value={{
-                itemsCart, setItemsCart, cartPrice,
-                buyer, setBuyer,
+                itemsCart, setItemsCart, 
+                cartPrice, buyer, setBuyer,
                 checkOut, setCheckOut,
                 cartDetail, setCartDetail,
                 shippingHandle, totalPay,

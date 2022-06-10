@@ -40,7 +40,6 @@ export default function Cart() {
     prueba.quantity = prueba.quantity - 1
     accessContext.setCartDetail([...accessContext.itemsCart])
     accessContext.setItemsCart([...accessContext.itemsCart])
-    console.log(accessContext.cartDetail)
   }
 
   const add = (idA) => {
@@ -48,7 +47,6 @@ export default function Cart() {
     prueba.quantity = prueba.quantity + 1
     accessContext.setCartDetail([...accessContext.itemsCart])
     accessContext.setItemsCart([...accessContext.itemsCart])
-    console.log(accessContext.itemsCart)
   }
 
   const priceFormat = new Intl.NumberFormat('es-ar', { style: 'currency', currency: 'ARS', minimumFractionDigits: 2 });

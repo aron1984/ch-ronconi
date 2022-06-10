@@ -10,8 +10,7 @@ export default function GetOrder() {
            
             const orderId = doc(db, 'orders'); //referencia al documento
             getDoc(orderId).then((snapshot) => {
-                console.log(snapshot);
-                // setidOrder({id: snapshot.id})
+                // console.log(snapshot);
             })
             
       
