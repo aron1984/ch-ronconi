@@ -1,7 +1,7 @@
 // @ts-check
-import React, { createContext, useState } from 'react'
+import { createContext, useState } from 'react';
 
-import { useLocalStorage } from './useLocalStorage'
+import { useLocalStorage } from './useLocalStorage';
 
 export const CartContext = createContext(undefined);
 
@@ -11,7 +11,7 @@ export default function CartProvider({ children }) {
     const [itemsCart, setItemsCart] = useLocalStorage([])
     const [cartPrice, setCartPrice] = useState(0)
     const [buyer, setBuyer] = useState({})
-    
+
     const [cartDetail, setCartDetail] = useState()
     const [checkOut, setCheckOut] = useState(false)
 
@@ -89,7 +89,7 @@ export default function CartProvider({ children }) {
     return (
         <>
             <CartContext.Provider value={{
-                itemsCart, cartPrice,
+                itemsCart, setItemsCart, cartPrice,
                 buyer, setBuyer,
                 checkOut, setCheckOut,
                 cartDetail, setCartDetail,

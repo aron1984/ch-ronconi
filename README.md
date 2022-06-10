@@ -20,9 +20,24 @@ A la fecha, y a los fines de presentación, sólo es una muestra; pero con la id
 
 Elegí este framework como variante a bootstrap (que ya conocía) porque quería conocerlo mediante el desarrollo del proyecto; para analizar luego que margen de personalización me brinda, etc.
 
+## [React-icons](https://react-icons.github.io/)
+
+Para mantener un estilo en la composición del diseño me ajusté a algunos pocos icónos.
+
+## [React-router-Dom](https://www.npmjs.com/package/react-router-dom)
+
+Para el enrutamiento a las distintas secciones del proyecto.
+
 ## [Formik](https://formik.org/)
 
-Utilicé esta dependencia para validar los campos y el formulario que aparece como Datos de facturación en el "checkout" para generar la orden.
+Utilicé esta dependencia para validar los campos y el formulario que aparece como Datos de facturación en el "checkout" para generar la orden. **Obviamene tuve que estudiar un poco, practicar hasta dejarlo medianamente presentable**, acá puedo seguir investigando un poco  para validar mejor. 
+
+## [Firebase](https://firebase.google.com)
+
+Para poder alojar nuestra base de datos de productos y ordenes.
+
+
+
 
 # 🚀 Instalación
 
@@ -83,21 +98,21 @@ El proyecto esta configurado para verlo ***opcionalmente*** cómo iPhone Se 375p
 
 El proyecto está cuenta con
 
-* [x] navbar.
-* [x] catálogo de productos.
-* [x] producto en detalle.
-* [x] carro de compras
-* [x] checkout
-* [x] filtro por categorías
-* [x] cartwidget
-* [x] persistencia
+* [x] Navbar.
+* [x] Catálogo de productos.
+* [x] Producto en detalle.
+* [x] Carro de compras
+* [x] Checkout
+* [x] Filtro por categorías
+* [x] Cartwidget
+* [x] Persistencia
+* [x] Manejador de ajuste de cantidad en el carro de compras.
 
 ## Roadmap
 
 * [ ] Categorías dinámicas desde firebase.
 * [ ] Stock dinámico.
-* [ ] Agregar mensajes ejergentes con otra dependencia que no sea React-Boostrap
-* [ ] Agregar el manejador de cantidad en el carro de compras.
+* [ ] Agregar mensajes emergentes con otra dependencia que no sea React-Boostrap
 
 # 🚀 Demo
 

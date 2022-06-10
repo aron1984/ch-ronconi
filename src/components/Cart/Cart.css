@@ -5,13 +5,28 @@
     justify-content: center;
 } */
 
+.handleQuanty{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+    width: 100%;
+    align-items: center;
+}
 
+.btnHandelQuanty{
+    width: 2.5rem;
+}
+
+.btnHandelQuanty button{
+    transform: scale(0.7);
+}
+
+.quantyItem{
+    width: 2rem;
+}
 
 .btnDelet {
-    width: 100%;
-    height: 1.8rem;
-    padding: 0px;
-    vertical-align: middle;
+    transform: scale(0.7);
 }
 
 table {

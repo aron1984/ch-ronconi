@@ -1,4 +1,4 @@
-//@ts-check
+
 import { useFormik } from 'formik'
 import React, { useContext } from 'react'
 import { Alert, Button, Col, Container, Form, Row, Table } from 'react-bootstrap'

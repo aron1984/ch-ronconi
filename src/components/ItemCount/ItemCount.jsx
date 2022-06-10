@@ -1,4 +1,4 @@
-// @ts-check
+
 import React, { useContext, useState } from 'react'
 import { Button } from 'react-bootstrap'
 
