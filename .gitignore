@@ -2,7 +2,7 @@
 
 #Dev anotaciones personales
 trash.js
-firebase.js
+../components/services/firebase.js
 
 
 # dependencies
