@@ -1,4 +1,3 @@
-
 import { useFormik } from 'formik'
 import React, { useContext } from 'react'
 import { Alert, Button, Col, Container, Form, Row, Table } from 'react-bootstrap'
@@ -70,7 +69,6 @@ export default function CheckOut({ checkDates, envio, handleOnChange, formSubmit
   }
 
   const onSubmit = (values, { resetForm }) => {
-    console.log('form data', values)
     resetForm()
     setFormSubmit(true)
     envio()
@@ -106,9 +104,9 @@ export default function CheckOut({ checkDates, envio, handleOnChange, formSubmit
                 <tbody>
 
                   {
-                    accessContext.itemsCart.map((i) => {
+                    accessContext.itemsCart.map((i, index) => {
                       return (
-                        <tr className='rowSpace'>
+                        <tr className='rowSpace' key={index}>
                           <><td style={{ textAlign: "left" }} colSpan={3}>Camiseta {i.nam}</td>
                             <td className="text-center">{i.quantity}</td>
                             <td className="text-center">{priceFormat.format(i.price)}</td>
@@ -158,7 +156,6 @@ export default function CheckOut({ checkDates, envio, handleOnChange, formSubmit
                 <Row className="mb-3">
                   <Form.Group as={Col} md="4" className="mb-4" >
                     <Form.Label htmlFor="firstName">Nombre</Form.Label>
-                    {/* <label htmlFor="firstName">First Name</label> */}
                     <Form.Control
                       id="firstName"
                       name="firstName"
@@ -221,13 +218,6 @@ export default function CheckOut({ checkDates, envio, handleOnChange, formSubmit
                   </Form.Group>
                 </Row>
 
-
-
-                {/* <Row>
-                <Form.Group as={Col} md='6' className='mb-6'>
-                  {formSubmit && <Alert variant='success'><p>¡Tu compra fue registrada con éxito!</p><p>Código de pedido: {Id}</p></Alert>}
-                </Form.Group>
-              </Row> */}
               </Form>
             </section>
           </>
@@ -250,32 +240,19 @@ export default function CheckOut({ checkDates, envio, handleOnChange, formSubmit
 
                 <div className="d-grid gap-2">
                   <p>Visita nuestro catálogo para seguir comprando</p>
-                  <Link to={'/'}>
+                  <Link to={`/`}>
                     <Button className='btnSubmit'>VER CATÁLOGO</Button>
                   </Link>
 
-
                 </div>
-
 
               </div>
             </section>
-
 
           </>
         }
 
       </Container>
-
-
-
-
-
-      {/* // !formSubmit && 
-        // <div>
-        //   <h2>Gracias por tu compra!</h2>
-        //   <p>Volver a al inicio</p>
-        //   </div> */}
 
     </>
   );

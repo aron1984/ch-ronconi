@@ -1,4 +1,3 @@
-
 import React, { useContext, useState } from 'react'
 import { Button } from 'react-bootstrap'
 
@@ -29,7 +28,6 @@ export default function ItemCount({ id, stock, initial, price, url, name }) {
     const addToCart = () => {
         if (parseInt(stock) > 0) {
             accessContext.addItem(id, counter, price, url, name)
-            console.log(counter) 
         }
     }
 

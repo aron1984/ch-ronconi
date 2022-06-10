@@ -8,8 +8,6 @@ import CheckOut from '../CheckOut/CheckOut';
 
 import './CheckOutContainer.css';
 
-// Vamos a reorganizar esto...esto es el checkOutContainer 
-
 export default function CheckOutContainer() {
 
     const accessContext = useContext(CartContext)
@@ -90,7 +88,7 @@ export default function CheckOutContainer() {
     return (
         <div>
             <p>¡Para acceder a esta sección debes pasar por carrito de compras, y confirmar los productos!</p>
-            <Link to={'/'}>
+            <Link to={`/`}>
                 <p>Volver al inicio</p>
             </Link>
         </div>

@@ -19,7 +19,7 @@ export default function CartWidget() {
     return (
         <>
             <div className='cartContainer'>
-                <div className='cartLeft'><Link className='a' to={'/cart'}><MdShoppingCart size={30} /></Link></div>
+                <div className='cartLeft'><Link className='a' to={`/cart`}><MdShoppingCart size={30} /></Link></div>
                 <div className='cartCenter'>{counterProd === 0 ? '' : counterProd}</div>
                 <div className='cartRight'>{accessContext.cartPrice !== 0 && priceFormat.format(accessContext.cartPrice)}</div>
             </div>

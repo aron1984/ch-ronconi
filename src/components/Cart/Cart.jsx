@@ -1,10 +1,10 @@
 import React, { useContext, useEffect } from 'react'
 import { Button, Container, Table } from 'react-bootstrap'
+import { RiDeleteBin5Line } from 'react-icons/ri';
 import { Link } from 'react-router-dom'
 
 import { CartContext } from '../../context/CartContext'
 import NotProducts from '../messages/NotProducts/NotProducts'
-import { RiDeleteBin5Line } from 'react-icons/ri';
 
 import './Cart.css'
 
@@ -103,7 +103,6 @@ export default function Cart() {
   return (
 
     <Container style={{ marginBottom: 70, marginTop: 20 }}>
-      {/* {!accessContext.checkOut && */}
 
       <div className='ditailBuy'>
 
@@ -164,8 +163,7 @@ export default function Cart() {
         </div>
 
       </div>
-      {/* } */}
-      {/* // checkOut && <CartDetailCheckOut cart={cartDetail} checkDates={checkDates} /> */}
+      
 
     </Container>
 
