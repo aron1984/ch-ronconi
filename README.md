@@ -1,12 +1,25 @@
 
-<div style="text-align: center; background-color: grey; padding: 5px; border-radius: 5px">
-<h1>PROYECTO ECOMMERCE</h1>
+<div style="text-align: center; background-image: linear-gradient(to right, #0066ff, #283747);
+padding: 5px;
+border-radius: 5px;
+height: 15rem; z-index:1">
+<h1 style="color: #f8f9f9">PROYECTO ECOMMERCE</h1>
 
-<h3>Proyecto de comercio e-comerce con REACT para Coder House Bootcamp.</h3>
+<h3 style="color: #f8f9f9">Proyecto de comercio e-comerce con REACT para Coder House Bootcamp.</h3>
 
-<a href="https://coderhouse-ecommerce-3cad8.web.app/">https://coderhouse-ecommerce-3cad8.web.app/</a>
+<a style="color: #d6dbdf" href="https://coderhouse-ecommerce-3cad8.web.app/"><strong>https://coderhouse-ecommerce-3cad8.web.app/</strong></a>
 
 </div>
+
+# 🚀 Screenshot
+<div style="display:flex; flex-direction:column; align-items: center; ">
+<img src="ARG_Store_full.JPG" style="margin-bottom:1rem">
+<img src="ARG_Store_mobile.JPG" style="width:20rem">
+</div>
+
+# 🚀 Demo
+
+<img src="ArgStore_React.gif" width="100%">
 
 # 🚀 Acerca del proyecto
 
@@ -14,7 +27,7 @@ Es el proyecto final del bootcamp de React dictado por CODERHOUSE.
 La idea final de presentar una tienda de indumentaria deportiva referente a la Selección Argentina, de sus distintos deportes.
 A la fecha, y a los fines de presentación, sólo es una muestra; pero con la idea de completar la galería a fururo.
 
-# 🚀 Dependendencias
+# 🚀 Dependencias
 
 ## [React-Bootstrap](https://react-bootstrap.github.io/)
 
@@ -37,8 +50,6 @@ Utilicé esta dependencia para validar los campos y el formulario que aparece co
 Para poder alojar nuestra base de datos de productos y ordenes.
 
 
-
-
 # 🚀 Instalación
 
 ### 💬 #1 - Clonar el proyecto
@@ -55,7 +66,7 @@ npm install
 ### 💬 #3 - Firebase
 
 ```bash
-# Firebase está configurado para el perído de evaluación del proyecto. 
+# Firebase está configurado para el perído de evaluación del proyecto. Luego reorganizaré estos en un nuevo repositorio para no compoartir los datos de firebase.
 ```
 
 ### 💬 #4 - Iniciar el proyecto en el sevidor local
@@ -114,9 +125,6 @@ El proyecto está cuenta con
 * [ ] Stock dinámico.
 * [ ] Agregar mensajes emergentes con otra dependencia que no sea React-Boostrap
 
-# 🚀 Demo
-
-<img src="entrega12.gif" width="100%">
 
 ## Authors
 

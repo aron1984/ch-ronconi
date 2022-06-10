@@ -35,7 +35,7 @@ export default function Cart() {
 
   }, [])
 
-  const sub = (idA, qua) => {
+  const sub = (idA) => {
     let prueba = accessContext.itemsCart.find((f) => f.id === idA);
     prueba.quantity = prueba.quantity - 1
     accessContext.setCartDetail([...accessContext.itemsCart])
@@ -43,7 +43,7 @@ export default function Cart() {
     console.log(accessContext.cartDetail)
   }
 
-  const add = (idA, qua) => {
+  const add = (idA) => {
     let prueba = accessContext.itemsCart.find((f) => f.id === idA);
     prueba.quantity = prueba.quantity + 1
     accessContext.setCartDetail([...accessContext.itemsCart])
@@ -82,13 +82,13 @@ export default function Cart() {
         <td className="text-center">
           <div className='handleQuanty'>
             <div className='btnHandelQuanty'>
-              <Button variant='light' onClick={(e) => sub(x.id, x.quantity)}><strong>-</strong></Button>
+              <Button variant='light' onClick={(e) => sub(x.id)}><strong>-</strong></Button>
             </div>
             <div className='quantyItem'>
               {x.quantity}
             </div>
             <div className='btnHandelQuanty'>
-              <Button variant='light' onClick={() => add(x.id, x.quantity)}><strong>+</strong></Button>
+              <Button variant='light' onClick={() => add(x.id)}><strong>+</strong></Button>
             </div>
           </div>
         </td>
