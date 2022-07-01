@@ -1,12 +1,12 @@
-import React, { useContext, useEffect } from 'react'
-import { Button, Container, Table } from 'react-bootstrap'
+import React, { useContext, useEffect } from 'react';
+import { Button, Container, Table } from 'react-bootstrap';
 import { RiDeleteBin5Line } from 'react-icons/ri';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
-import { CartContext } from '../../context/CartContext'
-import NotProducts from '../messages/NotProducts/NotProducts'
+import { CartContext } from '../../context/CartContext';
+import NotProducts from '../messages/NotProducts/NotProducts';
 
-import './Cart.css'
+import './Cart.css';
 
 export default function Cart() {
 
@@ -14,7 +14,7 @@ export default function Cart() {
 
   useEffect(() => {
     if (accessContext.itemsCart.length === 0) {
-      accessContext.setCartDetail([])
+      accessContext.setCartDetail([]);
       return
     }
 
@@ -38,22 +38,22 @@ export default function Cart() {
 
   const sub = (idA) => {
     let prueba = accessContext.itemsCart.find((f) => f.id === idA);
-    prueba.quantity = prueba.quantity - 1
-    accessContext.setCartDetail([...accessContext.itemsCart])
-    accessContext.setItemsCart([...accessContext.itemsCart])
+    prueba.quantity = prueba.quantity - 1;
+    accessContext.setCartDetail([...accessContext.itemsCart]);
+    accessContext.setItemsCart([...accessContext.itemsCart]);
   }
 
   const add = (idA) => {
     let prueba = accessContext.itemsCart.find((f) => f.id === idA);
-    prueba.quantity = prueba.quantity + 1
-    accessContext.setCartDetail([...accessContext.itemsCart])
-    accessContext.setItemsCart([...accessContext.itemsCart])
+    prueba.quantity = prueba.quantity + 1;
+    accessContext.setCartDetail([...accessContext.itemsCart]);
+    accessContext.setItemsCart([...accessContext.itemsCart]);
   }
 
   const priceFormat = new Intl.NumberFormat('es-ar', { style: 'currency', currency: 'ARS', minimumFractionDigits: 2 });
 
   const handleCheckOut = () => {
-    accessContext.setCheckOut(true)
+    accessContext.setCheckOut(true);
   }
 
   const count = Object.keys(accessContext.itemsCart).length;

@@ -1,16 +1,16 @@
-import { useFormik } from 'formik'
-import React, { useContext } from 'react'
-import { Alert, Button, Col, Container, Form, Row, Table } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { useFormik } from 'formik';
+import React, { useContext } from 'react';
+import { Alert, Button, Col, Container, Form, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-import { CartContext } from '../../context/CartContext'
+import { CartContext } from '../../context/CartContext';
+import { CheckOutResume } from './CheckOutResume';
 
-import './CheckOut.css'
+import './CheckOut.css';
+import { CheckOutFactory } from './CheckOutFactory';
 
 export default function CheckOut({ checkDates, envio, handleOnChange, formSubmit, setFormSubmit, Id }) {
-  const accessContext = useContext(CartContext)
-
-
+  const accessContext = useContext(CartContext);
 
   const initialValues = {
     firstName: '',
@@ -32,20 +32,20 @@ export default function CheckOut({ checkDates, envio, handleOnChange, formSubmit
     let errors = {};
     // validate firstName
     if (!values.firstName) {
-      errors.firstName = 'Campo requerido'
+      errors.firstName = 'Campo requerido';
     } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(values.firstName)) {
-      errors.firstName = 'El campo sólo acepta letras y espcios'
+      errors.firstName = 'El campo sólo acepta letras y espcios';
     } else if (values.firstName.length < 3) {
-      errors.firstName = 'Nombre demasiado corto'
+      errors.firstName = 'Nombre demasiado corto';
     } else if (values.firstName.length > 20) {
       errors.firstName = 'Debe tener 20 caracteres o menos';
     }
 
     // validate lastName
     if (!values.lastName) {
-      errors.lastName = 'Campo requerido'
+      errors.lastName = 'Campo requerido';
     } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(values.lastName)) {
-      errors.lastName = 'El campo sólo acepta letras y espcios'
+      errors.lastName = 'El campo sólo acepta letras y espcios';
     } else if (values.lastName.length > 20) {
       errors.lastName = 'Debe tener 15 caracteres o menos';
     }
@@ -54,14 +54,14 @@ export default function CheckOut({ checkDates, envio, handleOnChange, formSubmit
     if (!values.email) {
       errors.email = 'Campo requerido';
     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-      errors.email = 'Dirección de email inválida'
+      errors.email = 'Dirección de email inválida';
     }
 
     // validate phoneNumber
     if (!values.phone) {
-      errors.phone = 'Campo requerido'
+      errors.phone = 'Campo requerido';
     } else if (!/^[0-9]+$/.test(values.phone)) {
-      errors.phone = 'El teléfono debe sólo números'
+      errors.phone = 'El teléfono debe sólo números';
     } else if (values.phone.length > 10) {
       errors.phone = 'El número de teléfono debe tener 10 caracteres';
     }
@@ -86,69 +86,16 @@ export default function CheckOut({ checkDates, envio, handleOnChange, formSubmit
       <Container style={{ marginBottom: 70, marginTop: 20 }} className="factoryContainer">
 
         {formSubmit ? <></> : checkDates.count === 0 ? <></> :
+
+          // Checkout resume
           <>
-            <section className='factoryResume'>
-              <header className='tableHeader'>
-                <h1>Resumen de tu pedido</h1>
-              </header>
+            <CheckOutResume accessContext={accessContext} priceFormat={priceFormat} checkDates={checkDates}  />
 
-              <Table striped bordered hover size="sm" className="bg-light border" responsive>
-                <thead>
-                  <tr className='rowSpace'>
-                    <th className="text-center" colSpan={3}>Producto</th>
-                    <th className="text-center">Cantidad</th>
-                    <th className="text-center">Precio Unitario</th>
-                    <th className="text-center">Total</th>
-                  </tr>
-                </thead>
-                <tbody>
+            {/* Checkout factory */}
 
-                  {
-                    accessContext.itemsCart.map((i, index) => {
-                      return (
-                        <tr className='rowSpace' key={index}>
-                          <><td style={{ textAlign: "left" }} colSpan={3}>Camiseta {i.nam}</td>
-                            <td className="text-center">{i.quantity}</td>
-                            <td className="text-center">{priceFormat.format(i.price)}</td>
-                            <td className="text-center">{priceFormat.format(i.price * i.quantity)}</td></>
-                        </tr>
-                      )
-                    })
-                  }
+            <CheckOutFactory formik={formik} handleOnChange={handleOnChange}/>
 
-                  <tr className='space'>
-                    <td colSpan={6}></td>
-
-                  </tr>
-                </tbody>
-
-                <tfoot className='footSection'>
-                  <tr >
-                    <th colSpan={3}>SUBTOTAL</th>
-
-                    <th className="text-center">{checkDates.getQuantyCount()}</th>
-
-                    <th className="text-center">{checkDates.count} {checkDates.count === 0 ? "" : checkDates.count > 1 ? " productos" : " poducto"}</th>
-                    <th className="text-center" colSpan={2}>{priceFormat.format(checkDates.getQuantyPrice())}</th>
-                  </tr>
-
-                  <tr >
-
-                    <th colSpan={5}>ENVÍO {accessContext.shippingHandle === 0 ? <span className='free'>GRATIS</span> : ""}</th>
-                    <th className="text-center" colSpan={2} >
-                      {priceFormat.format(checkDates.shippingHandle)}
-
-                    </th>
-                  </tr>
-                  <tr className='totalRow'>
-                    <th colSpan={5} >MONTO TOTAL</th>
-                    <th className="text-center" colSpan={2} >{priceFormat.format(checkDates.totalPay)}</th>
-                  </tr>
-                </tfoot>
-              </Table>
-            </section>
-
-            <section className='factory'>
+            {/* <section className='factory'>
               <header className='tableHeader'>
                 <h1>Datos de facturación</h1>
               </header>
@@ -219,10 +166,12 @@ export default function CheckOut({ checkDates, envio, handleOnChange, formSubmit
                 </Row>
 
               </Form>
-            </section>
+            </section> */}
           </>
         }
         {formSubmit &&
+
+          // Checkout mensaje
           <>
             <section>
               <div className='msjChechOut'>
