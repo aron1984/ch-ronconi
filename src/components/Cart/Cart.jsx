@@ -18,6 +18,7 @@ export default function Cart() {
       return
     }
 
+    // eslint-disable-next-line no-unused-vars
     let price = 0
     accessContext.setCartDetail(
       accessContext.itemsCart.map(item => {
@@ -131,7 +132,7 @@ export default function Cart() {
               <th className="text-center">{accessContext.getQuantyCount()}</th>
 
               <th className="text-center">{count} {count === 0 ? "" : count > 1 ? "Productos" : "Poducto"}</th>
-              <th className="text-center" colSpan={2}>{priceFormat.format(accessContext.cartPrice)}</th>
+              <th className="text-center" colSpan={2}>{priceFormat.format(accessContext.getQuantyPrice())}</th>
             </tr>
 
             <tr>

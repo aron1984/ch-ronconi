@@ -1,16 +1,17 @@
-import React, { useContext } from 'react'
-import { MdShoppingCart } from 'react-icons/md'
-import { Link } from 'react-router-dom'
+import React, { useContext } from 'react';
+import { MdShoppingCart } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
-import { CartContext } from '../../context/CartContext'
+import { CartContext } from '../../context/CartContext';
 
-import './CartWidget.css'
+import './CartWidget.css';
 
 export default function CartWidget() {
 
-    const accessContext = useContext(CartContext)
+    const accessContext = useContext(CartContext);
 
-    accessContext.sumPriceTot()
+    const counterPrice = accessContext.sumPriceTot();
+    // console.log(counterPrice);
 
     const priceFormat = new Intl.NumberFormat('es-ar', { style: 'currency', currency: 'ARS', minimumFractionDigits: 2 });
 
@@ -21,7 +22,8 @@ export default function CartWidget() {
             <div className='cartContainer'>
                 <div className='cartLeft'><Link className='a' to={`/cart`}><MdShoppingCart size={30} /></Link></div>
                 <div className='cartCenter'>{counterProd === 0 ? '' : counterProd}</div>
-                <div className='cartRight'>{accessContext.cartPrice !== 0 && priceFormat.format(accessContext.cartPrice)}</div>
+                {/* <div className='cartRight'>{accessContext.cartPrice !== 0 && priceFormat.format(accessContext.cartPrice)}</div> */}
+                <div className='cartRight'>{counterPrice !== 0 && priceFormat.format(counterPrice)}</div>
             </div>
         </>
     )

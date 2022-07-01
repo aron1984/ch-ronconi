@@ -1,4 +1,4 @@
-// @ts-check
+
 import { createContext, useState } from 'react';
 
 import { useLocalStorage } from './useLocalStorage';
@@ -9,12 +9,13 @@ export const CartContext = createContext(undefined);
 export default function CartProvider({ children }) {
 
     const [itemsCart, setItemsCart] = useLocalStorage([])
-    const [cartPrice, setCartPrice] = useState(0)
     const [buyer, setBuyer] = useState({})
-
+    
     const [cartDetail, setCartDetail] = useState()
     const [checkOut, setCheckOut] = useState(false)
-
+    
+    // const [cartPrice, setCartPrice] = useState(0)
+    
     const addItem = (id, counter, price, url, nam) => {
 
         if (isInCart(id)) {
@@ -52,7 +53,6 @@ export default function CartProvider({ children }) {
                 return x + item.quantity
             })
         }
-
     }
     const clear = () => {
         setItemsCart([]);
@@ -61,15 +61,16 @@ export default function CartProvider({ children }) {
     const sumPriceTot = () => {
 
         let sumTot = itemsCart.map((i) => i.price * i.quantity).reduce((prev, curr) => prev + curr, 0);
+        // setCartPrice(sumTot)
 
-        setCartPrice(sumTot)
+       return sumTot
     }
 
 
     const getQuantyPrice = () => {
 
         let quantity = itemsCart.map((i) => i.price * i.quantity).reduce((prev, curr) => prev + curr, 0);
-
+        // console.log(quantity)
         return quantity
 
     }
@@ -83,13 +84,13 @@ export default function CartProvider({ children }) {
     }
 
     const shippingHandle = getQuantyPrice() > 20000 ? 0 : 1599;
-    const totalPay = (shippingHandle + cartPrice)
+    const totalPay = (shippingHandle + sumPriceTot())
 
     return (
         <>
             <CartContext.Provider value={{
                 itemsCart, setItemsCart, 
-                cartPrice, buyer, setBuyer,
+                buyer, setBuyer,
                 checkOut, setCheckOut,
                 cartDetail, setCartDetail,
                 shippingHandle, totalPay,
