@@ -2,7 +2,6 @@ import { addDoc, collection, getFirestore } from 'firebase/firestore';
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom'
 
-// import { CartContext } from 'react-bootstrap';
 import { CartContext } from '../../context/CartContext';
 import CheckOut from '../CheckOut/CheckOut';
 
@@ -10,13 +9,13 @@ import './CheckOutContainer.css';
 
 export default function CheckOutContainer() {
 
-    const accessContext = useContext(CartContext)
+    const accessContext = useContext(CartContext);
 
-    const buyer = accessContext.buyer
+    const buyer = accessContext.buyer;
 
     const [Id, setId] = useState("");
     const [show, setShow] = useState(false);
-    const [formSubmit, setFormSubmit] = useState(false)
+    const [formSubmit, setFormSubmit] = useState(false);
 
     const handleOnChange = (event) => {
         accessContext.setBuyer({
@@ -45,7 +44,7 @@ export default function CheckOutContainer() {
         setTimeout(() => {
             setShow(show)
 
-        }, 1000)
+        }, 50)
 
         setTimeout(() => {
 
@@ -54,7 +53,7 @@ export default function CheckOutContainer() {
             setFormSubmit(true)
 
 
-        }, 10000)
+        }, 100)
 
     }
 

@@ -7,6 +7,8 @@ export const CheckOutFactory = ({formik, handleOnChange}) => {
               <header className='tableHeader'>
                 <h1>Datos de facturación</h1>
               </header>
+
+              {/* Vamos a revisar esto, no se por qué handleSubmit funciona y no lo tengo declarado */}
               <Form className='formFact' onSubmit={formik.handleSubmit} onChange={handleOnChange}>
                 <Row className="mb-3">
                   <Form.Group as={Col} md="4" className="mb-4" >
