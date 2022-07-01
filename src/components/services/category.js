@@ -1,0 +1,1 @@
+export const category = ['futbol', 'hockey', 'voley', 'rugby', 'handball', 'basquet','ciclismo','padel', 'tenis'];

@@ -25,7 +25,6 @@ export default function ItemDetailContainer() {
         const _item = doc(db, 'items', id); //referencia al documento
         getDoc(_item).then((snapshot) => {
            
-
             setitem({ id: snapshot.id, ...snapshot.data() });
            
             setloading(false)
@@ -34,7 +33,7 @@ export default function ItemDetailContainer() {
         
     }, [id])
 
-    //Render
+
     return (
         
             <div className='mainDetailContainer'>

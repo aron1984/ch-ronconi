@@ -1,16 +1,14 @@
-import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+
 import './NavBar.css';
-
-
+import { NavBarItems } from './NavBarItems';
 
 export default function NavBar() {
 
     return (
         <div>
             <header>
-
 
                 <Navbar bg="dark" expand='lg' variant="dark">
                     <Container >
@@ -22,34 +20,17 @@ export default function NavBar() {
                         <h1 className='myTitle'>ARG Store</h1>
                         <Navbar.Toggle aria-controls="navbarScroll" />
 
-
                         <Navbar.Collapse id="navbarScroll">
-                            <Nav
-                                className="me-auto my-2 my-lg-0"
-                                style={{ maxHeight: '200px' }}
-                                navbarScroll
-                            >
+                            <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: '200px' }} navbarScroll >
 
-                                {/* <Nav className="me-auto"> */}
-                                <Nav.Link className='prueba'><Link className='linkNav' to={`/category/futbol`}>Futbol</Link></Nav.Link>
-                                <Nav.Link className='prueba'><Link className='linkNav' to={`/category/hockey`}>Hockey</Link></Nav.Link>
-                                <Nav.Link className='prueba'><Link className='linkNav' to={`/category/voley`}>Voley</Link></Nav.Link>
-                                <Nav.Link className='prueba'><Link className='linkNav' to={`/category/rugby`}>Rugby</Link></Nav.Link>
-                                <Nav.Link className='prueba'><Link className='linkNav' to={`/category/handball`}>Handball</Link></Nav.Link>
-                                <Nav.Link className='prueba'><Link className='linkNav' to={`/category/basquet`}>Basquet</Link></Nav.Link>
-                                <Nav.Link className='prueba'><Link className='linkNav' to={`/category/ciclismo`}>Ciclismo</Link></Nav.Link>
-                                <Nav.Link className='prueba'><Link className='linkNav' to={`/category/padel`}>Padel</Link></Nav.Link>
-                                <Nav.Link className='prueba'><Link className='linkNav' to={`/category/tenis`}>Tenis</Link></Nav.Link>
+                                {
+                                    <NavBarItems />
+                                }
+
                             </Nav>
                         </Navbar.Collapse>
                         {/* <Nav><CartWidget /></Nav> */}
-
-
-
-
                     </Container>
-
-
                 </Navbar>
 
             </header>
