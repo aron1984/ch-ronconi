@@ -1,21 +1,19 @@
-import { collection, getDocs, query, where } from 'firebase/firestore'
-import React, { useEffect, useState } from 'react'
-import { Spinner } from 'react-bootstrap'
-import { useParams } from 'react-router-dom'
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import React, { useEffect, useState } from 'react';
+import { Spinner } from 'react-bootstrap';
+import { useParams } from 'react-router-dom';
 
-import ItemList from '../ItemList/ItemList'
-import { getFirestore } from '../services/firebase'
+import ItemList from '../ItemList/ItemList';
+import { getFirestore } from '../services/firebase';
 
-import './ItemListContainer.css'
+import './ItemListContainer.css';
 
 export default function ItemListContainer() {
 
-  const { id } = useParams()
-  const [producto, setproducto] = useState([])
-  const [loading, setloading] = useState(false)
-  const [error, seterror] = useState("")
-
-  //useEffect
+  const { id } = useParams();
+  const [producto, setproducto] = useState([]);
+  const [loading, setloading] = useState(false);
+  const [error, seterror] = useState("");
 
   useEffect(() => {
 
