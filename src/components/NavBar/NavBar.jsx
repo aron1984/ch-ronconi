@@ -1,8 +1,9 @@
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-import './NavBar.css';
 import { NavBarItems } from './NavBarItems';
+
+import './NavBar.css';
 
 export default function NavBar() {
 
@@ -33,6 +34,7 @@ export default function NavBar() {
                     </Container>
                 </Navbar>
 
+                
             </header>
         </div >
 

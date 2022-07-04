@@ -28,6 +28,12 @@
     border-bottom: 2px solid #fff;
 }
 
+.catIcon{
+    color: white;
+    /* background-color: red; */
+    filter: grayscale(10);
+}
+
 
 @media (max-width: 375px) {
     /* .brand{ */
