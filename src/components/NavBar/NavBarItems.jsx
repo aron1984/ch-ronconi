@@ -11,14 +11,16 @@ export const NavBarItems = () => {
                 category.map(({ cat, src }) =>
                 (
                     <Nav key={cat} className='prueba'>
+                        <div className='m-4 catIcon'>
                         <Link className='linkNav' to={`/category/${cat}`}>
                             {/* {cat.toUpperCase()} */}
-                            <div className='m-1 catIcon'>
+                            
 
                                 <img src={imgCat(`./${cat}.png`)} alt={cat} />
-                            </div>
+                            
 
                         </Link>
+                        </div>
                     </Nav>
                 )
                 )

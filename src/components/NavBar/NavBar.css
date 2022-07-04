@@ -1,42 +1,66 @@
-.brand{
+.brand {
     margin-right: 2rem;
 }
 
-.logo{
+.logo {
     width: 3rem;
 }
 
-.myTitle{
+.myTitle {
     font-size: 1.5 rem;
     margin-left: 0.5rem;
     margin-right: 1.5rem;
 }
 
-.linkNav{
+.linkNav {
     text-decoration: none;
     color: whitesmoke;
     font-family: 'LexandPeta';
     font-size: 0.6rem;
 }
 
-.linkNav:hover{
+.linkNav:hover {
     color: rgb(129, 205, 255);
 }
 
 
-.prueba:hover{
+.prueba:hover {
     border-bottom: 2px solid #fff;
 }
 
-.catIcon{
+.catIcon {
+    /* display: flex; */
+    width: 32px;
     color: white;
-    /* background-color: red; */
-    filter: grayscale(10);
+    filter: contrast(0%);
+    filter: invert(90%);
+}
+
+.dispNav {
+    display: flex;
+    flex-direction: column;
+
+}
+
+/* 
+.icoCatOrg{
+    align-content: center;
+} */
+
+.rpue {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: space-around;
+    align-items: center;
+    width: 100%;
+    /* background-color: yellow; */
+    /* height: 4rem; */
 }
 
 
 @media (max-width: 375px) {
     /* .brand{ */
-        /* display: none; */
+    /* display: none; */
     /* } */
 }
