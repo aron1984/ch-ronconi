@@ -13,8 +13,9 @@ export default function CheckOutContainer() {
 
     const buyer = accessContext.buyer;
 
-    const [Id, setId] = useState("");
-    const [show, setShow] = useState(false);
+    // const [Id, setId] = useState("");
+    const [Id, setId] = useState(null);
+    // const [show, setShow] = useState(false);
     const [formSubmit, setFormSubmit] = useState(false);
 
     const handleOnChange = (event) => {
@@ -39,21 +40,21 @@ export default function CheckOutContainer() {
 
         addDoc(ordersCollection, newOrder).then(({ id }) => setId((id)));
 
-        setShow(!show)
+        // setShow(!show)
 
-        setTimeout(() => {
-            setShow(show)
+        // setTimeout(() => {
+        //     setShow(show)
 
-        }, 50)
+        // }, 50)
 
-        setTimeout(() => {
+        // setTimeout(() => {
 
             accessContext.setCheckOut(false)
             accessContext.clear()
             setFormSubmit(true)
 
 
-        }, 100)
+        // }, 100)
 
     }
 
