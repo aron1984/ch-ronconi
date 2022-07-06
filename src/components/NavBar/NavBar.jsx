@@ -12,7 +12,7 @@ export default function NavBar() {
             <header>
 
                 <Navbar bg="dark" expand='lg' variant="dark" className='dispNav'>
-                    <Container >
+                    <Container className='brandTop' style={{justifyContent: 'left'}}>
                         <Navbar.Brand className='brand '>
                             <Link className='linkNav' to={'/'}>
                                 <img src='https://upload.wikimedia.org/wikipedia/commons/4/48/Argentina_flag_icon.svg' className="logo" alt='Bandera Argentina' />
@@ -29,8 +29,14 @@ export default function NavBar() {
 
                     <Container className='icoCatOrg'>
 
-                        <Navbar.Collapse id="navbarScroll">
-                            <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: '200px' }} navbarScroll >
+                        <Navbar.Collapse id="navbarScroll" >
+                            <Nav className="me-auto my-2 my-lg-0 justifyIcon" style={{ maxHeight: '200px' }} navbarScroll >
+
+                                <div className='rpue'>
+                                    {
+                                        <NavBarItems />
+                                    }
+                                </div>
 
                                 {/* {
                                     <NavBarItems />
@@ -41,11 +47,7 @@ export default function NavBar() {
 
                     </Container>
                 </Navbar>
-                <div className='rpue'>
-                    {
-                        <NavBarItems />
-                    }
-                </div>
+               
 
 
             </header>

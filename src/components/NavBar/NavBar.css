@@ -1,6 +1,9 @@
 .brand {
     margin-right: 2rem;
 }
+.brandTop{
+    justify-content: none;
+}
 
 .logo {
     width: 3rem;
@@ -23,11 +26,19 @@
     color: rgb(129, 205, 255);
 }
 
+.prueba{
+      justify-content: center;
+}
+
 
 .prueba:hover {
     border-bottom: 2px solid #fff;
 }
 
+.justifyIcon{
+    margin: 0px auto;
+    
+}
 .catIcon {
     /* display: flex; */
     width: 32px;
@@ -42,14 +53,16 @@
 
 }
 
-/* 
-.icoCatOrg{
-    align-content: center;
+
+/* .icoCatOrg{
+    align-items: center;
+   
 } */
 
 .rpue {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
+    flex-direction:row;
     justify-content: center;
     align-content: space-around;
     align-items: center;

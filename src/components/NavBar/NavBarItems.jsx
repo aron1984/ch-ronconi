@@ -16,7 +16,7 @@ export const NavBarItems = () => {
                             {/* {cat.toUpperCase()} */}
                             
 
-                                <img src={imgCat(`./${cat}.png`)} alt={cat} />
+                                <img src={imgCat(`./${cat}.png`)} alt={cat} title={cat.toUpperCase()} />
                             
 
                         </Link>
