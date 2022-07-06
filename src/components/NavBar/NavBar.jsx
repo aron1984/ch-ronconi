@@ -21,9 +21,6 @@ export default function NavBar() {
                         <h1 className='myTitle'>ARG Store</h1>
                         <Navbar.Toggle aria-controls="navbarScroll" />
 
-
-
-
                         {/* <Nav><CartWidget /></Nav> */}
                     </Container>
 
@@ -33,6 +30,9 @@ export default function NavBar() {
                             <Nav className="me-auto my-2 my-lg-0 justifyIcon" style={{ maxHeight: '200px' }} navbarScroll >
 
                                 <div className='rpue'>
+
+                                
+
                                     {
                                         <NavBarItems />
                                     }
@@ -47,8 +47,6 @@ export default function NavBar() {
 
                     </Container>
                 </Navbar>
-               
-
 
             </header>
         </div >

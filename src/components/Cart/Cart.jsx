@@ -1,12 +1,12 @@
 import React, { useContext, useEffect } from 'react';
 import { Button, Container, Table } from 'react-bootstrap';
 import { RiDeleteBin5Line } from 'react-icons/ri';
-import { Link } from 'react-router-dom';
 
 import { CartContext } from '../../context/CartContext';
 import NotProducts from '../messages/NotProducts/NotProducts';
 
 import './Cart.css';
+import { CartBtn } from './CartBtn';
 
 export default function Cart() {
 
@@ -38,7 +38,8 @@ export default function Cart() {
 
   const sub = (idA) => {
     let prueba = accessContext.itemsCart.find((f) => f.id === idA);
-    prueba.quantity = prueba.quantity - 1;
+    prueba.quantity = prueba.quantity >= 1 ? prueba.quantity - 1 : 0;
+    console.log(prueba.quantity)
     accessContext.setCartDetail([...accessContext.itemsCart]);
     accessContext.setItemsCart([...accessContext.itemsCart]);
   }
@@ -109,6 +110,8 @@ export default function Cart() {
           <h1>Tu carro de compras</h1>
         </header>
 
+        {/* Armar componentes para esta tabla */}
+
         <Table bordered hover size="sm" variant="dark" responsive>
           <thead>
             <tr className='rowSpace'>
@@ -155,14 +158,13 @@ export default function Cart() {
           </thead>
         </Table>
 
-        <div className='btnCheckOut d-grid gap-2 '>
-          <Link to={'/checkout'} >
-            <Button className='btnCH' variant='primary' size='lg' onClick={() => handleCheckOut()}>FINALIZAR COMPRA</Button>
-          </Link>
-        </div>
+
+        {
+          accessContext.getQuantyCount() >= 1 && <CartBtn handleCheckOut={handleCheckOut} />
+        }
 
       </div>
-      
+
 
     </Container>
 
