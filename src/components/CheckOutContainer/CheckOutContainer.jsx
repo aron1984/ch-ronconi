@@ -40,21 +40,9 @@ export default function CheckOutContainer() {
 
         addDoc(ordersCollection, newOrder).then(({ id }) => setId((id)));
 
-        // setShow(!show)
-
-        // setTimeout(() => {
-        //     setShow(show)
-
-        // }, 50)
-
-        // setTimeout(() => {
-
             accessContext.setCheckOut(false)
             accessContext.clear()
             setFormSubmit(true)
-
-
-        // }, 100)
 
     }
 
