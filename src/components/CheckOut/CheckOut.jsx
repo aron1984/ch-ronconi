@@ -3,9 +3,7 @@ import React, { useContext } from 'react';
 import { Container } from 'react-bootstrap';
 
 import { CartContext } from '../../context/CartContext';
-import { CheckOutFactory } from './CheckOutFactory';
-import { CheckOutMessage } from './CheckOutMessage';
-import { CheckOutResume } from './CheckOutResume';
+import { CheckOutFactory, CheckOutMessage, CheckOutResume } from './';
 
 import './CheckOut.css';
 

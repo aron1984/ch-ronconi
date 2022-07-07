@@ -1,12 +1,10 @@
 import React, { useContext, useEffect } from 'react';
 import { Container } from 'react-bootstrap';
 
-
 import { CartContext } from '../../context/CartContext';
-import NotProducts from '../messages/NotProducts/NotProducts';
-import { CartBtn } from './CartBtn';
-import { CartTable } from './CartTable';
-import { CartTableItems } from './CartTableItems';
+import { NotProducts } from '../messages/NotProducts/NotProducts';
+import { CartBtn, CartTable, CartTableItems } from './';
+
 
 import './Cart.css';
 

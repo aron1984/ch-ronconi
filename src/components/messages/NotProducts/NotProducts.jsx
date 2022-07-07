@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import './NotProducts.css'
 
-export default function NotProducts() {
+export const NotProducts = () => {
     return (
         <Container>
             <section className='xv'>
